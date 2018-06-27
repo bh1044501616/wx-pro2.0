@@ -1,0 +1,569 @@
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #a2a19d;
+}
+#middle{
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+/**导航*/
+#navigator_words{
+	width: 50%;
+	height: 4%;
+	display: flex;
+	flex-direction: row;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 10;
+}
+#navigator_words image{
+	width: 40%;
+	height: 100%;
+	margin-right: 10px;
+}
+#navigator_line{
+	width: 50%;
+	height: 1%;
+	position: absolute;
+	top: 1%;
+	right: 0;
+	z-index: 10;
+}
+#navigator_line image{
+	width: 30%;
+	height: 100%;
+}
+#navigator_menu{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 4%;
+	display: flex;
+	flex-direction: row;
+	z-index: 10;
+}
+#navigator_menu image{
+	width: 13%;
+	height: 80%;
+	padding: 4px;
+}
+/*为了遮盖住menu*/
+#navigator_menu,#navigator_words{
+	/*background-color: white;*/
+}
+/**菜单*/
+#menu{
+	width: 40%;
+	height: 100%;
+	text-align: center;
+	font-size: 12px;
+	background-color: #fcfcfc;
+	color: #555;
+	z-index: 9;
+	position: fixed;
+	left: -40%;
+	box-shadow: 0px 0px 7px 7px #f8f8f8 inset;
+}
+#menu view{
+	border-bottom: 0.5px solid #eee;
+	padding-top:10px;
+	padding-bottom: 10px;
+	padding-left: 10px;
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+	height: 3%;
+	text-align: center;
+}
+#menu view image{
+	width: 10%;
+	height: 100%;
+}
+/*菜单上空出距离*/
+#menu .block{
+	width: 100%;
+	height: 5%;
+	border: 0;
+	padding: 0;
+}
+/**轮播*/
+#swiper{
+	width: 100%;
+	height: 50%;
+	z-index: 9;
+	overflow-y: hidden;
+}
+#swiper image{
+	width: 100%;
+	height: 100%;
+}
+
+/**主要内容*/
+/*智联联盟简介*/
+#zllm{
+	width: 100%;
+	margin-top: 10px;
+	font-size: 10px;
+}
+#zllm image{
+	width: 100%;
+}
+#zllm view{
+	margin: auto;
+}
+#zllm .title{
+	font-size: 20px;
+	margin-top:10px;
+	margin-bottom: 5px;
+	text-align: left;
+	height: 10%;
+	border-bottom: 1px solid rgba(0,164,219,0.5);
+}
+#zllm .title .time{
+	font-size: 10px;
+	text-align: left;
+	color:#999;
+	vertical-align:bottom;
+	height: 10%;
+}
+#zllm .words{
+	padding-bottom: 5px;
+	width: 90%;
+	text-align: left;
+	margin-top: 10px;
+	line-height: 15px;
+	font-size: 12px;
+}
+#contents{
+	width: 100%;
+	margin-top: 20px;
+}
+/*智联标委会*/
+#zlbwh{
+	width: 100%;
+}
+#zlbwh .title{
+	width: 90%;
+	margin: auto;
+	font-size: 15px;
+}
+#zlbwh .title .time{
+	color:#999;
+	font-size: 10px;
+}
+#zlbwh .words{
+	width: 90%;
+	margin: auto;
+	box-shadow: 0px 0px 5px 1px #888;
+	padding: 5px;
+	font-size: 12px;
+	margin-top: 10px;
+	line-height: 20px;
+	margin-bottom: 20px;
+}
+#zlbwh .words .more_box{
+	display: flex;
+	flex-direction: row-reverse;
+}
+#zlbwh .more{
+	border-radius: 10px;
+	border:1px solid #09bb07;
+	color:#09bb07;
+	width: 20%;
+	text-align: center;
+	line-height: 15px;
+	font-size: 10px;
+	padding:2px;
+}
+/*成本度量标准应用*/
+#contents1{
+	width: 100%;
+	background-color: #fff;
+	border-bottom:0.5px solid #ddd;
+	border-top:0.5px solid #ddd;
+}
+#contents1 .header{
+	color:#888;
+	font-size: 13px;
+	border-bottom: 0.5px solid #ddd;
+	text-align: left;
+	width: 90%;
+	margin:auto;
+	line-height: 40px;
+}
+#contents1 .content{
+	border-top: 0.5px solid #ddd;
+	width: 90%;
+	margin: auto;
+}
+#contents1 .content .brief{
+	font-size: 15px;
+	line-height: 30px;
+}
+#contents1 .content .words{
+	font-size: 12px;
+	color:#777;
+	padding-bottom:5px;
+}
+#contents1 .footer{
+	font-size: 13px;
+	color:#586c94;
+	width: 100%;
+	margin: auto;
+	line-height: 30px;
+}
+#contents1 .footer .box{
+	width: 90%;
+	margin: auto;
+	position: relative;
+	border-top: 0.5px solid #ddd;
+}
+#contents1 .footer .arrow{
+	display: inline-block;   
+    border-right: 1px solid #777; 
+    border-bottom: 1px solid #777;  
+    width: 8px; 
+    height: 8px;  
+    transform: rotate(-45deg); 
+    right: 0;
+    position: absolute;
+    right:0px;
+    top: 10px;
+}
+page{
+	/*设置背景颜色*/
+	background-color: #fafafa;
+}
+
+/** map*/
+#map_box{
+	background-color: #fff;
+	width: 100%;
+}
+#map{
+	width: 100%;
+	margin: auto;
+	margin-top: 10px;
+	box-shadow: 0px 0px 5px 1px #eee;
+}
+/*加大标签距离*/
+#zllm{
+	margin-top: 30px;
+}
+/** 联系我们！！！*/
+#contact{
+	width: 94%;
+	color:#999;
+	margin: auto;
+	font-size: 13px;
+}
+#contact .title{
+	color:#333;
+	font-size: 15px;
+	line-height: 40px;
+}
+#contact .info{
+	width: 100%;
+	line-height: 20px;
+}
+#contact .info .detail{
+	display: flex;
+	flex-direction: row;
+	line-height: 30px;
+	color:black;
+}
+#contact .info .image{
+	width: 12px;
+	margin-right: 10px;
+}
+#contact .info .image image{
+	width: 100%;
+	height: 100%;
+}
+/** 页尾*/
+#pageFooter{
+	width: 100%;
+	background-color: #333;
+	color: #999;
+	margin-top: 30px;
+}
+#pageFooter .body{
+	border-bottom: 0.5px solid #888;
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+}
+#pageFooter .body .title{
+	font-size: 15px;
+	color: #fff;
+	line-height: 40px;
+	width: 50%;
+}
+#pageFooter .body .content{
+	display: flex;
+	flex-direction: row-reverse;
+	font-size: 11px;
+	line-height: 40px;
+	width: 50%;
+}
+#pageFooter .body .content view{
+	text-align: right;
+	padding-left: 5px;
+}
+#pageFooter .rights{
+	width: 90%;
+	line-height: 40px;
+	margin: auto;
+	font-size: 12px;
+}
+
+
+/** 按钮们*/
+#buttons{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+	margin-top: 20px;
+}
+#buttons image{
+	width: 25%;
+}
+/*#buttons .first-child{
+	margin-right: 20%;
+}
+#buttons .third-child{
+	margin-left: 20%;
+}*/
+#text{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: auto;
+}
+#text view{
+	width: 25%;
+	text-align: center;
+	font-size: 12px;
+}
+/*#text .first-child{
+	margin-right: 20%;
+}
+#text .third-child{
+	margin-left: 20%;
+}*/
+
+
+
+
+/*新加的样式cbdl*/
+#cbdl{
+	width: 100%;
+	background: linear-gradient(to bottom right,#01a3dc,#37b3dc);
+	margin-top: 20px;
+	/*border-top-right-radius: 50px;
+	border-bottom-left-radius: 50px;*/
+}
+#cbdl>.title{
+	color:#fff;
+	padding: 10px;
+	font-size: 20px;
+	text-shadow: 0px 1px 30px #000;
+}
+#cbdl .content{
+	width: 90%;
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 10px;
+
+}
+#cbdl .content .icon{
+	width: 20%;
+}
+#cbdl .content .icon image{
+	width: 100%;
+}
+#cbdl .content .text-box{
+	width: 80%;
+	text-align: left;
+	color:#fff;
+}
+#cbdl .content .text-box .title{
+	font-size: 16px;
+}
+#cbdl .content .text-box .text{
+	font-size: 14px;
+	padding: 5px;
+	margin-left: 5px;
+	color: #000;
+	text-align: left;
+	border-bottom: 0.5px solid #5a5955;
+}
+#cbdl .more-box{
+	width: 100%;
+	margin:auto;
+	padding-bottom: 5px;
+}
+#cbdl .more{
+	width: 80px;
+	font-size: 10px;
+	text-align: center;
+	color: #fff;
+	/*border: 1px solid #5a5955;*/
+	font-size: 13px;
+	/*background: linear-gradient(to bottom right,#37b3dc,#00a4db);*/
+}
+
+
+#cbdl .last{
+	border-bottom:0.5px solid #5a5955;
+}
+#cbdl .last .text-box .text{
+	border:0;
+}
+#cdbl .more-box{
+	display: flex;
+	flex-direction: row;
+}
+#cbdl .more-box .more{
+	margin-left: 5%;
+	text-align: left;
+}
+/*整体背景*/
+page{
+	background-color: #fefefe;
+}
+
+
+/*zllm*/
+#zllm .words{
+	width: 85%;
+	margin:auto;
+	line-height: 20px;
+	font-size: 15px;
+	box-shadow: 0px 0px 10px 1px #888;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	padding: 5px;
+}
+#zllm image{
+	width: 95;
+}
+#zllm{
+	margin-top: 50px;
+}
+
+
+#privi{
+	width: 100%;
+	height: 25%;
+	display: flex;
+	flex-direction: row;
+	box-shadow: 0px 0px 5px 1px #888;
+	margin-bottom: 20px;
+	margin-top: 50px;
+}
+#privi .image{
+	width: 50%;
+	height: 100%;
+}
+#privi .image image{
+	width: 100%;
+	height: 100%;
+}
+#privi .content{
+	width: 50%;
+}
+#privi .content .title{
+	color: #00a4db;
+	text-align: left;
+	width: 80%;
+	margin: auto;
+	padding:5%;
+}
+#privi .content view{
+	font-size: 15px;
+}
+#privi .content .title{
+	font-size: 25px;
+	text-shadow: 5px 0px 5px #eee;
+}
+#privi .content .first{
+	margin-top: 5px;
+	margin-left: 20px;
+	color: #a2a19d;
+}
+#privi .content .second{
+	width: 70%;
+	text-align: right;
+	text-shadow: 5px 0px 5px #ddd;
+}
+#privi .content .third{
+	margin-top: 0;
+	margin-left: 60px;
+	color: #a2a19d;
+}
+
+
+
+/*contents1新样式*/
+#contents1 .header{
+	font-size: 20px;
+	color:#00a4db;
+}
+#contents1 .content .brief{
+	font-size: 17px;
+}
+#contents1 .content .words{
+	font-size: 14px;
+	text-align: left;
+}
+#contents1 .footer{
+	font-size: 15px;
+	line-height: 35px;
+}
+#contents1 .first{
+	border-top: 0;
+}
+
+
+
+/*智联标委会*/
+#zlbwh{
+	width: 100%;
+	box-shadow: 0px 0px 5px 1px #888;
+	margin-top: 50px;
+}
+#zlwbh .image{
+	width: 100%;
+}
+#zlwbh .image image{
+	width: 100%;
+}
+#zlbwh .title{
+	font-size: 25px;
+	text-shadow: 5px 0px 5px #ddd;
+	color:#00a4db;
+	padding: 5%;
+}
+#zlbwh .text{
+	font-size: 13px;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+	color:#a2a19d;
+}
+
+#zlbwh .image{
+	width: 100%;
+}
+#zlbwh image{
+	width: 100%;
+}

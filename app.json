@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/info/info",
+    "pages/index/index",
+    "pages/video/video",
+    "pages/join/join",
+    "pages/logs/logs",
+    "pages/index/zlbwh",
+    "pages/index/iqa",
+    "pages/index/prisidium",
+    "pages/index/privi",
+    "pages/index/tid",
+    "pages/index/cbdl",
+    "pages/index/zllm",
+    "pages/index/offline",
+    "pages/index/online",
+    "pages/join/ok",
+    "pages/info/webPage"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#00a4db",
+    "navigationBarTitleText": "智联联盟",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/index_tabbar_pretab.png",
+        "selectedIconPath": "images/index_tabbar_posttab.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "资讯",
+        "iconPath": "images/info_tabbar_pretab.png",
+        "selectedIconPath": "images/info_tabbar_posttab.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "Tid",
+        "iconPath": "images/video_tabbar_pretab.png",
+        "selectedIconPath": "images/video_tabbar_posttab.png"
+      },
+      {
+        "pagePath": "pages/join/join",
+        "text": "加入我们",
+        "iconPath": "images/join_tabbar_pretab.png",
+        "selectedIconPath": "images/join_tabbar_posttab.png"
+      }
+    ],
+    "backgroundColor": "#fff",
+    "color": "#777",
+    "selectedColor": "#00a4db",
+    "position": "bottom"
+  }
+}

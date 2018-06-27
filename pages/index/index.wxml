@@ -1,0 +1,317 @@
+<view id="middle" animation="{{menuAnimation}}">
+  <view id="navigator_words">
+    <image src="{{navis[0]}}" mode="aspectFit" bindtap="blurChange" data-id="0"/>
+    <image src="{{navis[1]}}" mode="aspectFit" bindtap="blurChange" data-id="1"/>
+    <image src="{{navis[2]}}" mode="aspectFit" bindtap="blurChange" data-id="2"/>
+  </view>
+  <view id="navigator_line">
+    <image src="images/line.png" mode="aspectFit" animation="{{lineTranslation}}"/>
+  </view>
+  <view id="navigator_menu" bindtap="switchMenu" data-flag="1">
+    <image src="images/menu.png" mode="aspectFit"/>
+  </view>
+  <view id="menu">
+    <view class="block"></view>
+    <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
+    <view bindtap="jumpTo" data-url="zllm" data-name="智联联盟">智联联盟</view>
+    <view bindtap="jumpTo" data-url="zlbwh" data-name="智联标委会">智联标委会</view>
+    <view bindtap="jumpTo" data-url="cbdl" data-name="成本度量标准应用">成本度量标准应用</view>
+    <view bindtap="jumpTo" data-url="prisidium" data-name="主席团开放日">主席团开放日</view>
+    <view bindtap="jumpTo" data-url="iqa" data-name="智联开放日">智联开放日</view>
+    <view bindtap="jumpTo" data-url="privi" data-name="会员服务">会员服务</view>
+    <view bindtap="jumpTo" data-url="offline" data-name="线下沙龙">线下沙龙</view>
+    <view bindtap="jumpTo" data-url="online" data-name="线上微沙龙">线上微沙龙</view>
+  </view>
+  <view id="swiper" bindtouchstart="switchMenu" data-close="1">
+    <image src="images/{{swiperPic}}" mode="widthFix" animation="{{swiperAnimation}}"/>
+  </view>
+
+  <view id="buttons">
+    <image src="images/1.png" mode="widthFix" class="first-child" bindtap="jumpTo" data-url="zlbwh" data-name="智联标委会"/>
+    <image src="images/2.png" mode="widthFix" class="second-child" bindtap="jumpTo" data-url="privi" data-name="会员服务"/>
+    <image src="images/3.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="tid" data-name="Tid大会"/>
+    <image src="images/4.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="cbdl" data-name="成本度量"/>
+  </view>
+  <view id="text">
+      <view class="first-child">
+        智联标委会
+      </view>
+      <view class="second-child">
+        会员服务
+      </view>
+      <view class="third-child">
+        Tid大会
+      </view>
+      <view class="fourth-child">
+        成本度量
+      </view>
+  </view>
+
+
+  <!--内容部分-->
+  <view id="zllm"  bindtouchstart="switchMenu" data-close="1">
+    <view class="title">智联联盟<!-- <text class="time">/29 Apr 2015</text> --></view>
+    <view class="words">中关村智联软件服务业质量创新联盟(IQ alience)，是在国家促进软件服务业有关文件和中关村发展规划等政策指导下，为有效应对产业做强过程中在质量和创新两大问题上的重大挑战，于2013年11月8日，在有关部委、中关村管委会和海淀园管委会的支持下，由用友、中科软、北京大学等三十多家组织及个人联合发起成立的产业技术联盟，是国内软件服务业首家由来自生态的“政企学协咨社用”七方联合成立的联盟。</view>
+  </view>
+
+  <view id="zllm">
+    <view class="title">成本度量标准应用</view>
+  </view>
+   <view id="contents1">
+    <!-- <view class="header">
+      成本度量标准应用
+    </view> -->
+    <view class="body">
+      <view class="content first">
+        <view class="brief">
+          CCEP认证培训
+        </view>
+        <view class="words">
+          CCEP认证培训是国内首个软件度量领域面向个人的、权威的专业技能认证
+        </view>
+      </view>
+      <view class="content">
+        <view class="brief">
+          第三方软件项目成本估算
+        </view>
+        <view class="words">
+          接受甲、乙方委托，以中立客观角度，依据行业标准，对委托软件项目进行规模、工作量、工期、成本评估，并出具评估报告
+        </view>
+      </view>
+      <view class="content">
+        <view class="brief">
+          咨询业务
+        </view>
+        <view class="words">
+          面向企业，提供咨询服务，包括功能点方法优化、软件项目工作量/成本评估体系建设、企业成本度量体系建设等服务。
+        </view>
+      </view>
+      </view>
+    <view class="footer" bindtouchstart="turnColor" bindtouchend="turnColor" style="background-color: {{touchColor_a}}"  data-flag="1">
+      <view class="box" bindtap="jumpTo" data-url="zlbwh" data-name="成本度量标准应用">
+        查看更多
+        <view class="arrow"></view>
+      </view>
+    </view>
+  </view>
+
+
+  <view id="privi" bindtap="jumpTo" data-url="privi" style="box-shadow: 0px 0px {{box_shadow[0]}}px 1px #ddd;" data-index="0" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="会员服务">
+    <view class="content">
+      <view class="title">会员服务</view>
+        <view class="first">智联联盟现有</view>
+        <view class="second">2000</view>
+        <view class="third">多家会员单位</view>
+    </view>
+    <view class="image">
+      <image src="images/privi_pic.jpg" mode="scaleToFill"/>
+    </view>
+  </view>
+
+  <!-- <view id="privi">
+    <view class="content">
+      <view class="title">智联标委会</view>
+        <view class="first">经过多年探索，智联联盟在工信部、国标委、中关村管委会的支持和指导下，于2015年7月正式成立智联联盟标准委员会(简称智联标委会)。</view>
+    </view>
+    <view class="image">
+      <image src="images/privi_pic.jpg" mode="scaleToFill"/>
+    </view>
+  </view> -->
+  <view id="zlbwh" bindtap="jumpTo" data-url="zlbwh" style="box-shadow: 0px 0px {{box_shadow[1]}}px 1px #ddd;" data-index="1" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="智联标准委员会">
+    <view class="title">
+      智联标准委员会
+    </view>
+    <view class="image">
+      <image src="images/zlbwh_pic.png" mode="widthFix"/>
+    </view>
+    <view class="text">
+      经过多年探索，智联联盟在工信部、国标委、中关村管委会的支持和指导下，于2015年7月正式成立智联联盟标准委员会(简称智联标委会)
+    </view>
+  </view>
+
+  <view id="zllm">
+    <view class="title">Tid盛会<!-- <text class="time">/13 Apr 2016</text> --></view>
+  </view>
+  <view id="contents1">
+    <!-- <view class="header">
+      Tid盛会
+    </view> -->
+    <view class="body">
+      <view class="content first">
+        <view class="brief">
+          大会简介
+        </view>
+        <view class="words">
+          质量竞争力大会，英文名称TiD，定位是中国顶级软件研发盛会，是质量竞争力计划(Q计划)的重要组成部分，由智联联盟于2014年重磅推出。
+        </view>
+      </view>
+      <view class="content">
+        <view class="brief">
+          会议理念
+        </view>
+        <view class="words">
+          TiD秉承追求行业高度（Top）、技术创新（Innovation）、专业深度（Depth）三大理念，大会内容涉及软件研发全层次、全流程及全角色。
+        </view>
+      </view>
+      </view>
+    <view class="footer" bindtouchstart="turnColor" bindtouchend="turnColor" style="background-color: {{touchColor_b}}" data-flag="2">
+      <view class="box" bindtap="jumpTo" data-url="tid" data-name="Tid盛会">
+        查看更多
+        <view class="arrow"></view>
+      </view>
+    </view>
+  </view>
+
+  
+
+
+
+  <!-- <view id="cbdl">
+    <view class="title">
+      Tid盛会
+    </view>
+    <view class="contents">
+      <view class="content">
+        <view class="icon">
+          <image src="images/icon_chdl.png" mode="widthFix"/>
+        </view>
+        <view class="text-box">
+        <view class="title">
+          大会简介
+        </view>
+        <view class="text">
+          质量竞争力大会，英文名称TiD，定位是中国顶级软件研发盛会，是质量竞争力计划(Q计划)的重要组成部分，由智联联盟于2014年重磅推出。
+        </view>
+      </view>
+      </view>
+      <view class="content last">
+        <view class="icon">
+          <image src="images/icon_chdl.png" mode="widthFix"/>
+        </view>
+        <view class="text-box">
+        <view class="title">
+          会议理念
+        </view>
+        <view class="text">
+         TiD秉承追求行业高度（Top）、技术创新（Innovation）、专业深度（Depth）三大理念，大会内容涉及软件研发全层次、全流程及全角色。
+        </view>
+        </view>
+      </view>
+    </view>
+    <view class="more-box">
+      <view class="more">
+        查看更多
+      </view>
+    </view>
+  </view>
+
+  <view id="cbdl">
+    <view class="title">
+      成本度量标准应用
+    </view>
+    <view class="contents">
+      <view class="content">
+        <view class="icon">
+          <image src="images/icon_chdl.png" mode="widthFix"/>
+        </view>
+        <view class="text-box">
+        <view class="title">
+          CCEP认证培训
+        </view>
+        <view class="text">
+          CCEP认证培训是国内首个软件度量领域面向个人的、权威的专业技能认证
+        </view>
+      </view>
+      </view>
+      <view class="content">
+        <view class="icon">
+          <image src="images/icon_chdl.png" mode="widthFix"/>
+        </view>
+        <view class="text-box">
+        <view class="title">
+          第三方软件项目成本估算
+        </view>
+        <view class="text">
+          接受甲、乙方委托，以中立客观角度，依据行业标准，对委托软件项目进行规模、工作量、工期、成本评估，并出具评估报告
+        </view>
+        </view>
+      </view>
+      <view class="content last">
+        <view class="icon">
+          <image src="images/icon_chdl.png" mode="widthFix"/>
+        </view>
+        <view class="text-box">
+        <view class="title">
+          咨询业务
+        </view>
+        <view class="text">
+          面向企业，提供咨询服务，包括功能点方法优化、软件项目工作量/成本评估体系建设、企业成本度量体系建设等服务。
+        </view>
+      </view>
+      </view>
+    </view>
+    <view class="more-box">
+      <view class="more">
+        查看更多
+      </view>
+    </view>
+  </view> -->
+
+  
+  
+  <view id="zllm">
+    <view class="title">联系我们</view>
+  </view>
+  <view id="contact">
+    <map id="map" longitude="{{position.longitude}}" latitude="{{position.latitude}}" show-location markers="{{markers}}"></map>
+
+    <view class="info">
+      <view class="title">
+        智联联盟
+      </view>
+      <view class="details">
+        <view class="detail">
+          <view class="image">
+           <image src="images/icon_phone.png" mode="widthFix"/>
+          </view>
+          <text>13131464346</text>
+        </view>
+        <view class="detail">
+          <view class="image">
+           <image src="images/icon_mail.png" mode="widthFix"/>
+          </view>
+          <text>1044501616@qq.com</text>
+        </view>
+        <view class="detail">
+          <view class="image">
+           <image src="images/icon_position.png" mode="widthFix"/>
+          </view>
+          <text>河北省 廊坊市 新华路 199号</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view id="pageFooter">
+    <view class="body">
+        <view class="title">
+          IO alience
+        </view>
+        <view class="content">
+          <view class="joinzlbwh" bindtap="switchBar">
+            加入智联标委会
+          </view>
+          <view class="joinprivi" bindtap="switchBar">
+            会员申请
+          </view>
+          </view>
+        </view>
+    <view class="rights">
+      © 2018 Creation All Rights Reserved
+    </view>
+  </view>
+</view>
+
+
+
+

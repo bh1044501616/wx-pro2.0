@@ -1,0 +1,370 @@
+page{
+	width: 100%;
+	height: 100%;
+	background-color: #eee;
+}
+.title{
+	margin:auto;
+	width: 20%;
+	border-bottom-style: solid;
+	border-bottom-color: #046ebd;
+	border-bottom-width: 3px;
+	margin-top: 5%;
+}
+.line_title{
+	width: 95%;
+	margin:auto;
+	border-bottom-style: solid;
+	border-bottom-color: #1c93ec;
+}
+.content{
+	background-color: #fff;
+	width: 100%;
+	margin:auto;
+	margin-top: 5px;
+}
+.content .info{ 
+	font-size:15px;
+	padding: 2px;
+	border-bottom:0.5px solid #999;
+}
+.content .profile{
+	padding:10%;
+	font-size:10px;
+}
+.content .info image{
+	width: 10%;
+	border-radius: 50%;
+}
+.content .download{
+	display: flex;
+	flex-direction: row-reverse;
+	width: 50%;
+}
+.content video{
+	width: 100%;
+}
+.footer{
+	border-top:1px solid #777;
+	display: flex;
+	flex-direction: row;
+	color:#999;
+	font-size: 10px;
+}
+.footer .time{
+	width: 50%;
+}
+.content .progress{
+	display: none;
+}
+
+
+/* 下载页面 */
+#downloadPage .downloading{
+	border-radius: 5px;
+	background-color: #fff;
+	width: 96%;
+	display: block;
+	margin: auto;
+	margin-top: 4px;
+}
+#downloadPage .downloading>.title{
+	display: flex;
+	flex-direction: row;
+	font-size: 10px;
+}
+#downloadPage .downloading>.title view{
+	width: 50%;
+	color: #555;
+	padding: 5px;
+}
+#downloadPage .downloading .title .method{
+	text-align: right;
+	color:#1aac19;
+}
+#downloadPage .downloading>.content{
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+}
+#downloadPage .downloading>.content>.icon{
+	width:15%;
+}
+#downloadPage .downloading>.content>.icon image{
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	margin-top: 3px;
+}
+#downloadPage .downloading>.content>.fileInfo{
+	width: 55%;
+	font-size:10px;
+}
+#downloadPage .downloading>.content>.button{
+	width: 10%;
+	text-align: right;
+}
+#downloadPage .downloading>.content>.button image{
+	width:40%;
+	height:40%;
+}
+#downloadPage .downloading>.content>.manage{
+	width: 20%;
+}
+#downloadPage .downloading>.content>.manage view{
+	width: 80%;
+	font-size: 13px;
+	border-radius: 10px;
+	border: 1px solid #1aac19;
+	text-align: center;
+	color:#1aac19;
+	margin: auto;
+}
+/* downloaded */
+#downloadPage .downloaded{
+	border-radius: 5px;
+	background-color: #fff;
+	width: 96%;
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+}
+#downloadPage .downloaded>.title{
+	font-size: 10px;
+	height: 10%;
+	display: flex;
+	flex-direction: row;
+}
+#downloadPage .downloaded>.title view{
+	width: 50%;
+	color: #555;
+	padding: 5px;
+}
+#downloadPage .downloaded .title .method{
+	text-align: right;
+	color:#1aac19;
+	float: right;
+}
+#downloadPage .downloaded>.content{
+	display: flex;
+	flex-direction:row;
+	align-items: center;
+/*	border-top: 0.1px  solid #777;*/
+}
+#downloadPage .downloaded>.content>.icon{
+	width:15%;
+}
+#downloadPage .downloaded>.content>.icon image{
+	width: 100%;
+	height: 100%;
+	border-radius: 7px;
+	margin-top: 3px;
+}
+#downloadPage .downloaded>.content>.fileInfo{
+	width: 55%;
+	font-size:10px;
+}
+#downloadPage .downloaded>.content>.button{
+	width: 10%;
+	text-align: right;
+}
+#downloadPage .downloaded>.content>.button image{
+	width:40%;
+	height:40%;
+	margin-top: 4px;
+}
+#downloadPage .downloaded>.content>.manage{
+	width: 20%;
+}
+#downloadPage .downloaded>.content>.manage view{
+	width: 80%;
+	font-size: 13px;
+	border-radius: 10px;
+	border: 1px solid #1aac19;
+	text-align: center;
+	color:#1aac19;
+	margin: auto;
+}
+/* 重新设定下载页面样式*/
+#downloadPage .title{
+	text-align: left;
+	width: 100%;
+	border-bottom: 0.5 solid #777;
+}
+#downloadPage .title view{
+	display: inline;
+	font-size: 12px;
+}
+
+/* 设置downloadPage*/
+#downloadPage{
+	width: 80%;
+	height: 90%;
+	position: fixed;
+	left: -80%;
+	top:0;
+	background-color: #ddd;
+	z-index: 9999;
+	border-bottom-right-radius:10px;
+	border-top-right-radius:10px;
+	overflow-y: hidden;
+}
+/* 设置downloadPage开关*/
+#downloadPageSwitch{
+	position: fixed;
+	width: 15%;
+	height: 7%;
+	z-index: 9999;
+	top:11px;
+	left: -15%;
+}
+#downloadPageSwitch image{
+	width: 100%;
+	height: 100%;
+}
+/* 为下载页面的每一个元素名字加 一条下划线*/
+#downloadPage #fileName{
+	border-bottom: 0.5px solid #ddd;
+}
+
+/* 购票咨询 */
+#contact{
+	width: 30%;
+	height: 8%;
+	position: fixed;
+	right: -15%;
+	bottom: 20px;
+	z-index: 5000;
+}
+#contact image{
+	width: 100%;
+	height: 100%;
+}
+
+
+
+/** content新样式*/
+.contents .content{
+	margin-bottom: 40px;
+	box-shadow: 0px 0px 5px 1px #bbb;
+	margin-top: 0;
+}
+.content .info{
+	display: flex;
+	flex-direction: row;
+	border: 0;
+}
+.content .info .image{
+	width: 15%;
+}
+.content .info .image image{
+	width: 100%;
+}
+.content .info .text{
+	width: 85%;
+	position: relative;
+	border-bottom: 0.5px solid #bbb;
+}
+.content .info .text text{
+	vertical-align: bottom;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.content .profile{
+	padding: 10px;
+	font-size: 13px;
+}
+
+
+
+.content .footer{
+	font-size: 13px;
+	padding: 10px;
+	color:#777;
+	margin-top: 0;
+	border-top: 0.5px solid #bbb;
+	padding-top: 5px;
+	padding-bottom: 5px;	
+}
+
+page{
+	background-color: #fff;
+}
+
+
+
+
+
+/*更改下载页面样式*/
+#downloadPage{
+	height: 100%;
+	left: -85%;
+	border-radius: 0;
+	background-color: #fff;
+	box-shadow: 0px 0px 15px 1px #555;
+}
+#downloadPage .content{
+	margin-bottom: 5px;
+	border:0;
+	box-shadow: 0;
+	border-top:0;
+	width: 97%;
+	margin:auto;
+	margin-top: 5px;
+	border-radius: 3px;
+}
+#downloadPage .downloading{
+	background-color: #eee;
+	margin-top: 5px;
+	padding-bottom: 5px;
+}
+#downloadPage .downloaded{
+	background-color: #eee;
+	padding-bottom: 5px;
+}
+#downloadPage .icon{
+	width: 20%;
+}
+#downloadPage .button{
+	width: 5%;
+}
+#downloadPage .button image{
+	width: 50%;
+}
+
+
+/**ppt列表*/
+.contents .pptList{
+	/*position: absolute;*/
+	width: 100%;
+	background-color: #eee;
+	/*z-index: 2500;*/
+	bottom: 0;
+	display: block;
+	box-shadow: 0px 0px 10px 1px #ddd inset;
+}
+.contents .pptList-box{
+	display: flex;
+	width: 100%;
+	font-size: 13px;
+	margin: auto;
+	color:#aaa;
+	line-height: 30px;
+	border-bottom: 0.5px solid #ccc;
+}
+.contents .pptList .fileName{
+	width: 70%;
+	text-align: left;
+	padding-left: 10px;
+}
+.contents .pptList .icon{
+	width: 30%;
+	text-align: right;
+	padding-right: 10px;
+}
+.contents .pptList .icon image{
+	width: 15%;
+	height: 70%;
+	vertical-align: middle;
+}

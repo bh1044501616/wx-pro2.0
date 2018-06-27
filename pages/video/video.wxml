@@ -1,0 +1,88 @@
+<page>
+	<view id="downloadPageSwitch">
+		<image src="images/{{switchPhoto}}.png" bindtap="switchDownloadPage" animation="{{switch}}" data-id="index" />
+	</view>
+
+	<scroll-view scroll-y="{{isScroll}}" id="downloadPage" animation="{{switchAnimation}}" upper-threshold="0" lower-threshold="0" bindscrolltoupper="stopScroll" bindscrolltolower="stopScroll">
+		<view class="downloading">
+			<view class="title">
+				<view>正在下载({{downloadingList.length}})</view>
+			</view>
+			<block wx:for="{{downloadingList}}">
+				<view class="content">
+					<view class="icon"><image src="images/ppt.png" mode="widthFix"/></view>
+					<view class="fileInfo">
+						<view>{{item.name}}</view>
+						<progress percent="{{item.progress}}" stroke-width="3"/>
+						<view>{{item.currentSize}}M/{{item.size}}M</view>
+					</view>
+					<view class="button"><image src="images/close.png" mode="widthFix" bindtap="dropDownload"
+					 data-taskId="{{item.taskId}}"/></view>
+					<view class="manage">
+						<view bindtap="downloadMethod" data-item="{{item}}">{{item.status}}</view>
+					</view>
+				</view>
+			</block>
+		</view>
+
+		<view class="downloaded">
+			<view class="title">
+				<view>已下载({{downloadedList.length}})</view>
+			</view>
+			<block wx:for="{{downloadedList}}">
+				<view class="content">
+				<view class="icon"><image src="images/ppt.png" mode="widthFix"/></view>
+				<view class="fileInfo">
+					<view id="fileName">{{item.name}}</view>
+					<view>{{item.size}}M</view>
+				</view>
+				<view class="button"><image src="images/close.png" mode="widthFix" bindtap="dropDownload" data-savedFilePath="{{item.savedFilePath}}"/></view>
+				<view class="manage"><view bindtap="openFile" data-savedFilePath="{{item.savedFilePath}}">打开</view></view>
+			</view>
+			</block>
+		</view>
+	</scroll-view>
+
+<!-- 	<view class="title">大会资料</view>
+	<view class="line_title"></view> -->
+
+	<view class="contents">  
+		<block wx:for="{{array}}">
+			<view class="content">
+				<view class="info">
+					<view class="image">
+						<image src="{{item.imageUrl}}" mode="widthFix"/>
+					</view>
+					<view class="text">
+						<text>本次大会讲师：{{item.lecturerName}}</text>
+					</view>
+				</view>
+				<view class="profile">{{item.meetingTheme}}</view>
+				<video src="{{item.videoUrl}}"></video>
+				<view class="footer">
+					<view class="time">{{item.meetingTime}}</view>
+					<view class="download">
+						<icon type="download" catchtap="loadPPT" size="20" data-url="{{item.pptUrl}}" data-id="{{item.id}}"></icon>
+						本次大会ppt下载
+					</view>
+				</view>
+				<view class="pptList" animation="{{pptListAnimation1}}" style="z-index:{{pptListZIndex}}">
+					<view class="pptList-box" wx:for="{{item.ppts}}" wx:for-item="pptItem">
+						<view class="fileName">
+							{{pptItem}}
+						</view>
+						<view class="icon">
+							<image src="images/downloadPPT.png" mode="widthFix" bindtap="downloadPPT" data-url="name={{pptItem}}&id={{item.id}}"/>
+						</view>
+					</view>
+				</view>
+			</view>
+		</block>
+	</view>
+
+
+	<!-- 购票咨询 -->
+	<view id="contact">
+		<image src="images/contact.png" mode="widthFix" bindtap="makeCall" animation="{{tipAnimation}}" bindtouchstart="showTip" bindtouchend="showTip"/>
+	</view>
+</page>

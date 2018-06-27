@@ -1,0 +1,34 @@
+<scroll-view scroll-x scroll-with-animation id="scrollNavi">
+	<view class="item {{selectedItem==0?'selected-item':''}}" bindtap="turnNavi" data-url="zllm" data-id="0">
+		智联联盟
+	</view>
+	<view class="item {{selectedItem==1?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="1">
+		Tid大会
+	</view>
+	<view class="item {{selectedItem==2?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="2">
+		Tid大会
+	</view>
+	<view class="item {{selectedItem==3?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="3">
+		Tid大会
+	</view>
+</scroll-view>
+
+<view id="infoBox">
+	<block wx:for="{{items}}">
+		<view class="item-box" data-url="{{item.detail}}" bindtap="showDetail">
+			<view class="lefty">
+				<view class="theme-box">
+					{{item.theme}}
+				</view>
+				<view class="info-box">
+					<view class="date">
+						{{item.date}}
+					</view>
+				</view>
+			</view>
+			<view class="righty">
+				<image src="{{item.image}}" mode="widthFix"/>
+			</view>
+		</view>
+	</block>
+</view>
