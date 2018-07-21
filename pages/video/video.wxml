@@ -41,6 +41,10 @@
 			</view>
 			</block>
 		</view>
+
+		<view id="showSavedFilePath" style="display: {{savedFilePathShow}};">
+			<text selectable="true">已下载文件所在目录:\n{{savedFilePath}}</text>
+		</view>
 	</scroll-view>
 
 <!-- 	<view class="title">大会资料</view>
@@ -72,7 +76,7 @@
 							{{pptItem}}
 						</view>
 						<view class="icon">
-							<image src="images/downloadPPT.png" mode="widthFix" bindtap="downloadPPT" data-url="name={{pptItem}}&id={{item.id}}"/>
+							<image src="images/downloadPPT.png" mode="widthFix" bindtap="downloadPPT" data-url="name={{pptItem}}&id={{item.id}}" data-date="{{item.meetingTime}}"/>
 						</view>
 					</view>
 				</view>
@@ -80,6 +84,9 @@
 		</block>
 	</view>
 
+	<view id="meetingNumTip" style="display: {{meetingNumTip}}">
+		没有更多了~
+	</view>
 
 	<!-- 购票咨询 -->
 	<view id="contact">

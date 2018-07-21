@@ -15,20 +15,24 @@
 
 <view id="infoBox">
 	<block wx:for="{{items}}">
-		<view class="item-box" data-url="{{item.detail}}" bindtap="showDetail">
+		<view class="item-box" data-url="{{item.detailUrl}}" bindtap="showDetail">
 			<view class="lefty">
 				<view class="theme-box">
 					{{item.theme}}
 				</view>
 				<view class="info-box">
 					<view class="date">
-						{{item.date}}
+						{{item.time}}
 					</view>
 				</view>
 			</view>
 			<view class="righty">
-				<image src="{{item.image}}" mode="widthFix"/>
+				<image src="{{item.cover}}" mode="widthFix"/>
 			</view>
 		</view>
 	</block>
+</view>
+
+<view id="newsNumTip" style="display: {{newsNumTip}}">
+	没有更多了~
 </view>

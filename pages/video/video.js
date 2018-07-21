@@ -18,8 +18,21 @@ var scrollY = 0;
 const loadUrl = "http://localhost:8080/smallProject/meeting/load.do";
 /*  ppt下载链接*/
 const pptUrl = "http://localhost:8080/smallProject/download/meeting.do?"
+/**
+ *	下载链接中的日期处理
+
+ 	 str1是要被替换掉的字符串
+
+ 	 str2是源字符串
+
+ 	 	'g'参数是指将整个字符串中的全部符合正则的字符串全部替换
+ */
+ function dateFormat_download(str1,str2){
+ 	let reg = new RegExp(str1,'g');
+ 	return str2.replace(reg,'');
+ }
 /* 下载文件&监听文件变化信息*/
-function download(url0,index,that){
+function download(url0,index,that,fileName){
 	var downloadTask = wx.downloadFile({
 			url:url0,
 			success:function(res){
@@ -31,18 +44,38 @@ function download(url0,index,that){
 						var downloaded = that.data.downloadedList;
 						var downloading = that.data.downloadingList;
 						downloaded[downloaded.length] = {
-							name:getName(url0),
+							name:fileName,
 							savedFilePath:res.savedFilePath,
 							size:downloading[index].size
 						}
 						that.setData({
 							downloadedList:downloaded
-						})
+						});
+						if('' == that.data.savedFilePath){
+							//显示文件存储位置提示
+							that.setData({
+								savedFilePath:downloaded[downloaded.length-1].savedFilePath.substring(0,downloaded[downloaded.length-1].savedFilePath.lastIndexOf('/')),
+								savedFilePathShow:'block'
+							});
+						}
 						downloading.splice(index,1);
 						that.setData({
 							downloadingList:downloading
 						})
-					} 
+					},
+					fail:function(){
+						wx.showToast({
+						  title: '文件已存在！',
+						  icon: 'none',
+						  duration: 2000
+						});
+						//从下载列表中清除保存失败的文件
+						let downloading = that.data.downloadingList;
+						downloading.splice(index,1);
+						that.setData({
+							downloadingList:downloading
+						});
+					}
 				});
 			}
 		});
@@ -98,7 +131,13 @@ Page({
       	tipDistance:-app.globalData.width*0.15,
       	//ppt下载列表动画
       	pptListAnimation:{},
-      	pptListZIndex:0
+      	pptListZIndex:0,
+      	//没有更多信息提示
+      	meetingNumTip:'none',
+      	//已下载文件所存储的目录
+      	savedFilePath:'',
+      	//已下在文件所在目录的提示显示设定
+      	savedFilePathShow:'none'
 	},
 	onLoad:function() {
 		var that = this;	
@@ -130,9 +169,18 @@ Page({
 		/*加载已经下载的文件*/
 		wx.getSavedFileList({
 			success:function(res){
-				console.log(res.fileList);
+				let fileList_ = res.fileList;
+				let onePath = fileList_[0].filePath;
+				let path = onePath.substring(0,onePath.lastIndexOf('/'));
+				if(fileList_.length > 1){
+					that.setData({
+						savedFilePath:path,
+						savedFilePathShow:'block'
+					});
+					that.showSwitch();
+				}
 			}
-		})
+		});
 	},
 	// 关于下载页面的 滑动 相关的函数
 	onPageScroll:function(e) {
@@ -147,7 +195,6 @@ Page({
 			    });
 			}
 		}
-			//console.log(this.data.scrollTop);
   	},
   	stopScroll:function(){
   		if(this.data.scrollSwitch){
@@ -169,10 +216,12 @@ Page({
 			method:'GET',
 			data:pageObject,
 			success:function(res){
-				if(that.data.array.length<res.data.data.list.length)
+				if(pageObject.pageSize == res.data.data.list.length)
 					pageObject.pageSize += 5;
 				else{
-					console.log("没有更多了~");
+					that.setData({
+						meetingNumTip:'block'
+					});
 				}
 				that.setData({
 					array:res.data.data.list, 
@@ -195,13 +244,19 @@ Page({
 	},
 	downloadPPT:function(arg){
 		var that = this;
-		var url0 = pptUrl + arg.currentTarget.dataset.url;
+		let date = 'date=' + arg.currentTarget.dataset.date + '&';
+
+		var url0 = pptUrl + dateFormat_download('-',date) + arg.currentTarget.dataset.url;
+		//先获取中文名称
+		let fileName = url0.substring(url0.indexOf('name=')+5,url0.indexOf('id')-1);
+		//处理中文链接
+		url0 = encodeURI(url0);
 		console.log(url0);
 		var downloading = that.data.downloadingList;
 		var currentLength = downloading.length;
 		downloading[currentLength] = {
 			//初始化任务对象
-			name:url0.substring(url0.indexOf('=')+1,url0.indexOf('&')),
+			name:fileName,
 			progress:0,
 			currentSize:0,
 			size:0,
@@ -220,12 +275,12 @@ Page({
 		wx.showToast({
 		  title: '加入下载列表',
 		  icon: 'success',
-		  duration: 1500
+		  duration: 2000
 		});
 		that.setData({
 			downloadingList:downloading
 		})
-		tasks[TASKID-1] = download(url0,currentLength,that);
+		tasks[TASKID-1] = download(url0,currentLength,that,fileName);
 	},
   /**
    *  终断下载-继续下载
@@ -305,6 +360,13 @@ Page({
       fileType:'ppt',
       success: function (res) {
         console.log('打开文档成功');
+      },
+      fail:function(){
+      	wx.showToast({
+      		title:'文件找不到',
+      		icon:'none',
+      		duration:2000
+      	});
       }
     })
   },
@@ -323,10 +385,13 @@ Page({
 	      	
 		   	var path = arg.currentTarget.dataset.savedfilepath;
 		   	var id = arg.currentTarget.dataset.taskid;
+		   	console.log(id);
+		   	console.log(path);
 		   	//判断是下载完成的任务还是正在下载的任务
-		   	if(id){
+		   	if(id || id == 0){
 		   		tasks[id].abort();
 		   		var downloading = that.data.downloadingList;
+		   		console.log(downloading);
 		   		for(var i=0;i<downloading.length;i++){
 		   			if(downloading[i].taskId == id){
 		   				downloading.splice(i,1);
@@ -342,12 +407,10 @@ Page({
 				success: function(res) {
 					var downloaded = that.data.downloadedList;
 					for(var i=0;i<downloaded.length;i++){
-						if(downloaded[i].savedFilePath == path){
-							downloaded.splice(i,1);
-							that.setData({
-								downloadedList:downloaded
-							})
-						}
+		   				downloaded.splice(i,1);
+						that.setData({
+							downloadedList:downloaded
+						})
 					}
 				}
 		      });
