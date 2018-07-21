@@ -246,7 +246,7 @@ page{
 /** content新样式*/
 .contents .content{
 	margin-bottom: 40px;
-	box-shadow: 0px 0px 5px 1px #bbb;
+	box-shadow: 0px 1px 5px 1px #bbb;
 	margin-top: 0;
 }
 .content .info{
@@ -302,7 +302,7 @@ page{
 	left: -85%;
 	border-radius: 0;
 	background-color: #fff;
-	box-shadow: 0px 0px 15px 1px #555;
+	box-shadow: 0px 0px 20px 1px #555;
 }
 #downloadPage .content{
 	margin-bottom: 5px;
@@ -338,7 +338,7 @@ page{
 .contents .pptList{
 	/*position: absolute;*/
 	width: 100%;
-	background-color: #eee;
+	background-color: #fefefe;
 	/*z-index: 2500;*/
 	bottom: 0;
 	display: block;
