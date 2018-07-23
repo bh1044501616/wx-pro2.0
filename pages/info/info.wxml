@@ -1,33 +1,42 @@
 <scroll-view scroll-x scroll-with-animation id="scrollNavi">
-	<view class="item {{selectedItem==0?'selected-item':''}}" bindtap="turnNavi" data-url="zllm" data-id="0">
+	<view class="item {{selectedItem==0?'selected-item':''}}" bindtap="turnNavi" data-url="recommand" data-id="0">
+		推荐
+	</view>
+	<view class="item {{selectedItem==1?'selected-item':''}}" bindtap="turnNavi" data-url="zllm" data-id="1">
 		智联联盟
 	</view>
-	<view class="item {{selectedItem==1?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="1">
-		Tid大会
-	</view>
 	<view class="item {{selectedItem==2?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="2">
-		Tid大会
-	</view>
-	<view class="item {{selectedItem==3?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="3">
 		Tid大会
 	</view>
 </scroll-view>
 
 <view id="infoBox">
 	<block wx:for="{{items}}">
-		<view class="item-box" data-url="{{item.detailUrl}}" bindtap="showDetail">
+		<view class="item-box">
 			<view class="lefty">
-				<view class="theme-box">
+				<view class="theme-box" data-url="{{item.detailUrl}}" bindtap="showDetail" data-id="{{item.id}}" bindtouchstart="doWatch">
 					{{item.theme}}
 				</view>
 				<view class="info-box">
 					<view class="date">
 						{{item.time}}
 					</view>
+					<view class="watch">
+						<view class="image-box">
+							<image src="images/watch.png"/>
+						</view>
+						{{item.watch}}
+					</view>
+					<view class="praise">
+						<view class="image-box" data-id="{{item.id}}" animation="{{praiseAnimation[index]}}" data-index="{{index}}" bindtap="doPraise">
+							<image src="images/{{praiseIcon[index]}}.png"/>
+						</view>
+						{{item.praise}}
+					</view>
 				</view>
 			</view>
 			<view class="righty">
-				<image src="{{item.cover}}" mode="widthFix"/>
+				<image src="{{item.cover}}" mode="scaleToFill"/>
 			</view>
 		</view>
 	</block>

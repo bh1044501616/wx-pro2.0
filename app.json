@@ -1,6 +1,5 @@
 {
   "pages": [
-    
     "pages/info/info",
     "pages/index/index",
     "pages/video/video",
@@ -33,16 +32,16 @@
         "selectedIconPath": "images/index_tabbar_posttab.png"
       },
       {
-        "pagePath": "pages/info/info",
-        "text": "资讯",
-        "iconPath": "images/info_tabbar_pretab.png",
-        "selectedIconPath": "images/info_tabbar_posttab.png"
-      },
-      {
         "pagePath": "pages/video/video",
         "text": "Tid",
         "iconPath": "images/video_tabbar_pretab.png",
         "selectedIconPath": "images/video_tabbar_posttab.png"
+      },
+      {
+        "pagePath": "pages/info/info",
+        "text": "资讯",
+        "iconPath": "images/info_tabbar_pretab.png",
+        "selectedIconPath": "images/info_tabbar_posttab.png"
       },
       {
         "pagePath": "pages/join/join",

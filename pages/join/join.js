@@ -252,7 +252,7 @@ Page({
 	turnPage:function(){
 		//切换页面的动画对象
 		var turnPageAnimationCache = wx.createAnimation({
-		  duration: 1000,
+		  duration: 500,
 		  timingFunction: "ease",
 		  delay: 0
 		});
