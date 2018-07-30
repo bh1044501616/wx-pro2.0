@@ -279,11 +279,15 @@ page{
 }
 #contact .info .image{
 	width: 12px;
+	height: 12px;
 	margin-right: 10px;
 }
 #contact .info .image image{
 	width: 100%;
 	height: 100%;
+}
+#contact .info text{
+	overflow: visible;
 }
 /** 页尾*/
 #pageFooter{

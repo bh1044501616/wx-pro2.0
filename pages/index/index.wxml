@@ -13,24 +13,24 @@
   <view id="menu">
     <view class="block"></view>
     <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
-    <view bindtap="jumpTo" data-url="zllm" data-name="智联联盟">智联联盟</view>
-    <view bindtap="jumpTo" data-url="zlbwh" data-name="智联标委会">智联标委会</view>
-    <view bindtap="jumpTo" data-url="cbdl" data-name="成本度量标准应用">成本度量标准应用</view>
-    <view bindtap="jumpTo" data-url="prisidium" data-name="主席团开放日">主席团开放日</view>
-    <view bindtap="jumpTo" data-url="iqa" data-name="智联开放日">智联开放日</view>
-    <view bindtap="jumpTo" data-url="privi" data-name="会员服务">会员服务</view>
-    <view bindtap="jumpTo" data-url="offline" data-name="线下沙龙">线下沙龙</view>
-    <view bindtap="jumpTo" data-url="online" data-name="线上微沙龙">线上微沙龙</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/vfpyIF4I6fv8MLxUHHZ5sw" data-name="智联联盟">智联联盟</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/ur7OYPFAfNf92OruTdaCYA" data-name="智联标委会">智联标委会</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/uRMs0h4bn4wSJkG5D7yrmQ" data-name="成本度量标准应用">成本度量标准应用</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/p1aFAuEPZkMtcsdoMSgIEg" data-name="主席团开放日">主席团开放日</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/a3MuEEcAT5RXQwN6Ja8dsg" data-name="智联开放日">智联开放日</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/rll0y7OS4DEw_ViTwff5Qw" data-name="会员服务">会员服务</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/HxTc8QxHlVlFUG45OubyKA" data-name="线下沙龙">线下沙龙</view>
+    <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/x2h2ZgMGEU844qrdEexltg" data-name="线上微沙龙">线上微沙龙</view>
   </view>
   <view id="swiper" bindtouchstart="switchMenu" data-close="1">
     <image src="images/{{swiperPic}}" mode="widthFix" animation="{{swiperAnimation}}"/>
   </view>
 
   <view id="buttons">
-    <image src="images/1.png" mode="widthFix" class="first-child" bindtap="jumpTo" data-url="zlbwh" data-name="智联标委会"/>
-    <image src="images/2.png" mode="widthFix" class="second-child" bindtap="jumpTo" data-url="privi" data-name="会员服务"/>
-    <image src="images/3.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="tid" data-name="Tid大会"/>
-    <image src="images/4.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="cbdl" data-name="成本度量"/>
+    <image src="images/1.png" mode="widthFix" class="first-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/ur7OYPFAfNf92OruTdaCYA" data-name="智联标委会"/>
+    <image src="images/2.png" mode="widthFix" class="second-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/rll0y7OS4DEw_ViTwff5Qw" data-name="会员服务"/>
+    <image src="images/3.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/fc50Y1KfBqIB001kM_-Oag" data-name="Tid大会"/>
+    <image src="images/4.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/uRMs0h4bn4wSJkG5D7yrmQ" data-name="成本度量"/>
   </view>
   <view id="text">
       <view class="first-child">
@@ -88,7 +88,7 @@
       </view>
       </view>
     <view class="footer" bindtouchstart="turnColor" bindtouchend="turnColor" style="background-color: {{touchColor_a}}"  data-flag="1">
-      <view class="box" bindtap="jumpTo" data-url="zlbwh" data-name="成本度量标准应用">
+      <view class="box" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/uRMs0h4bn4wSJkG5D7yrmQ" data-name="成本度量标准应用">
         查看更多
         <view class="arrow"></view>
       </view>
@@ -96,7 +96,7 @@
   </view>
 
 
-  <view id="privi" bindtap="jumpTo" data-url="privi" style="box-shadow: 0px 0px {{box_shadow[0]}}px 1px #ddd;" data-index="0" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="会员服务">
+  <view id="privi" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/rll0y7OS4DEw_ViTwff5Qw" style="box-shadow: 0px 0px {{box_shadow[0]}}px 1px #ddd;" data-index="0" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="会员服务">
     <view class="content">
       <view class="title">会员服务</view>
         <view class="first">智联联盟现有</view>
@@ -117,7 +117,7 @@
       <image src="images/privi_pic.jpg" mode="scaleToFill"/>
     </view>
   </view> -->
-  <view id="zlbwh" bindtap="jumpTo" data-url="zlbwh" style="box-shadow: 0px 0px {{box_shadow[1]}}px 1px #ddd;" data-index="1" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="智联标准委员会">
+  <view id="zlbwh" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/ur7OYPFAfNf92OruTdaCYA" style="box-shadow: 0px 0px {{box_shadow[1]}}px 1px #ddd;" data-index="1" bindtouchstart="turnBox" bindtouchend="turnBox" data-name="智联标准委员会">
     <view class="title">
       智联标准委员会
     </view>
@@ -155,7 +155,7 @@
       </view>
       </view>
     <view class="footer" bindtouchstart="turnColor" bindtouchend="turnColor" style="background-color: {{touchColor_b}}" data-flag="2">
-      <view class="box" bindtap="jumpTo" data-url="tid" data-name="Tid盛会">
+      <view class="box" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/fc50Y1KfBqIB001kM_-Oag" data-name="Tid盛会">
         查看更多
         <view class="arrow"></view>
       </view>
@@ -176,21 +176,21 @@
       <view class="details">
         <view class="detail">
           <view class="image">
-           <image src="images/icon_phone.png" mode="widthFix"/>
+           <image src="images/icon_phone.png"/>
           </view>
-          <text>13131464346</text>
+          <text>18613310432</text>
         </view>
         <view class="detail">
           <view class="image">
-           <image src="images/icon_mail.png" mode="widthFix"/>
+           <image src="images/icon_mail.png"/>
           </view>
-          <text>1044501616@qq.com</text>
+          <text>mingym@spichina.org.cn</text>
         </view>
         <view class="detail">
           <view class="image">
-           <image src="images/icon_position.png" mode="widthFix"/>
+           <image src="images/icon_position.png"/>
           </view>
-          <text>河北省 廊坊市 新华路 199号</text>
+          <text>北京市海淀区上地街道东北旺西路8号\n中关村软件园8号楼华夏科技大厦2层227C室</text>
         </view>
       </view>
     </view>

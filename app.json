@@ -1,21 +1,11 @@
 {
   "pages": [
-    "pages/info/info",
-    "pages/index/index",
     "pages/video/video",
+    "pages/index/index",
+    "pages/info/info",
     "pages/join/join",
-    "pages/logs/logs",
-    "pages/index/zlbwh",
-    "pages/index/iqa",
-    "pages/index/prisidium",
-    "pages/index/privi",
-    "pages/index/tid",
-    "pages/index/cbdl",
-    "pages/index/zllm",
-    "pages/index/offline",
-    "pages/index/online",
-    "pages/join/ok",
-    "pages/info/webPage"
+    "pages/join/feedback",
+    "pages/webPage"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00a4db",
@@ -32,16 +22,16 @@
         "selectedIconPath": "images/index_tabbar_posttab.png"
       },
       {
-        "pagePath": "pages/video/video",
-        "text": "Tid",
-        "iconPath": "images/video_tabbar_pretab.png",
-        "selectedIconPath": "images/video_tabbar_posttab.png"
-      },
-      {
         "pagePath": "pages/info/info",
         "text": "资讯",
         "iconPath": "images/info_tabbar_pretab.png",
         "selectedIconPath": "images/info_tabbar_posttab.png"
+      },
+      {
+        "pagePath": "pages/video/video",
+        "text": "Tid",
+        "iconPath": "images/video_tabbar_pretab.png",
+        "selectedIconPath": "images/video_tabbar_posttab.png"
       },
       {
         "pagePath": "pages/join/join",

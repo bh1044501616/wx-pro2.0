@@ -1,3 +1,5 @@
+var app = getApp();
+
 Page({
   data: {
   /** 导航*/
@@ -51,8 +53,8 @@ Page({
     markers: [{
       iconPath: "images/marker.png",
       id: 0,
-      latitude:41.20,
-      longitude:116.63,
+      latitude:40.044666,
+      longitude:116.299267,
       width: 50,
       height: 42
     }],
@@ -115,6 +117,11 @@ Page({
   /** 滑动页面自动触发事件*/
   onPageScroll:function(){
     
+  },
+  onShow:function(){
+    wx.setNavigationBarTitle({
+      title:'智联联盟'
+    });
   },
   /** 页面初次渲染完成后触发的事件*/
   onReady:function(){
@@ -199,11 +206,13 @@ Page({
     });
   },
 /** 跳转页面*/
-jumpTo:function(res){
-  var path = res.currentTarget.dataset.url;
-  var navi = res.currentTarget.dataset.name;
+jumpTo:function(arg){
+  let url = arg.currentTarget.dataset.url;
+  let navi = arg.currentTarget.dataset.name;
+
+  app.globalData.info_web_view = url;
   wx.navigateTo({
-    url:path
+    url:'../webPage'
   });
   wx.setNavigationBarTitle({
     title:navi

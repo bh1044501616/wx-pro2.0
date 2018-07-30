@@ -51,6 +51,6 @@ App({
     height:0,
     title:"首页",
     info_web_view:'',
-    staticUrl:'http://localhost:8080/smallProject/'
+    staticUrl:/*'http://39.107.227.165/wx/'*/'http://localhost:8080/smallProject1.0/'
   }
 })

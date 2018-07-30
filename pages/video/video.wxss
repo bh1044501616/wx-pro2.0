@@ -3,6 +3,9 @@ page{
 	height: 100%;
 	background-color: #eee;
 }
+
+
+/* 下载页面 */
 .title{
 	margin:auto;
 	width: 20%;
@@ -17,49 +20,6 @@ page{
 	border-bottom-style: solid;
 	border-bottom-color: #1c93ec;
 }
-.content{
-	background-color: #fff;
-	width: 100%;
-	margin:auto;
-	margin-top: 5px;
-}
-.content .info{ 
-	font-size:15px;
-	padding: 2px;
-	border-bottom:0.5px solid #999;
-}
-.content .profile{
-	padding:10%;
-	font-size:10px;
-}
-.content .info image{
-	width: 10%;
-	border-radius: 50%;
-}
-.content .download{
-	display: flex;
-	flex-direction: row-reverse;
-	width: 50%;
-}
-.content video{
-	width: 100%;
-}
-.footer{
-	border-top:1px solid #777;
-	display: flex;
-	flex-direction: row;
-	color:#999;
-	font-size: 10px;
-}
-.footer .time{
-	width: 50%;
-}
-.content .progress{
-	display: none;
-}
-
-
-/* 下载页面 */
 #downloadPage .downloading{
 	border-radius: 5px;
 	background-color: #fff;
@@ -215,7 +175,7 @@ page{
 	width: 15%;
 	height: 7%;
 	z-index: 9999;
-	top:11px;
+	top:90rpx;
 	left: -15%;
 }
 #downloadPageSwitch image{
@@ -244,7 +204,7 @@ page{
 
 
 /** content新样式*/
-.contents .content{
+/*.contents .content{
 	margin-bottom: 40px;
 	box-shadow: 0px 1px 5px 1px #bbb;
 	margin-top: 0;
@@ -255,10 +215,12 @@ page{
 	border: 0;
 }
 .content .info .image{
-	width: 15%;
+	width: 50px;
+	height: 50px;
 }
 .content .info .image image{
 	width: 100%;
+	height: 100%;
 }
 .content .info .text{
 	width: 85%;
@@ -286,7 +248,7 @@ page{
 	border-top: 0.5px solid #bbb;
 	padding-top: 5px;
 	padding-bottom: 5px;	
-}
+}*/
 
 page{
 	background-color: #fff;
@@ -333,42 +295,6 @@ page{
 	width: 50%;
 }
 
-
-/**ppt列表*/
-.contents .pptList{
-	/*position: absolute;*/
-	width: 100%;
-	background-color: #fefefe;
-	/*z-index: 2500;*/
-	bottom: 0;
-	display: block;
-	box-shadow: 0px 0px 10px 1px #ddd inset;
-}
-.contents .pptList-box{
-	display: flex;
-	width: 100%;
-	font-size: 13px;
-	margin: auto;
-	color:#aaa;
-	line-height: 30px;
-	border-bottom: 0.5px solid #ccc;
-}
-.contents .pptList .fileName{
-	width: 70%;
-	text-align: left;
-	padding-left: 10px;
-}
-.contents .pptList .icon{
-	width: 30%;
-	text-align: right;
-	padding-right: 10px;
-}
-.contents .pptList .icon image{
-	width: 15%;
-	height: 70%;
-	vertical-align: middle;
-}
-
 /**没有更多信息提示*/
 #meetingNumTip{
 	width: 100%;
@@ -379,6 +305,7 @@ page{
 	font-size: 12px;
 	margin-bottom: 10px;
 	margin-top: 20px;
+	float: left;
 }
 
 
@@ -389,4 +316,145 @@ page{
 	font-size: 12px;
 	color:#ccc;
 	text-align: center;
+}
+
+/**信息获取提示*/
+#serverInfo{
+	width:100%;
+	margin: auto;
+	text-align: center;
+	margin-top: 20px;
+}
+
+/**上部日期导航*/
+#scrollNavi{
+	width: 100%;
+	height: 88rpx;
+	display: inline-block;
+	white-space: nowrap; 
+	box-shadow: 0px 0px 10px 1px #aaa;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #fff;
+	font-size: 13px;
+	z-index: 100;
+}
+/*占位用*/
+#scrollNavi0{
+	width: 100%;
+	height: 88rpx;
+	display: inline-block;
+	white-space: nowrap; 
+	z-index: 1;
+}
+#scrollNavi .item{
+	width: 30%;
+	height: 85rpx;
+	line-height: 85rpx;
+	vertical-align: center;
+	text-align: center;
+	display: inline-block;
+	color:#aaa;
+	font-weight: lighter;
+}
+#scrollNavi .selected-item{	
+	width: 30%;
+	height: 85rpx;
+	line-height: 85rpx;
+	vertical-align: center;
+	text-align: center;
+	display: inline-block;
+	color:#000;
+	font-weight: normal;
+	border-bottom:5px solid #000;
+}
+
+
+.contents{
+	width: 80%;
+	margin-left: 10%;
+	padding-left: 10%;
+	border-left: 1px solid #00a4db;
+}
+.contents .content{
+	width: 100%;
+}
+.contents .content .commonInfo{
+	width: 100%;
+	position: relative;
+}
+.contents .content .commonInfo .theme{
+	font-size: 25px;
+}
+.contents .content .commonInfo .loc{
+	color:#aaa;
+}
+.contents .content .commonInfo view{
+
+}
+.contents .content .lectureInfo .subject{
+	font-size: 20px;
+	margin-top: 20px;
+	position: relative;
+}
+.contents .content .lectureInfo .lecturer{
+	margin-top: 15px;
+	color:#5a5955;
+	box-shadow: 0px 0px 1px 1px #fafafa;
+}
+.contents .content .lectureInfo .lecturer .lecturerBox{
+	box-shadow: 0px 1px 4px 1px #ccc;
+}
+.contents .content .lectureInfo .lecturer .pic{
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+}
+.contents .content .lectureInfo .lecturer .pic image{
+	width: 100%;
+	height: 100%;
+}
+.contents .content .lectureInfo .lecturer .lecturerInfo{
+	display: inline-block;
+	font-size: 14px;
+	padding-left: 5px;
+}
+.contents .content .lectureInfo .lecturer .download-box{
+	display: flex;
+}
+.contents .content .lectureInfo .lecturer .download-box .doc{
+	width: 80%;
+	font-size: 13px;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+}
+.contents .content .lectureInfo .lecturer .download-box .download{
+	width: 40px;
+	height: 30px;
+}
+.contents .content .lectureInfo .lecturer .download-box .download image{
+	width: 100%;
+	height: 100%;
+}
+page{
+	background: #fefefe;
+}
+
+.contents .major{
+	width: 60px;
+	height: 60px;
+	position: absolute;
+	top: -30px;
+}
+.contents .minor{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: -20px;
+}
+.contents .title-box image{
+	width: 100%;
+	height: 100%;
 }

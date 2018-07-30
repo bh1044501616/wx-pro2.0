@@ -1,0 +1,17 @@
+<!--pages/join/feedback.wxml-->
+<view id="page">
+	<view id="background">
+		<image src="images/background.jpg"/>
+	</view>
+	<form id="form" bindsubmit="submit" display="{{displays[0]}}">
+		<textarea name="feedback" placeholder="请在此处输入您的意见或建议，我们会及时查看" placeholder-style="color:#ccc;display:flex;" maxlength="200">
+		</textarea>
+		<input placeholder="请输入您的联系方式" placeholder-style="color:#ccc;display:flex;" name="contact"/>
+		<button type="primary" form-type="submit">提交</button>
+	</form>
+	<view id="info" style="display: {{displays[1]}}">
+		<icon type="success" size="100"/>
+		<view>提交成功</view>
+		<view style="color:#aaa;font-size: 13px;text-align: center;width: 100%;">我们会及时查看您提出的建议</view>
+	</view>
+</view>

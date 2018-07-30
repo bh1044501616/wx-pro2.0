@@ -1,5 +1,9 @@
 var arr = [];
 var app = getApp();
+
+//提示信息
+const NETWORK_ERROR = '网络繁忙，请稍后重试';
+
 function getMB(b){
 	return (b/1024.0/1024.0).toFixed(2);
 }
@@ -14,10 +18,13 @@ var tasks = new Array();
 var downloadTask = new Array();
 /* 判断滑动事件类型*/
 var scrollY = 0;
+
+//链接
+const URL = app.globalData.staticUrl;
 /*	获取信息url*/
-const loadUrl = "http://localhost:8080/smallProject/meeting/load.do";
+const loadUrl = URL + "meeting/load.do";
 /*  ppt下载链接*/
-const pptUrl = "http://localhost:8080/smallProject/download/meeting.do?"
+const pptUrl = URL + "download/meeting.do?";
 /**
  *	下载链接中的日期处理
 
@@ -107,7 +114,7 @@ Page({
 	data:{
 		index:0,
 		data:{},
-		array:"",
+		arr:[{theme:"这是主题",loc:"地点",topic:[{subject:"演讲题目",lecture:[{lecturer:"演讲人名字",introduction:"演讲人介绍",ppt:"ppt文件名称",url:"ppt下载链接"},{lecturer:"演讲人名字",introduction:"演讲人介绍",ppt:"ppt文件名称",url:"ppt下载链接"}]},{subject:"演讲题目",lecture:[{lecturer:"演讲人名字",introduction:"演讲人介绍",ppt:"ppt文件名称",url:"ppt下载链接"}]}]}],
 		animationData:{},
 		downloadingList:[],
       	downloadedList:[],
@@ -137,9 +144,20 @@ Page({
       	//已下载文件所存储的目录
       	savedFilePath:'',
       	//已下在文件所在目录的提示显示设定
-      	savedFilePathShow:'none'
+      	savedFilePathShow:'none',
+      	//获取信息提示
+      	serverInfo:'',
+      	//用于储存大会日期的数组(每个日期在上部可滑导航处显示)
+      	meetingTimes:['2018-04-31','2018-04-31','2018-04-31','2018-04-31'],
+      	//用于表示被选中的导航选项
+      	selectedItem:'',
+      	//布局图标的坐标定义
+      	titleRowMajor:(app.data.width*0.1)+30,
+      	titleRowMinor:(app.data.width*0.1)+20,
 	},
 	onLoad:function() {
+		console.log(this.data.arr);
+
 		var that = this;	
 		wx.request({
 			url:loadUrl,
@@ -149,6 +167,7 @@ Page({
 				that.setData({
 					array:res.data.data.list,
 					// array:res.data
+					serverInfo:''
 				});
 				/* 请求参数（iqalience）*/
 				pageObject = res.data.data.pageObject;
@@ -160,6 +179,9 @@ Page({
 				  icon: 'loading',
 				  duration: 2000
 				});
+				that.setData({
+					serverInfo:NETWORK_ERROR
+				});
 			}
 		});
 		/*更改navigator*/
@@ -169,10 +191,10 @@ Page({
 		/*加载已经下载的文件*/
 		wx.getSavedFileList({
 			success:function(res){
-				let fileList_ = res.fileList;
-				let onePath = fileList_[0].filePath;
-				let path = onePath.substring(0,onePath.lastIndexOf('/'));
+				let fileList_ = res.fileList;			
 				if(fileList_.length > 1){
+					let onePath = fileList_[0].filePath;
+					let path = onePath.substring(0,onePath.lastIndexOf('/'));
 					that.setData({
 						savedFilePath:path,
 						savedFilePathShow:'block'
@@ -226,6 +248,7 @@ Page({
 				that.setData({
 					array:res.data.data.list, 
 					// array:res.data
+					serverInfo:''
 				});
 				wx.hideLoading();
 			},
@@ -234,6 +257,9 @@ Page({
 				  title: '网络超时..',
 				  icon: 'loading',
 				  duration: 2000
+				});
+				that.setData({
+					serverInfo:NETWORK_ERROR
 				});
 			}
 		});
@@ -302,7 +328,6 @@ Page({
 				downloading[i].status = '继续';
 			}
 			if(status == '继续'){
-				console.log('进入继续');
 				downloading[i].progress = 0;
 				downloading[i].currentSize = 0;
 				downloading[i].status = '终断';
@@ -354,16 +379,21 @@ Page({
   *	打开文件
   */
   openFile:function(arg){
-  	var path = arg.currentTarget.dataset.savedfilepath;
+  	 var path = arg.currentTarget.dataset.savedfilepath;
+  	 let name = arg.currentTarget.dataset.name;
+  	 let type = name.substring(name.lastIndexOf('.')+1);
+  	 console.log(type);
+
   	 wx.openDocument({
       filePath:path,
-      fileType:'ppt',
+      fileType:type,
       success: function (res) {
         console.log('打开文档成功');
       },
-      fail:function(){
+      fail:function(res){
+      	console.log(res)
       	wx.showToast({
-      		title:'文件找不到',
+      		title:'文件找不到或者文件类型不支持',
       		icon:'none',
       		duration:2000
       	});
@@ -469,10 +499,7 @@ Page({
 	/**购票咨询--makeACall*/
 	makeCall:function(){
 		wx.makePhoneCall({
-			phoneNumber:'13131464346',
-			success:function(){
-				console.log('电话拨打成功');
-			},
+			phoneNumber:'13681206054'
 		});
 	},
 	/**购票咨询信息提示*/
@@ -525,5 +552,17 @@ Page({
 				});
 			}
 		});
-	}
+	},
+	/**
+   *  切换导航
+   */
+  turnNavi:function(res){
+
+    let path = res.currentTarget.dataset.url;
+    let that = this;
+    let id = res.currentTarget.dataset.id;
+    that.setData({
+      selectedItem:id
+    });
+   }
 })

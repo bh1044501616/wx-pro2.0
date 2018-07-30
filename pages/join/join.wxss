@@ -1,162 +1,39 @@
+/* pages/join/join.wxss */
 page{
 	width: 100%;
 	height: 100%;
 }
-#zlbwh{
+#page{
 	width: 100%;
 	height: 100%;
 }
-#zlbwh .title{
-	width: 100%;
-	text-align: center;
-	line-height: 60px;
-	font-size: 23px;
-	color:#666;
-	border-bottom: 1px solid #999;
-}
-#zlbwh form{
-	color:#999;
-}
-#zlbwh form view{
-	width: 90%;
-	border-bottom-width: 1px;
-	border-bottom-style: solid;
-	margin-left: 5%;
-	margin-bottom: 10px;
-	font-size: 19px;
-}
-#zlbwh form input{
-	/*color:#051232;*/
-	font-size: 15px;
-	width: 90%;
-}
-#zlbwh form .companyBrief{
-	height: 100px;
-}
-#zlbwh form .companyBrief textarea{
+#background{
 	width: 100%;
 	height: 100%;
 }
-#zlbwh form .button{
-	border-bottom:0;
-	display: flex;
-	flex-direction: row;
-	margin-left: 5%;
-	color: #fff;
-}
-#zlbwh form .button view{
-	border:0;
-	width: 100px;
-	height: 30px;
-	text-align: center;
-	line-height: 30px;
-	border-radius: 3px;
-}
-#zlbwh form view view button{
-	position: absolute;  
-	width: 100%;  
-	height: 100%;  
-	margin:0;  
-	padding: 0;  
-	top: 0;  
-	right: 0;  
-	bottom: 0;  
-	left: 0;  
-	border: 0;  
-	opacity: 0;  
-	background: transparent;  
-	z-index: 9;
-}
-#zlbwh .btn-submit{
-	background-color: #35cc62;
-	margin-left: 0;
-	position: relative;
-}
-#zlbwh .btn-submit-hover{
-	background-color: #35cc62;
-	margin-left: 0;
-	position: relative;
-	box-shadow: 0px 0px 2px 1px #fff inset;
-}
-#zlbwh .btn-reset{
-	background-color: #ffb54c;
-	position: relative;
-	margin-left: 10px;
-}
-#zlbwh .btn-reset-hover{
-	background-color: #ffb54c;
-	position: relative;
-	box-shadow: 0px 0px 2px 1px #fff inset;
-}
-#zlbwh text{
-	color:red;
+#background image{
+	width: 100%;
+	height: 100%;
 }
 
-/*添加删除本input组件内容的按钮*/
-#zlbwh .deleteIcon{
-	width: 5%;
-	border:0;
-	text-align: center;
-	line-height: 15px;
-}
-#zlbwh .deleteIcon image{
-	width: 100%;
-	height: 100%;
-}
-#zlbwh .input-box{
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-	border:0;
-	margin-left: 0;
-	margin-bottom: 0;
-}
 
-/*动画*/
-#turnPage{
-	position: fixed;
-	width: 10%;
-	height: 10%;
-	right:10px;
-	bottom:0;
-}
-#turnPage image{
+#page .items{
 	width: 100%;
 	height: 100%;
-}
-/*第二个页面*/
-.zlbwh{
+	background: rgba(38,77,106,0.5);
 	position: fixed;
-	right: -100%;
 	top: 0;
+	left: 0;
 }
-
-
-/*修正公司简介样式*/
-#zlbwh .companyBrief{
-	padding:0;
-	margin-bottom: 20px;
-}
-#zlbwh .companyBrief textarea{
-	color:#051232;
-	font-size: 15px;
-}
-
-/*表单上空出一定位置*/
-#block{
-	margin-bottom: 20px;
-}
-
-/*按钮位置变化*/
-#zlbwh form .button-reverse{
+#page .items .item{
+	width: 70%;
+	height: 10%;
+	background: rgba(49,49,49,0.7);
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
+	margin-top: 30px;
 	display: flex;
-	flex-direction: row-reverse;
-}
-#zlbwh form .button-reverse .btn-submit{
-	margin-left: 10px;
-}
-
-/*表单高度更改*/
-input{
-	height: 30px;
+	align-items: center;
+	justify-content: center;
+	color:#fff;
 }

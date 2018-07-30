@@ -1,166 +1,20 @@
-  <page >
-<view class="pageBox" animation="{{pageAnimation}}">
-
-	<view id="zlbwh" class="privilege">
-		<!-- <view class="title">智联联盟会员申请</view> -->
-		<view id="block"></view>
-		<form cursor-spacing="10" bindreset="resetForm" bindsubmit="submitForm">
-			<view  style="border-bottom-color:#{{colors[6]}};color:#{{colors_title[6]}}">
-				姓名 
-				<text>*</text>
-				<view class="input-box">
-					<input name="name" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="6" placeholder-style="color:red" value="{{inputTexts[6]}}" style="color:#{{inputColors[6]}};"/>
-					<view class="deleteIcon" style="display:{{displays[6]}};">
-						<image src="images/{{inputStatus[6]}}.png" mode="widthFix" bindtap="deleteText" data-id="6"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[7]}};color:#{{colors_title[7]}}">
-				公司 
-				<text>*</text>
-				<view class="input-box">
-					<input name="company" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="7" placeholder-style="color:red" value="{{inputTexts[7]}}" style="color:#{{inputColors[7]}};"/>
-					<view class="deleteIcon" style="display:{{displays[7]}};">
-						<image src="images/{{inputStatus[7]}}.png" mode="widthFix" bindtap="deleteText" data-id="7"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[8]}};color:#{{colors_title[8]}}">
-				职位 
-				<text>*</text>
-				<view class="input-box">
-					<input name="position" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="8" placeholder-style="color:red" value="{{inputTexts[8]}}" style="color:#{{inputColors[8]}};"/>
-					<view class="deleteIcon" style="display:{{displays[8]}};">
-						<image src="images/{{inputStatus[8]}}.png" mode="widthFix" bindtap="deleteText" data-id="8"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[9]}};color:#{{colors_title[9]}}">
-				部门 
-				<text>*</text>
-				<view class="input-box">
-					<input name="department" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="9" placeholder-style="color:red" value="{{inputTexts[9]}}" style="color:#{{inputColors[9]}};"/>
-					<view class="deleteIcon" style="display:{{displays[9]}};">
-						<image src="images/{{inputStatus[9]}}.png" mode="widthFix" bindtap="deleteText" data-id="9"/>
-					</view>
-				</view>
-			</view><view style="border-bottom-color:#{{colors[10]}};color:#{{colors_title[10]}}">
-				电话 
-				<text>*</text>
-				<view class="input-box">
-					<input type="number" name="phoneNumber" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="10" placeholder-style="color:red" value="{{inputTexts[10]}}" style="color:#{{inputColors[10]}};"/>
-					<view class="deleteIcon" style="display:{{displays[10]}};">
-						<image src="images/{{inputStatus[10]}}.png" mode="widthFix" bindtap="deleteText" data-id="10"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[11]}};color:#{{colors_title[11]}}">
-				手机 
-				<text>*</text>
-				<view class="input-box">
-					<input type="number" name="mobileNumber" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="11" placeholder-style="color:red" value="{{inputTexts[11]}}" style="color:#{{inputColors[11]}};"/>
-					<view class="deleteIcon" style="display:{{displays[11]}};">
-						<image src="images/{{inputStatus[11]}}.png" mode="widthFix" bindtap="deleteText" data-id="11"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[12]}};color:#{{colors_title[12]}}">
-				E-mail 
-				<text>*</text>
-				<view class="input-box">
-					<input name="email" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="12" placeholder-style="color:red" value="{{inputTexts[12]}}" style="color:#{{inputColors[12]}};"/>
-					<view class="deleteIcon" style="display:{{displays[12]}};">
-						<image src="images/{{inputStatus[12]}}.png" mode="widthFix" bindtap="deleteText" data-id="12"/>
-					</view>
-				</view>
-			</view>
-			<view class="companyBrief" style="border-bottom-color:#{{colors[13]}};color:#{{colors_title[13]}}">公司简介 <text>*</text>
-				<textarea name="companyInfo"  bindfocus="changeBorderColor" data-id="13" auto-height style="color:#{{inputColors[13]}};" value="{{inputTexts[13]}}" bindinput="inputMethod" bindblur="loseFocus"></textarea>
-			</view>
-			<view class="button">
-				<view class="btn-submit" hover-class="btn-submit-hover">
-					<button form-type="submit"></button>
-					提交
-				</view>
-				<view class="btn-reset" hover-class="btn-reset-hover">
-					<button form-type="reset"></button>
-					重置
-				</view>
-			</view>
-		</form>
+<!--pages/join/join.wxml-->
+<view id="page">
+	<view id="background">
+		<image src="images/background.jpg"/>
 	</view>
-
-	<view id="zlbwh" class="zlbwh">
-		<!-- <view class="title">智联标委会成员单位征集通知</view> -->
-		<!-- <view id="block"></view> -->
-		<form cursor-spacing="10" bindreset="resetForm" bindsubmit="submitForm" data-flag="1">
-			<view  style="border-bottom-color:#{{colors[0]}};color:#{{colors_title[0]}}">
-				姓名 
-				<text>*</text>
-				<view class="input-box">
-					<input name="name" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="0" placeholder-style="color:red" value="{{inputTexts[0]}}" style="color:#{{inputColors[0]}};"/>
-					<view class="deleteIcon" style="display:{{displays[0]}};">
-						<image src="images/{{inputStatus[0]}}.png" mode="widthFix" bindtap="deleteText" data-id="0"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[1]}};color:#{{colors_title[1]}}">
-				公司 
-				<text>*</text>
-				<view class="input-box">
-					<input name="company" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="1" placeholder-style="color:red" value="{{inputTexts[1]}}" style="color:#{{inputColors[1]}};"/>
-					<view class="deleteIcon" style="display:{{displays[1]}};">
-						<image src="images/{{inputStatus[1]}}.png" mode="widthFix" bindtap="deleteText" data-id="1"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[2]}};color:#{{colors_title[2]}}">
-				职位 
-				<text>*</text>
-				<view class="input-box">
-					<input name="position" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="2" placeholder-style="color:red" value="{{inputTexts[2]}}" style="color:#{{inputColors[2]}};"/>
-					<view class="deleteIcon" style="display:{{displays[2]}};">
-						<image src="images/{{inputStatus[2]}}.png" mode="widthFix" bindtap="deleteText" data-id="2"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[3]}};color:#{{colors_title[3]}}">
-				手机 
-				<text>*</text>
-				<view class="input-box">
-					<input name="phoneNumber" type="number" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="3" placeholder-style="color:red" value="{{inputTexts[3]}}" style="color:#{{inputColors[3]}};"/>
-					<view class="deleteIcon" style="display:{{displays[3]}};">
-						<image src="images/{{inputStatus[3]}}.png" mode="widthFix" bindtap="deleteText" data-id="3"/>
-					</view>
-				</view>
-			</view>
-			<view style="border-bottom-color:#{{colors[4]}};color:#{{colors_title[4]}}">
-				E-mail 
-				<text>*</text>
-				<view class="input-box">
-					<input name="email" bindfocus="changeBorderColor" bindinput="inputMethod" bindblur="loseFocus" data-id="4" placeholder-style="color:red" value="{{inputTexts[4]}}" style="color:#{{inputColors[4]}};"/>
-					<view class="deleteIcon" style="display:{{displays[4]}};">
-						<image src="images/{{inputStatus[4]}}.png" mode="widthFix" bindtap="deleteText" data-id="4"/>
-					</view>
-				</view>
-			</view>
-			<view class="companyBrief" style="border-bottom-color:#{{colors[5]}};color:#{{colors_title[5]}}">公司简介 <text>*</text><textarea name="companyInfo"  bindfocus="changeBorderColor" data-id="5"
-			 auto-height style="color:#{{inputColors[5]}};" value="{{inputTexts[5]}}" bindinput="inputMethod" bindblur="loseFocus"></textarea></view>
-			<view class="button button-reverse">
-				<view class="btn-submit" hover-class="btn-submit-hover">
-					<button form-type="submit" data-flag='1'></button>
-					提交
-				</view>
-				<view class="btn-reset" hover-class="btn-reset-hover">
-					<button form-type="reset" data-flag='1'></button>
-					重置
-				</view>
-			</view>
-		</form>
+	<view class="items">
+		<view class="item" data-url="http://form.mikecrm.com/f.php?t=uRdMQV" bindtap="turnPage" data-index="0" animation="{{animations[0]}}">
+			智联标准委员会
+		</view>
+		<view class="item" data-url="https://jinshuju.net/f/ibHUt9" bindtap="turnPage" data-index="1" animation="{{animations[1]}}">
+			会员申请
+		</view>
+		<view class="item" data-url="http://web1806060001.gz01.bdysite.com/member.html" bindtap="turnPage" data-index="2" animation="{{animations[2]}}">
+			Tid盛会票务管理
+		</view>
+		<view class="item" data-url="feedback" bindtap="naviTo" data-index="3" animation="{{animations[3]}}">
+			意见反馈
+		</view>
 	</view>
-</view>
-</page>
-
-<view id="turnPage" bindtap="turnPage">
-	<image src="images/turnPage.png" mode="aspectFit" animation="{{turnPageAnimation}}"></image>
 </view>

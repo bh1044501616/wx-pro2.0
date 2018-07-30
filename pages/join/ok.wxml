@@ -1,6 +1,0 @@
-<!--pages/join/ok.wxml-->
-<view class="icon">
-  <icon type="success" size="100"/>
-</view>
-<view class="info">信息提交成功！</view>
-<view class="button" bindtap="turnTo">完成</view>

@@ -1,16 +1,24 @@
 <scroll-view scroll-x scroll-with-animation id="scrollNavi">
-	<view class="item {{selectedItem==0?'selected-item':''}}" bindtap="turnNavi" data-url="recommand" data-id="0">
+	<view class="{{selectedItem==0?'selected-item':'item'}}" bindtap="turnNavi" data-url="recommand" data-id="0">
 		推荐
 	</view>
-	<view class="item {{selectedItem==1?'selected-item':''}}" bindtap="turnNavi" data-url="zllm" data-id="1">
+	<view class="{{selectedItem==1?'selected-item':'item'}}" bindtap="turnNavi" data-url="zllm" data-id="1">
 		智联联盟
 	</view>
-	<view class="item {{selectedItem==2?'selected-item':''}}" bindtap="turnNavi" data-url="tid" data-id="2">
+	<view class="{{selectedItem==2?'selected-item':'item'}}" bindtap="turnNavi" data-url="tid" data-id="2">
 		Tid大会
 	</view>
 </scroll-view>
+<scroll-view scroll-x scroll-with-animation id="scrollNavi0"></scroll-view>
 
-<view id="infoBox">
+<view id="serverInfo" style="display: {{serverInfo===''?'none':'block'}};">
+	<icon type="info" size="50"></icon>
+	<view>
+		{{serverInfo}}
+	</view>
+</view>
+
+<view id="infoBox" style="display: {{serverInfo===''?'block':'none'}};">
 	<block wx:for="{{items}}">
 		<view class="item-box">
 			<view class="lefty">
@@ -40,8 +48,8 @@
 			</view>
 		</view>
 	</block>
+	<view id="newsNumTip" style="display: {{newsNumTip}}">
+		没有更多了...
+	</view>
 </view>
 
-<view id="newsNumTip" style="display: {{newsNumTip}}">
-	没有更多了~
-</view>

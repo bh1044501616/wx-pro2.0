@@ -1,6 +1,12 @@
 // pages/info/info.js
 var app = getApp();
 
+//提示信息
+const NETWORK_ERROR = '网络繁忙，请稍后重试';
+
+//请求链接
+const URL = app.globalData.staticUrl;
+const LOADURL = URL + 'news/load.do';
 
 /*Long转换为Date格式的字符串*/
 function dateFormat(longTypeDate){  
@@ -14,7 +20,6 @@ function dateFormat(longTypeDate){ 
 }
 
 
-const LOADURL = 'http://localhost:8080/smallProject/news/load.do';
 Page({
 
   /**
@@ -29,7 +34,9 @@ Page({
     //赞的动画
     praiseAnimation:{},
     praiseAnimationIndex:0,
-    praiseIcon:[]
+    praiseIcon:['praise','praise','praise','praise','praise'],
+    //信息获取提示
+    serverInfo:''
   },
 
   /**
@@ -40,15 +47,21 @@ Page({
     let that = this;
 
     wx.request({
-      url:'http://localhost:8080/smallProject/news/load.do',
+      url:LOADURL,
       success:function(response){
         let items_ = response.data.data.list;
         let pageObject_ = response.data.data.pageObject;
         pageObject_.pageSize += 5;
         that.setData({
           items:items_,
-          pageObject:pageObject_
+          pageObject:pageObject_,
+          serverInfo:''
         });
+      },
+      fail:function(){
+        that.setData({
+          serverInfo:NETWORK_ERROR
+        })
       },
       complete:function(){
         //同步动画和列表
@@ -103,21 +116,33 @@ Page({
     let pageObject_ = that.data.pageObject;
     wx.showLoading({
       title:"内容加载中",
+      duration:3000
     });
     wx.request({
-      url:LOADURL,
+      url:LOADURL + '?id=' + that.data.selectedItem,
       method:'GET',
       data:pageObject_,
       success:function(res){
         if(pageObject_.pageSize == res.data.data.list.length)
           that.data.pageObject.pageSize += 5;
-        else{
+
+        //接收到的新的newses
+        let items_ = res.data.data.list;
+        
+        if(items_.length == tArray.length && that.data.serverInfo == ''){
           that.setData({
             newsNumTip:'block'
           });
         }
+        let praiseIcon_ = that.data.praiseIcon;
+        if(praiseIcon_.length >= 5)
+          for(let i=0;i<5;i++){
+            praiseIcon_.push("praise");
+          }
+        //重新渲染页面
         that.setData({
-          items:res.data.data.list, 
+          items:items_,
+          praiseIcon:praiseIcon_
         });
         wx.hideLoading();
       },
@@ -129,9 +154,9 @@ Page({
         });
       }
     });
-    that.setData({
+    /*that.setData({
       items:tArray
-    });
+    });*/
   },
 
   /**
@@ -146,8 +171,9 @@ Page({
   showDetail:function(res){
     let url = res.currentTarget.dataset.url;
     app.globalData.info_web_view = url;
+    console.log(url);
     wx.navigateTo({
-      url:'webPage'
+      url:'../webPage'
     });
   },
   /**
@@ -158,19 +184,27 @@ Page({
     let path = res.currentTarget.dataset.url;
     let that = this;
     let id = res.currentTarget.dataset.id;
-    this.setData({
-      selectedItem:id
+    that.setData({
+      selectedItem:id,
+      newsNumTip:'none'
     });
     wx.request({
-      url:'http://localhost:8080/smallProject/news/load.do?id=' + id,
+      url:LOADURL + '?id=' + id,
       success:function(response){
         let items_ = response.data.data.list;
         let pageObject_ = response.data.data.pageObject;
         pageObject_.pageSize += 5;
         that.setData({
           items:items_,
-          pageObject:pageObject_
+          pageObject:pageObject_,
+          serverInfo:'',
+          praiseIcon:['praise','praise','praise','praise','praise']
         });
+      },
+      fail:function(){
+        that.setData({
+          serverInfo:NETWORK_ERROR
+        })
       },
       complete:function(){
         //同步动画和列表
@@ -190,6 +224,9 @@ Page({
 
     //赞的动画
     let animations = that.data.praiseAnimation;
+
+    //反应该条信息是否已经被赞过
+    let praiseFlag = that.data.praiseIcon[index];
 
     //为动画赋值
       //有效动画
@@ -217,9 +254,6 @@ Page({
       praiseIcon:icons
     });
 
-    //反应该条信息是否已经被赞过
-    let praiseFlag = that.data.praiseIcon[index];
-
     animations[index] = noneAnimation.export();
     that.setData({
       praiseAnimation:animations
@@ -228,7 +262,7 @@ Page({
     if(praiseFlag == 'praise'){
       //当该条消息未被赞时才发送请求
       wx.request({
-        url:app.globalData.staticUrl + 'news/addPraise.do?id=' + id,
+        url:URL + 'news/addPraise.do?id=' + id,
         success:function(){
           //更新赞后的数字
           that.refreshPage();
@@ -243,14 +277,8 @@ Page({
     let items_ = that.data.items;
     let animations = new Array(items_.length);
 
-    let icons = animations;
-    for(let i=0;i<icons.length;i++){
-      icons[i] = 'praise';
-    }
-
     that.setData({
-      praiseAnimation:animations,
-      praiseIcon:icons
+      praiseAnimation:animations
     });
   },
   /*
@@ -260,7 +288,7 @@ Page({
     let id = arg.currentTarget.dataset.id;
 
     wx.request({
-      url:app.globalData.staticUrl + 'news/addWatch.do?id=' + id,
+      url:URL + 'news/addWatch.do?id=' + id,
     });
   },
   /*
@@ -269,9 +297,11 @@ Page({
   refreshPage:function(){
     let that = this;
     let id = that.data.selectedItem;
+    let pageObject_ = that.data.pageObject;
 
      wx.request({
-      url:'http://localhost:8080/smallProject/news/load.do?id=' + id,
+      url:LOADURL + '?id=' + id,
+      data:pageObject_,
       success:function(response){
         let items_ = response.data.data.list;
         let pageObject_ = response.data.data.pageObject;

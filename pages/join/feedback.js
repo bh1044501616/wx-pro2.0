@@ -1,11 +1,12 @@
-// pages/zlbwh/zlbwh.js
+// pages/join/feedback.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    displays:['block','none']
   },
 
   /**
@@ -33,7 +34,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
@@ -62,5 +63,32 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+   /**
+   * 提交表单
+   */
+  submit:function(e){
+    let that = this;
+    let values = e.detail.value;
+
+    wx.request({
+      url:/*app.globalData.staticUrl*/  + 'getFeedback.do',
+      data:values,
+      dataType:'json',
+      method:'GET',
+      header: {
+         'content-type': 'application/json'
+      },
+      success:function(){
+        that.setData({
+          displays:['none','block']
+        });
+      },
+      complete:function(){
+        that.setData({
+          displays:['none','block']
+        });
+      }
+    });
   }
 })
