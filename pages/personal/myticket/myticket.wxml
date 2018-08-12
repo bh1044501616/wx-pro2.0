@@ -1,0 +1,53 @@
+<!--pages/personal/myticket/myticket.wxml-->
+<view class="logo">
+	<image src="logo.png" mode="widthFix"/>
+</view>
+<view id="ticket">
+	<view class="forum item">
+		论坛：{{myticket.forum}}
+	</view>
+	<view class="name item">
+		姓名：{{myticket.name}}
+	</view>
+	<view class="电话 item">
+		电话：{{myticket.phone}}
+	</view>
+	<view class="邮箱 item">
+		邮箱：{{myticket.email}}
+	</view>
+	<view class="qrcode">
+		<image src="{{myticket.qrCode}}"/>
+		<view>支付状态：{{myticket.paid == 1 ? '已支付':'未支付'}}</view>
+		<view bindtap="pay" class="pay" style="display: {{myticket.paid == 1 ? 'none':''}}">现在支付</view>
+	</view>
+	<view class="tip">
+		<text>
+			电子票：
+			1.请携带TiD电子二维码到现场换取大会胸牌；
+			2.每个二维码仅限领取胸牌一次，不可重复领取；
+			3.大会期间胸牌请妥善保管，丢失不予补办
+		</text>
+		<text>
+			(鉴于现场网络情况可能变化，建议保存到手机)
+		</text>
+	</view>
+</view>
+
+<view id="payMent" style="display: {{payMentDisplay}}" bindtap="pay">
+	<view class="item">
+		<view class="item-box">
+			<image src="images/bankCard.png"/>
+			<text>北京艾特工社科技有限公司：
+				账号：1100 1125 7000 5251 7948 
+				开户行：建设银行北京中关村软件园支行
+			</text>
+		</view>
+		<view class="aliPay item-box">
+			<image src="images/aliPay.png"/>
+			<text>对公支付宝账号：
+				账号：iterbao@iterbao.net
+				北京艾特工社科技有限公司
+			</text>
+		</view>
+	</view>
+</view>

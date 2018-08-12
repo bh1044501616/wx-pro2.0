@@ -1,0 +1,91 @@
+/* pages/sponsor/sponsor.wxss */
+page{
+	width: 100%;
+	height: 100%;
+	margin:0;
+	padding: 0;
+	position: relative;
+}
+
+#filter{
+	width: 100%;
+	height: 90rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 3;
+	background: #fff;
+}
+#filter .text{
+	width: 80%;
+	border: 1px solid #777;
+	font-size: 35rpx;
+	padding-left: 5rpx;
+	height: 58rpx;
+	border-right: 0;
+}
+#filter .button{
+	width: 15%;
+	background: #00a4db;
+	height: 62rpx;
+	color:#fff;
+	text-align: center;
+	font-size: 35rpx;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#searchPanel{
+	width: 100%;
+	padding-left: 10rpx;
+	z-index: 1;
+	background: #fff;
+}
+#searchPanel .item{
+	border: 1px solid #aaa;
+	padding: 10rpx;
+	font-size: 30rpx;
+	margin-left:10rpx;
+	margin-top: 10rpx;
+	color:#777;
+	display: inline-flex;
+}
+#searchPanel .selected-item{
+	background: #bbb;
+}
+
+
+
+#contents{
+	width: 95%;
+	margin: auto;
+	margin-top: 20rpx;
+}
+#contents .content{
+	display: flex;
+	border-bottom: 0.5px solid #aaa;
+	margin-top: 10rpx;
+}
+#contents .content .left-box{
+	width: 180rpx;
+	height: 180rpx;
+	padding: 5rpx;
+}
+#contents .content .left-box image{
+	width: 100%;
+	height: 100%;
+}
+#contents .content .right-box .name,.company{
+	font-size: 35rpx;
+	margin-left: 10rpx;
+	margin-top: 5rpx;
+}
+#contents .content .right-box .antistops view{
+	border: 1px solid #aaa;
+	padding: 10rpx;
+	font-size: 30rpx;
+	margin:10rpx;
+	color:#777;
+	display: inline-flex;
+}

@@ -1,0 +1,28 @@
+<!--pages/personal/login/login.wxml-->
+<view class="logo">
+	<image src="../myticket/logo.png" mode="widthFix"/>
+</view>
+
+<view id="form-box">
+	<form bindsubmit="login">
+		<view class="tip">手机：</view>
+		<view class="input-box">
+			<input name="phone" bindfocus="changeInputBorder" bindblur="changeInputBorder" data-id="0" style="border-color: #{{formInputBorderColor[0]}}"/>
+		</view>
+		<view class="tip">密码：</view>
+		<view class="input-box">
+			<input name="password" password bindfocus="changeInputBorder" bindblur="changeInputBorder" data-id="1" style="border-color: #{{formInputBorderColor[1]}}"/>
+		</view>
+		<view class="btn-box">
+			<button form-type="submit">
+				登陆
+			</button>
+			<button bindtap="toSignin">
+				注册
+			</button>
+			<button open-type="getUserInfo" class="wx-login" bindtap="wxLogin">
+				微信登陆
+			</button>
+		</view>
+	</form>
+</view>

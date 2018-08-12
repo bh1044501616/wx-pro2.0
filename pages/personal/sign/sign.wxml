@@ -1,0 +1,88 @@
+<!--pages/personal/sign/sign.wxml-->
+<view class="logo">
+	<image src="../myticket/logo.png" mode="widthFix"/>
+</view>
+<view id="form-box">
+	<form bindsubmit="submitForm" bindreset="resetForm">
+		<view class="form-item" wx:for="{{items}}" style="display: {{index==6||index==7?'none':'block'}}" wx:key="{{index}}">
+			{{item.tip}}
+			<text>*</text>
+			<view class="item-box" style="border-bottom-color:#{{item.line_color}};">
+				<input name="{{index==6||index==7?'':item.name}}" placeholder="{{item.placeholder}}" placeholder-style="color:#{{placeholder_style}};" data-id="{{index}}" bindfocus="gainFocus" bindblur="loseFocus" bindinput="inputMethod" value="{{item.text}}"/>
+				<view class="icon" bindtap="deleteText" data-id="{{index}}">
+					<image src="images/{{item.icon==''?'delete':item.icon}}.png" style="display: {{item.icon==''?'none':'block'}}"/>
+				</view>
+			</view>
+		</view>
+		<view class="form-item">
+			{{items[6].tip}}
+			<text>*</text>
+			<view class="item-box" style="border-bottom-color:#{{items[6].line_color}};">
+				<input name="{{items[6].name}}" placeholder="{{items[6].placeholder}}" placeholder-style="color:#{{placeholder_style}};" data-id="6" bindfocus="gainFocus" bindblur="loseFocus" bindinput="inputMethod" password value="{{items[6].text}}"/>
+				<view class="icon" bindtap="deleteText" data-id="6">
+					<image src="images/{{items[6].icon==''?'delete':items[6].icon}}.png" style="display: {{items[6].icon==''?'none':'block'}}"/>
+				</view>
+			</view>
+		</view>
+		<view class="form-item">
+			{{items[7].tip}}
+			<text>*</text>
+			<view class="item-box" style="border-bottom-color:#{{items[7].line_color}};">
+				<input name="{{items[7].name}}" placeholder="{{items[7].placeholder}}" placeholder-style="color:#{{placeholder_style}};" data-id="7" bindfocus="gainFocus" bindblur="loseFocus" bindinput="inputMethod" password value="{{items[7].text}}"/>
+				<view class="icon" bindtap="deleteText" data-id="7">
+					<image src="images/{{items[7].icon==''?'delete':items[7].icon}}.png" style="display: {{items[7].icon==''?'none':'block'}}"/>
+				</view>
+			</view>
+		</view>
+		<!-- <view class="form-item">
+			姓名
+			<view class="item-box">
+				<input name="name" placeholder="您的姓名" placeholder-style="color:#e5e5e5" />
+			</view>
+		</view>
+		<view class="form-item">
+			公司
+			<view class="item-box">
+				<input name="company" placeholder="您的公司" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view>
+		<view class="form-item">
+			职位
+			<view class="item-box">
+				<input name="position" placeholder="您的职位" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view>
+		<view class="form-item">
+			电话
+			<view class="item-box">
+				<input name="phone" placeholder="您的电话" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view>
+		<view class="form-item">
+			邮箱
+			<view class="item-box">
+				<input name="email" placeholder="您的邮箱" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view>
+		<view class="form-item">
+			密码
+			<view class="item-box">
+				<input name="password" placeholder="您的密码" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view>
+		<view class="form-item">
+			确认密码
+			<view class="item-box">
+				<input name="" placeholder="确认密码" placeholder-style="color:#e5e5e5"/>
+			</view>
+		</view> -->
+		<view class="button">
+			<button form-type="submit" class="btn-submit" hover-class="btn-submit-hover" maxlength="18">
+				提交
+			</button>
+			<button form-type="reset" class="btn-reset" hover-class="btn-reset-hover" maxlength="18">
+				重置
+			</button>
+		</view>
+	</form>
+</view>

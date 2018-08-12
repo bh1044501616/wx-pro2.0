@@ -1,0 +1,140 @@
+/* pages/schedule/schedule.wxss */
+page{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#scrollNavi{
+	width: 100%;
+	height: 88rpx;
+	display: inline-block;
+	white-space: nowrap; 
+	box-shadow: 0px 0px 5px 1px #aaa;
+}
+#scrollNavi .item{
+	width: 30%;
+	height: 85rpx;
+	line-height: 85rpx;
+	vertical-align: center;
+	text-align: center;
+	display: inline-block;
+	color:#aaa;
+	font-weight: lighter;
+}
+#scrollNavi .selected-item{
+	width: 30%;
+	height: 85rpx;
+	line-height: 85rpx;
+	vertical-align: center;
+	text-align: center;
+	display: inline-block;
+	color:#000;
+	font-weight: normal;
+	border-bottom:5px solid #000;
+}
+/*导航定位*/
+#scrollNavi{
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #fff;
+	z-index: 100;
+}
+#scrollNavi0{
+	width: 100%;
+	height: 88rpx;
+	display: inline-block;
+	white-space: nowrap; 
+	box-shadow: 0px 0px 5px 1px #aaa;
+	z-index: 1;
+}
+
+/*网络出错提示*/
+#serverInfo{
+	width:100%;
+	margin: auto;
+	text-align: center;
+	margin-top: 50px;
+}
+
+/*Contents*/
+#contents{
+	width: 100%;
+	height: 100%;
+}
+#contents .content{
+	width: 100%;
+	height: 130px;
+	/*border-bottom: 0.5px solid #aaa;*/
+}
+/*多种样式*/
+#contents .style-0{
+	background: #fff;
+}
+#contents .style-1{
+	background: #f1f2f4;
+}
+#contents .style-2{
+	background: #e3e8ec;
+}
+#contents .content .domain{
+	font-size: 20px;
+	padding-top:5px;
+	color:#00a4db;
+}
+#contents .content .detail{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin-top: 2px;
+}
+#contents .content .detail .loc{
+	padding-left: 20px;
+}
+#contents .content .topics{
+	margin-top: 10px;
+}
+#contents .content .topics .topic_box{
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	font-size: 13px;
+}
+#contents .content .topics .topic_box .topic{
+	margin-left: 10px;
+	border-bottom: 0.5px solid #aaa; 
+}
+
+
+#detail{
+	width: 90%;
+	height: 100%;
+	position: fixed;
+	top: 100rpx;
+	right: -100%;
+	z-index: 99;
+	background: #fff;
+}
+#detail .detail{
+	display: flex;
+}
+#detail .topics .topic-box{
+	display: flex;
+	font-size: 14px;
+}
+#detail .topics .lecture .top-box{
+	display: flex;
+}
+#detail .topics .lecture .top-box .right-box{
+	width: 70%;
+}
+#detail .topics .lecture .top-box .left-box{
+	width: 150rpx;
+	height: 150rpx;
+}
+#detail .topics .lecture .top-box .left-box image{
+	width: 100%;
+	height: 100%;
+}

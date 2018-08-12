@@ -1,26 +1,34 @@
-// pages/join/feedback.js
+// pages/personal/myticket/myticket.js
 var app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    displays:['block','none']
+    myticket:{},
+    payMentDisplay:'none'
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    //将app.js的用户信息保存
+    this.setData({
+      myticket:app.globalData.myticket
+    });
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+    let that = this;
+
+    //保存用户数据到本地
+    wx.setStorageSync('myticket',that.data.myticket);
   },
 
   /**
@@ -34,7 +42,7 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+  
   },
 
   /**
@@ -64,31 +72,19 @@ Page({
   onShareAppMessage: function () {
   
   },
-   /**
-   * 提交表单
-   */
-  submit:function(e){
-    let that = this;
-    let values = e.detail.value;
-
-    wx.request({
-      url:/*app.globalData.staticUrl*/  + 'getFeedback.do',
-      data:values,
-      dataType:'json',
-      method:'GET',
-      header: {
-         'content-type': 'application/json'
-      },
-      success:function(){
-        that.setData({
-          displays:['none','block']
-        });
-      },
-      complete:function(){
-        that.setData({
-          displays:['none','block']
-        });
-      }
-    });
+  /*
+    支付
+  */
+  pay:function(){
+    let _payMentDisplay = this.data.payMentDisplay;
+    if(_payMentDisplay == 'none'){
+      this.setData({
+        payMentDisplay:''
+      })
+    }else{
+      this.setData({
+        payMentDisplay:'none'
+      })
+    }
   }
 })

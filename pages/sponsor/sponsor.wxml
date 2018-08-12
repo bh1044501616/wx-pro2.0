@@ -1,0 +1,33 @@
+<!--pages/sponsor/sponsor.wxml-->
+<view id="filter">
+	<input class="text" bindfocus="showPanel" bindblur="hindPanel"/>
+	<view class="button">
+		搜索
+	</view>
+</view>
+<scroll-view id="searchPanel" animation="{{searchPanelAnimation}}" style="height: {{width*0.4}}px;display: {{searchPanelDisplay}};">
+	<view wx:for="{{antistops}}" class="{{antistops[index].state==0||antistops[index].state == undifined?'item':'selected-item'}} item" bindtap="detailSearch" data-antistop="{{item.str}}" data-index="{{index}}">
+		{{item.str}}
+	</view>
+</scroll-view>
+
+<view id="contents">
+	<view class="content" wx:for="{{contents}}">
+		<view class="left-box">
+			<image src="{{item.pic}}"/>
+		</view>
+		<view class="right-box">
+			<view class="name">
+				{{item.name}}
+			</view>
+			<view class="company">
+				{{item.company}}
+			</view>
+			<view class="antistops">
+				<view wx:for="{{item.antistops}}" wx:for-item="item_">
+					{{item_}}
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

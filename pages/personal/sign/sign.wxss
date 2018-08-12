@@ -1,0 +1,81 @@
+/* pages/personal/sign/sign.wxss */
+page{
+	width: 100%;
+	height: 100%;
+}
+.logo{
+	width: 100%;
+	background: #e5e5e5;
+	padding: 20rpx;
+}
+.logo image{
+	width: 50%;
+}
+#form-box{
+	width:100%;
+	height: 100%;
+}
+#form-box .form-item{
+	width:90%;
+	margin: auto;
+	margin-top: 15rpx;
+	color:#666;
+	font-size: 45rpx;
+}
+#form-box .form-item text{
+	color:#fa6557;
+}
+#form-box .form-item .item-box{
+	width: 100%;
+	height: 70rpx;
+	display: flex;
+	align-items: center;
+	border-bottom-width:1px;
+	border-bottom-style: solid;
+}
+#form-box .form-item .item-box input{
+	width: 700rpx;
+	font-size: 37rpx;
+	color:#000;
+}
+#form-box .form-item .item-box .icon{
+	width: 45rpx;
+	height: 45rpx;
+}
+#form-box .form-item .item-box .icon image{
+	width: 100%;
+	height: 100%;
+}
+
+
+#form-box .button{
+	width: 90%;
+	margin: auto;
+	margin-top: 40rpx;
+}
+#form-box .button button{
+	width: 200rpx;
+	height: 80rpx;
+	color:#fff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	float: right;
+	margin-bottom: 30rpx;
+}
+#form-box .button .btn-submit{
+	background-color: #35cc62;
+	margin-left: 20rpx;
+}
+#form-box .button .btn-submit-hover{
+	background-color: #35cc62;
+	box-shadow: 0px 0px 2px 1px #fff inset;
+	margin-left: 20rpx;
+}
+#form-box .button .btn-reset{
+	background-color: #ffb54c;
+}
+#form-box .button .btn-reset-hover{
+	background-color: #ffb54c;
+	box-shadow: 0px 0px 2px 1px #fff inset;
+}

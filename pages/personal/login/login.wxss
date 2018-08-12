@@ -1,0 +1,47 @@
+/* pages/personal/login/login.wxss */
+page{
+	width: 100%;
+	height: 100%;
+	margin: auto;
+}
+.logo{
+	width: 100%;
+	background: #e5e5e5;
+	padding: 20rpx;
+}
+.logo image{
+	width: 50%;
+}
+
+#form-box{
+	width: 90%;
+	margin: auto;
+}
+#form-box .tip{
+	margin-top:20rpx;
+}
+#form-box .input-box{
+	width: 100%;
+	margin-top: 20rpx;
+}
+#form-box .input-box input{
+	border: 1px solid #e5e5e5;
+	height: 65rpx;
+	padding-left: 5rpx;
+}
+#form-box .btn-box{
+	width: 100%;
+	margin-top: 30rpx;
+}
+#form-box .btn-box button{
+	width: 100%;
+	margin-top: 30rpx;
+	height: 80rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 35rpx;
+}
+#form-box .btn-box .wx-login{
+	margin-top: 80rpx;
+}

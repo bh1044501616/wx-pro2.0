@@ -1,11 +1,16 @@
 {
   "pages": [
+    "pages/personal/personal",
+    "pages/personal/login/login",
+    "pages/personal/myticket/myticket",
+    "pages/personal/sign/sign",
+    "pages/personal/feedback/feedback",
+    "pages/schedule/schedule",
     "pages/video/video",
     "pages/index/index",
-    "pages/info/info",
-    "pages/join/join",
-    "pages/join/feedback",
-    "pages/webPage"
+    "pages/sponsor/sponsor",
+    "pages/webPage",
+    "pages/personal/download/download"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00a4db",
@@ -22,10 +27,10 @@
         "selectedIconPath": "images/index_tabbar_posttab.png"
       },
       {
-        "pagePath": "pages/info/info",
-        "text": "资讯",
-        "iconPath": "images/info_tabbar_pretab.png",
-        "selectedIconPath": "images/info_tabbar_posttab.png"
+        "pagePath": "pages/schedule/schedule",
+        "text": "日程",
+        "iconPath": "images/schedule_tabbar_pretab.png",
+        "selectedIconPath": "images/schedule_tabbar_posttab.png"
       },
       {
         "pagePath": "pages/video/video",
@@ -34,10 +39,10 @@
         "selectedIconPath": "images/video_tabbar_posttab.png"
       },
       {
-        "pagePath": "pages/join/join",
-        "text": "加入我们",
-        "iconPath": "images/join_tabbar_pretab.png",
-        "selectedIconPath": "images/join_tabbar_posttab.png"
+        "pagePath": "pages/personal/personal",
+        "text": "个人中心",
+        "iconPath": "images/personal_tabbar_pretab.png",
+        "selectedIconPath": "images/personal_tabbar_posttab.png"
       }
     ],
     "backgroundColor": "#fff",

@@ -1,0 +1,97 @@
+<scroll-view scroll-x scroll-with-animation id="scrollNavi">
+	<view wx:for="{{dates}}" wx:for-index="index" class="{{selectedItem==index?'selected-item':'item'}}" bindtap="turnNavi" data-index="{{index}}" wx:key="*this">
+		{{item}}
+	</view>
+</scroll-view>
+<scroll-view scroll-x scroll-with-animation id="scrollNavi0"></scroll-view>
+
+
+<view id="serverInfo" style="display: {{serverInfo===''?'none':'block'}};">
+	<icon type="info" size="50"></icon>
+	<view>
+		{{serverInfo}}
+	</view>
+</view>
+
+<view id="detail" animation="{{detailAnimation}}" bindtap="backToList">
+	<view class="domain">
+		{{detail.domain}}
+	</view>
+	<view class="detail">
+		<view class="time">
+			9:00-17:00
+		</view>
+		<view class="loc">
+			{{detail.loc}}
+		</view>
+	</view>
+	<view class="topics">
+		<block wx:for="{{detail.topics}}" wx:for-item="item_j" wx:key="id">
+			<view class="topic-box">
+				<view class="begintime">
+					{{item_j.begintime}}
+				</view>
+				<view class="endtime">
+					-{{item_j.endtime}}
+				</view>
+				<view class="topic">
+					{{item_j.topic}}
+				</view>
+			</view>
+			<view class="lectures">
+				<block wx:for="{{item_j.lectures}}" wx:key="name" wx:for-item="item_k">
+					<view class="lecture">
+						<view class="top-box">
+							<view class="left-box">
+								<image src="{{item_k.pic}}" mode="scaleToFill"/>
+							</view>
+							<view class="right-box">
+								<view class="name">
+									{{item_k.name}}
+								</view>
+								<view class="intro">
+									{{item_k.introduction}}
+								</view>
+							</view>
+						</view>
+						<view class="bottom-box">
+						</view>
+					</view>
+				</block>
+			</view>
+		</block>
+	</view>
+</view>
+
+<view id="contents">
+	<block wx:for="{{contents}}" class="content" wx:for-item="item_i" wx:key="loc">
+		<view class="content style-{{index%3}}" bindtap="checkDetail" data-index="{{index}}" animation="{{detailAnimation}}">
+			<view class="domain">
+				{{item_i.domain}}
+			</view>
+			<view class="detail">
+				<view class="time">
+					9:00-17:00
+				</view>
+				<view class="loc">
+					{{item_i.loc}}
+				</view>
+			</view>
+			<view class="topics">
+				<block wx:for="{{item_i.topics}}" wx:for-item="item_j" wx:key="id">
+					<view class="topic_box">
+						<view class="begintime">
+							{{item_j.begintime}}
+						</view>
+						<view class="endtime">
+							-{{item_j.endtime}}
+						</view>
+						<view class="topic">
+							{{item_j.topic}}
+						</view>
+					</view>
+				</block>
+			</view>
+		</view>
+	</block>
+</view>

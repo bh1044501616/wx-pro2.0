@@ -56,7 +56,10 @@ Page({
       latitude:40.044666,
       longitude:116.299267,
       width: 50,
-      height: 42
+      height: 42,
+      alpha:0.95,
+      width:18,
+      height:28
     }],
     /*box-shadow*/
     box_shadow:[0,0]

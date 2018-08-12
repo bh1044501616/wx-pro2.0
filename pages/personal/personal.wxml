@@ -1,0 +1,114 @@
+<!--pages/personal/personal.wxml-->
+<view id="userInfo" class="item">
+	<view class="pic">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<view class="info" bindtap="turnPage">
+		<view class="name">
+			{{myticket.name == undefined ? 'Name' : myticket.name}}
+		</view>
+		<view class="company">
+			{{myticket.company == undefined ? 'company' : myticket.company}}
+		</view>
+	</view>
+	<view class="qrcode" bindtap="checkQrCode">
+		<image src="{{myticket.qrCode}}"/>
+	</view>
+</view>
+
+
+<view class="box">
+	<view id="ticket">
+		<view class="tip" class="item line">
+			大会门票
+		</view>
+		<view class="item-box" hover-class="pressed-item">
+			<view class="signin" class="item line" bindtap="turnPage">
+				<view class="icon">
+					<image src="images/myticket.png"/>
+				</view>
+				<view class="text">
+					我的门票
+				</view>
+			</view>
+		</view>
+		<view class="item-box" hover-class="pressed-item">
+			<view class="consult" class="item" bindtap="makeCall">
+				<view class="icon">
+					<image src="images/consult.png"/>
+				</view>
+				<view class="text">
+					票务咨询
+				</view>
+			</view>
+		</view>
+		<view class="item-box" hover-class="pressed-item">
+			<view class="verify-qrcode" class="item" bindtap="verifyQrCode" bindlongpress="showCheckList">
+				<view class="icon">
+					<image src="images/consult.png"/>
+				</view>
+				<view class="text">
+					验证二维码
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+
+<view class="box" bindtap="turnPage" data-url="download/download" hover-class="pressed-item">
+	<view id="download" class="item">
+		<view class="icon">
+			<image src="images/download.png"/>
+		</view>
+		<view class="text">
+			下载管理
+		</view>
+	</view>
+</view>
+
+<view class="box" bindtap="turnPage" data-url="feedback/feedback" hover-class="pressed-item">
+	<view id="feedback" class="item">
+		<view class="icon">
+			<image src="images/feedback.png"/>
+		</view>
+		<view class="text">
+			意见反馈
+		</view>
+	</view>
+</view>
+
+<view id="model" style="display: {{modelDisplay}}" class="model">
+	<view class="model-box">
+		<view class="top">
+			<view class="logo">
+				<image src="myticket/logo.png"/>
+			</view>
+			TiD小程序申请获取以下权限：
+		</view>
+		<view class="middle">
+			⚪获得你的公开信息（昵称、头像等）
+		</view>
+		<view class="middle">
+			用于验证信息安全
+		</view>
+		<view class="bottom">
+			<button open-type="getUserInfo" bindtap="buttonEvent">拒绝</button>
+			<button open-type="getUserInfo" bindtap="buttonEvent">允许</button>
+		</view>
+	</view>
+</view>
+
+<view id="qrcode" class="model" style="display: {{qrCodeDisplay}}" bindtap="checkQrCode">
+	<view>
+		<image src="{{myticket.qrCode}}"/>
+	</view>
+</view>
+
+
+<scroll-view scroll-y="true" id="checkList" style="display: {{checkListDisplay}}" class="model" bindtap="showCheckList">
+	<view wx:for="{{checkList}}" class="item-box">
+		<view>
+			{{item}}
+		</view>
+	</view>
+</scroll-view>
