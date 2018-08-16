@@ -13,7 +13,7 @@
 	</view>
 </view>
 
-<view id="detail" animation="{{detailAnimation}}" bindtap="backToList">
+<view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE">
 	<view class="domain">
 		{{detail.domain}}
 	</view>
@@ -55,6 +55,10 @@
 							</view>
 						</view>
 						<view class="bottom-box">
+							<view class="ppt">
+								{{item_k.pptName}}
+							</view>
+							<image src="images/download.jpg" bindtap="download" data-url="{{item_k.ppt}}" data-name="{{index}}.ppt"/>
 						</view>
 					</view>
 				</block>
@@ -63,9 +67,9 @@
 	</view>
 </view>
 
-<view id="contents">
+<view id="contents" animation="{{detailAnimation}}">
 	<block wx:for="{{contents}}" class="content" wx:for-item="item_i" wx:key="loc">
-		<view class="content style-{{index%3}}" bindtap="checkDetail" data-index="{{index}}" animation="{{detailAnimation}}">
+		<view class="content style-{{index%3}}" bindtap="checkDetail" data-index="{{index}}">
 			<view class="domain">
 				{{item_i.domain}}
 			</view>

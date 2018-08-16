@@ -1,1 +1,56 @@
 /* pages/personal/download/download.wxss */
+page{
+	width: 100%;
+	height: 100%;
+}
+#downloadingList{
+	width: 100%;
+}
+#downloadedList{
+	width: 100%;
+}
+view .tip{
+	background: #eee;
+	height: 75rpx;
+	display: flex;
+	align-items: center;
+	padding-left: 20rpx;
+	box-shadow: 0px 1px 5px 1px #ccc;
+}
+.item-box .item{
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #eee;
+	height: 150rpx;
+}
+.item-box .item image{
+	width: 150rpx;
+	height: 150rpx;
+}
+.item-box .item .info{
+	width: 500rpx;
+	margin-left: 20rpx;
+	height: 150rpx;
+	display: flex;
+	align-items: center;
+}
+.item-box .item .info .info-box{
+	width: 100%;
+}
+.item-box .item .info .info-box view{
+	display: flex;
+	align-items: center;
+	height: 50rpx;
+}
+.item-box .item .info .info-box progress{
+	height: 30rpx;
+}
+.item-box .item .method{
+	display: flex;
+	align-items: center;
+	width: 200rpx;
+	justify-content: center;
+}
+#downloadedList .item-box .item .info .name{
+	border-bottom: 1px solid #eee;
+}

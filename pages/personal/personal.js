@@ -85,6 +85,12 @@ Page({
     页面跳转
   */
   turnPage:function(res){
+    let _url = res.currentTarget.dataset.url;
+    if(_url !== ''){
+      wx.navigateTo({
+        url:_url
+      });
+    }
     //获取app中存储的用户信息
     let _myticket = app.globalData.myticket;
 

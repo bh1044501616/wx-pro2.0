@@ -15,7 +15,10 @@ App({
     tempUserInfo:{},
     myticket:{},
     //验证过的二维码列表
-    checkList:[]
+    checkList:[],
+    /*schedule页面的下载相关变量*/
+    downloadingList:[],
+    downloadedList:[]
   },
   onLaunch: function () {
     var that = this;

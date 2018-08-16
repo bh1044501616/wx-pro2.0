@@ -1,2 +1,54 @@
 <!--pages/personal/download/download.wxml-->
-<text>pages/personal/download/download.wxml</text>
+<view id="downloadingList">
+	<view class="tip">
+		正在下载（{{downloadingList.length}}）
+	</view>
+	<view class="item-box">
+		<view class="item" wx:for="{{downloadingList}}">
+			<image src="images/ppt.png"/>
+			<view class="info">
+				<view class="info-box">
+					<view class="name">
+						{{item.name}}
+					</view>
+					<progress percent="{{item.progress}}" active active-mode="forwards" backgroundColor="#eee"/>
+					<view class="size">
+						{{item.currentSize}}/{{item.totalSize}}M
+					</view>
+				</view>
+			</view>
+			<view class="method">
+				<icon type="cancel"/>
+				<view class="abort">
+					暂停
+				</view>
+			</view>
+		</view>
+	</view>
+</view>
+<view id="downloadedList">
+	<view class="tip">
+		下载完成（{{downloadedList.length}}）
+	</view>
+	<view class="item-box">
+		<view class="item" wx:for="{{downloadedList}}">
+			<image src="images/ppt.png"/>
+			<view class="info">
+				<view class="info-box">
+					<view class="name">
+						{{item.name}}
+					</view>
+					<view class="size">
+						{{item.size}}M
+					</view>
+				</view>
+			</view>
+			<view class="method">
+				<icon type="clear" bindtap="dropFile" data-index="{{index}}" data-name="{{item.name}}"/>
+				<view class="open" bindtap="openFile" data-path="{{item.path}}" data-name="{{item.name}}">
+					打开
+				</view>
+			</view>
+		</view>
+	</view>
+</view>

@@ -1,16 +1,16 @@
 {
   "pages": [
+    "pages/schedule/schedule",
+    "pages/personal/download/download",
     "pages/personal/personal",
     "pages/personal/login/login",
     "pages/personal/myticket/myticket",
     "pages/personal/sign/sign",
     "pages/personal/feedback/feedback",
-    "pages/schedule/schedule",
     "pages/video/video",
     "pages/index/index",
     "pages/sponsor/sponsor",
-    "pages/webPage",
-    "pages/personal/download/download"
+    "pages/webPage"
   ],
   "window": {
     "navigationBarBackgroundColor": "#00a4db",

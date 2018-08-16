@@ -4,6 +4,13 @@ const LIST_URL = app.globalData.staticUrl + 'schedule/info/';
 const DATE_URL = ['20180815','20180816','20180817','20180818'];
 const DETAIL_URL = app.globalData.staticUrl + 'schedule/detail.do';
 
+//获取全局唯一文件管理
+var fileSystemManager = wx.getFileSystemManager();
+
+function getMB(b){
+  return (b/1024.0/1024.0).toFixed(2);
+}
+
 Page({
 
   /**
@@ -20,7 +27,11 @@ Page({
     //大会日期
     dates:['2018-08-15','2018-08-16','2018-08-17','2018-08-18'],
     //网络链接中断提示
-    serverInfo:''
+    serverInfo:'',
+    //用于返回主页面（手指动作坐标变量）
+    startX:0,
+    moveX:0,
+    endX:0
   },
 
   /**
@@ -30,7 +41,7 @@ Page({
     let that = this;
     //获取大会行程首页数据
     wx.request({
-      url:app.globalData.staticUrl + 'schedule/info/20180809.do',
+      url:app.globalData.staticUrl + 'schedule/info/20180801.do',
       success:function(res){
         let list = res.data.data;
         that.setData({
@@ -171,6 +182,48 @@ Page({
       detailAnimation:animation.export()
     });
   },
+  //手指刚放到屏幕触发
+  touchS:function(e){
+    let that = this;
+
+    //判断是否只有一个触摸点
+    if(e.touches.length==1){
+      this.setData({
+        //记录触摸起始位置的X坐标
+        startX:e.touches[0].clientX
+      });
+    }
+  },
+  //触摸时触发，手指在屏幕上每移动一次，触发一次
+  touchM:function(e){
+    let that = this;
+
+    let moveX = e.touches[0].clientX;
+
+    if(e.touches.length == 1){
+      let animation = wx.createAnimation({
+        duration:400,
+        delay:0,
+        timingFunction:'ease-in-out'
+      });
+      animation.translate(-app.globalData.width + moveX).step();
+      that.setData({
+        detailAnimation:animation.export()
+      });
+    }
+  },
+  touchE:function(e){
+    let that = this;
+    
+    if(e.changedTouches.length==1){
+      //手指移动结束后触摸点位置的X坐标
+      let endX = e.changedTouches[0].clientX;
+      
+      if(that.data.startX > 0 && (endX - that.data.startX) > 0){
+        that.backToList();
+      }
+    }
+  },
   /*
     返回列表
   */
@@ -186,5 +239,73 @@ Page({
     that.setData({
       detailAnimation:animation.export()
     });
+  },
+  /*
+    下载ppt
+  */
+  download:function(arg){
+    let _url = arg.currentTarget.dataset.url;
+    let _name = arg.currentTarget.dataset.name;
+
+    let downloadedObj = {
+      
+    }
+    let downloadingObj = {
+      name:_name
+    }
+      const _downloadTask = wx.downloadFile({
+      url: _url, 
+      success: function(res) {
+        if (res.statusCode  === 200) {
+            //请求成功，保存文件到本地
+            
+            //将保存完的文件加入下载完成列表
+            downloadedObj.name = downloadingObj.name;
+            downloadedObj.size = downloadingObj.totalSize;
+            downloadedObj.path = res.tempFilePath;
+        
+            let _downloadedList = app.globalData.downloadedList;
+            _downloadedList[_downloadedList.length] = downloadedObj;
+
+            console.log(app.globalData.downloadingList)
+            console.log(app.globalData.downloadedList)
+
+            //将下载完成的任务从正在下载列表清除
+
+            let _downloadingList = app.globalData.downloadingList;
+            
+            for(let i=0;i<_downloadingList.length;i++){
+              if(_downloadingList[i] === downloadingObj){
+                _downloadingList.splice(i,1);
+              }
+            }
+        }
+      },
+      fail:function(res){
+        console.log(res)
+        //网络请求失败
+        wx.showToast({
+          title:'网络繁忙，稍后重试!',
+          icon:'none',
+          duration:2000
+        });
+      }
+    });
+
+    downloadingObj.downloadTask = _downloadTask;
+
+    //添加任务到app.js
+    let _downloadingList = app.globalData.downloadingList;
+    _downloadingList[_downloadingList.length] = downloadingObj;
+    app.globalData.downloadingList = _downloadingList;
+
+    _downloadTask.onProgressUpdate((res) => {
+      console.log(app.globalData.downloadingList)
+      //更新数据进度
+      downloadingObj.progress = res.progress;
+      downloadingObj.currentSize = getMB(res.totalBytesWritten);
+      downloadingObj.totalSize = getMB(res.totalBytesExpectedToWrite);
+    })
+    
   }
 })
