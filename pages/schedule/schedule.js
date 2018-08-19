@@ -248,7 +248,7 @@ Page({
     let _name = arg.currentTarget.dataset.name;
 
     let downloadedObj = {
-      
+      url:_url
     }
     let downloadingObj = {
       name:_name
@@ -307,5 +307,15 @@ Page({
       downloadingObj.totalSize = getMB(res.totalBytesExpectedToWrite);
     })
     
-  }
+  },
+  /*
+    切换到pc页面下载ppt
+  */
+  /*turnToPCPage:function(){
+    app.globalData.info_web_view = app.globalData.staticUrl + "schedule/load.do";
+
+    wx.navigateTo({
+      url:'../webPage'
+    })
+  }*/
 })

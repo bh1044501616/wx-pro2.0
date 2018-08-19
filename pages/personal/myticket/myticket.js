@@ -86,5 +86,43 @@ Page({
         payMentDisplay:'none'
       })
     }
+  },
+  /*
+    重新获取账户信息
+  */
+  freshPage:function(){
+    let that = this;
+
+    wx.request({
+      url:app.globalData.staticUrl + 'ticket/loginin.do',
+      method:'POST',
+        header:{
+          'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+        },
+        data:{
+          phone:that.data.myticket.phone,
+          password:that.data.myticket.password
+        },
+        success:function(res){
+          let state = res.data.state;
+
+          if(state){
+            app.globalData.myticket = res.data.data
+
+            that.setData({
+              myticket:app.globalData.myticket
+            });
+
+            wx.setStorageSync('myticket',app.globalData.myticket);
+          }
+        },
+        fail:function(){
+          wx.showToast({
+            title:'网络繁忙',
+            duration:2000,
+            icon:'none'
+          });
+        }
+    })
   }
 })

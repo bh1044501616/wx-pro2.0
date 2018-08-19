@@ -165,5 +165,22 @@ Page({
     that.setData({
       downloadedList:downloadedList1
     });
+  },
+  /*
+    复制ppt的链接到剪贴板
+  */
+  copyPPTUrl:function(res){
+    let _url = res.currentTarget.dataset.url;
+
+    wx.setClipboardData({
+      data:_url,
+      success:function(){
+        wx.showToast({
+          title:'ppt链接已复制到剪贴板',
+          icon:'none',
+          duration:2000
+        });
+      }
+    })
   }
 })

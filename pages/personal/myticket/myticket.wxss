@@ -36,6 +36,14 @@ page{
 	width: 500rpx;
 	height: 500rpx;
 }
+#ticket .qrcode .freshPage{
+	background: #ffb54c;
+	color:#fff;
+	width: 180rpx;
+	margin: auto;
+	margin-top: 20rpx;
+	font-size: 35rpx;
+}
 #ticket .qrcode .pay{
 	width: 200rpx;
 	height: 70rpx;

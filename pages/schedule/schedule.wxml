@@ -65,6 +65,9 @@
 			</view>
 		</block>
 	</view>
+	<!-- <view class="pcDownload" bindtap="turnToPCPage">
+		保存ppt到手机
+	</view> -->
 </view>
 
 <view id="contents" animation="{{detailAnimation}}">

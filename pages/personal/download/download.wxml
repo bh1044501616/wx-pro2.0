@@ -31,7 +31,7 @@
 		下载完成（{{downloadedList.length}}）
 	</view>
 	<view class="item-box">
-		<view class="item" wx:for="{{downloadedList}}">
+		<view class="item" wx:for="{{downloadedList}}" bindlongpress="copyPPTUrl" data-url="{{item.url}}">
 			<image src="images/ppt.png"/>
 			<view class="info">
 				<view class="info-box">
@@ -49,6 +49,9 @@
 					打开
 				</view>
 			</view>
+		</view>
+		<view class="savePPTTip">
+			由于小程序下载文件限制，如需保存ppt到本地，可长按已下载项复制ppt链接到剪贴板
 		</view>
 	</view>
 </view>

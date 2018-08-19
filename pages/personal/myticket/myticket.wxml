@@ -19,6 +19,7 @@
 		<image src="{{myticket.qrCode}}"/>
 		<view>支付状态：{{myticket.paid == 1 ? '已支付':'未支付'}}</view>
 		<view bindtap="pay" class="pay" style="display: {{myticket.paid == 1 ? 'none':''}}">现在支付</view>
+		<view class="freshPage" bindtap="freshPage">刷新页面</view>
 	</view>
 	<view class="tip">
 		<text>
