@@ -41,7 +41,7 @@ Page({
     let that = this;
     //获取大会行程首页数据
     wx.request({
-      url:app.globalData.staticUrl + 'schedule/info/20180801.do',
+      url:app.globalData.staticUrl + 'schedule/info/20180815.do',
       success:function(res){
         let list = res.data.data;
         that.setData({
@@ -256,7 +256,7 @@ Page({
       const _downloadTask = wx.downloadFile({
       url: _url, 
       success: function(res) {
-        if (res.statusCode  === 200) {
+        if (res.data.state) {
             //请求成功，保存文件到本地
             
             //将保存完的文件加入下载完成列表
@@ -298,6 +298,12 @@ Page({
     let _downloadingList = app.globalData.downloadingList;
     _downloadingList[_downloadingList.length] = downloadingObj;
     app.globalData.downloadingList = _downloadingList;
+
+    wx.showToast({
+      title:'已加入下载列表',
+      icon:'none',
+      duration:2000
+    });
 
     _downloadTask.onProgressUpdate((res) => {
       console.log(app.globalData.downloadingList)

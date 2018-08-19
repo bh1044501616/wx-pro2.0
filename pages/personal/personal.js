@@ -86,10 +86,11 @@ Page({
   */
   turnPage:function(res){
     let _url = res.currentTarget.dataset.url;
-    if(_url !== ''){
+    if(_url != ''){
       wx.navigateTo({
         url:_url
       });
+      return;
     }
     //获取app中存储的用户信息
     let _myticket = app.globalData.myticket;

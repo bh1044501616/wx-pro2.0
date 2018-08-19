@@ -54,11 +54,11 @@
 								</view>
 							</view>
 						</view>
-						<view class="bottom-box">
+						<view class="bottom-box" style="display: {{item_k.pptName != undefined ?'':'none'}};">
 							<view class="ppt">
 								{{item_k.pptName}}
 							</view>
-							<image src="images/download.jpg" bindtap="download" data-url="{{item_k.ppt}}" data-name="{{index}}.ppt"/>
+							<image src="images/download.jpg" bindtap="download" data-url="{{item_k.ppt}}" data-name="{{item_k.pptName}}"/>
 						</view>
 					</view>
 				</block>
