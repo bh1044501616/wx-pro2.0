@@ -1,0 +1,19 @@
+<!--pages/schedule/lecturer/lecturer.wxml-->
+<view id="title" style="width: 100%;">
+	<image src="../../../images/title.jpg" mode="widthFix" style="width: 100%;height: 100%;"/>
+</view>
+<view id="lecs">
+	<view wx:for="{{lecturers}}" class="lec-box">
+		<view class="lefty">
+			<image src="{{item.pic}}"/>
+		</view>
+		<view class="righty">
+			<view class="name">
+				{{item.name}}
+			</view>
+			<view class="intro">
+				{{item.introduction}}
+			</view>
+		</view>
+	</view>
+</view>

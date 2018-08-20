@@ -9,7 +9,8 @@
     "pages/personal/feedback/feedback",
     "pages/video/video",
     "pages/index/index",
-    "pages/sponsor/sponsor",
+    "pages/schedule/sponsor/sponsor",
+    "pages/schedule/lecturer/lecturer",
     "pages/webPage"
   ],
   "window": {

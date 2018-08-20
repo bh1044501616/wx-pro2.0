@@ -86,7 +86,7 @@ Page({
   */
   turnPage:function(res){
     let _url = res.currentTarget.dataset.url;
-    if(_url != ''){
+    if(_url != '' && _url != undefined){
       wx.navigateTo({
         url:_url
       });

@@ -10,7 +10,7 @@ App({
     height:0,
     title:"首页",
     info_web_view:'',
-    staticUrl:'https://www.psnhub.club/wx/'/*'http://localhost:8080/smallProject1.0/'*/,
+    staticUrl:/*'https://www.psnhub.club/wx/'*/'http://localhost:8080/smallProject1.0/',
     userInfo:{},
     tempUserInfo:{},
     myticket:{},

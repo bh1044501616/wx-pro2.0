@@ -45,7 +45,7 @@
 		<view class="item-box" hover-class="pressed-item">
 			<view class="verify-qrcode" class="item" bindtap="verifyQrCode" bindlongpress="showCheckList">
 				<view class="icon">
-					<image src="images/consult.png"/>
+					<image src="images/qrcode.png"/>
 				</view>
 				<view class="text">
 					验证二维码
