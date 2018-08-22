@@ -1,0 +1,35 @@
+<!--pages/index/position/position.wxml-->
+<view id="title" style="width: 100%;">
+	<image src="../../../images/title.jpg" mode="widthFix" style="width: 100%;height: 100%;"/>
+</view>
+
+<view id="contact">
+<map id="map" longitude="{{position.longitude}}" latitude="{{position.latitude}}" show-location markers="{{markers}}">
+</map>
+
+<view class="info">
+  <view class="title">
+    智联联盟
+  </view>
+  <view class="details">
+    <view class="detail">
+      <view class="image">
+       <image src="images/icon_phone.png"/>
+      </view>
+      <text>18613310432</text>
+    </view>
+    <view class="detail">
+      <view class="image">
+       <image src="images/icon_mail.png"/>
+      </view>
+      <text>mingym@spichina.org.cn</text>
+    </view>
+    <view class="detail">
+      <view class="image">
+       <image src="images/icon_position.png"/>
+      </view>
+      <text>北京市海淀区上地街道东北旺西路8号\n中关村软件园8号楼华夏科技大厦2层227C室</text>
+    </view>
+  </view>
+</view>
+</view>

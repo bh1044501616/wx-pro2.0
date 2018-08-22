@@ -163,5 +163,14 @@ Page({
      /* searchPanelAnimation:animation.export(),*/
       searchPanelDisplay:'none'
     });
+  },
+  /*
+    查看赞助商信息
+  */
+  checkDetail:function(){
+    let that = this;
+
+    //隐藏搜索框
+    that.hindPanel();
   }
 })

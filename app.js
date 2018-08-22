@@ -10,7 +10,7 @@ App({
     height:0,
     title:"首页",
     info_web_view:'',
-    staticUrl:/*'https://www.psnhub.club/wx/'*/'http://localhost:8080/smallProject1.0/',
+    staticUrl:'https://www.psnhub.club/wx/'/*'http://localhost:8080/smallProject1.0/'*/,
     userInfo:{},
     tempUserInfo:{},
     myticket:{},
@@ -18,7 +18,11 @@ App({
     checkList:[],
     /*schedule页面的下载相关变量*/
     downloadingList:[],
-    downloadedList:[]
+    downloadedList:[],
+    /*屏幕的中间位置距离顶部的距离(px)*/
+    middle:0,
+    /*是否在进行跳转页面的标志*/
+    turnPageFlag:0
   },
   onLaunch: function () {
     var that = this;
@@ -26,10 +30,13 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
     this.globalData.width = wx.getSystemInfoSync().windowWidth
     this.globalData.height = wx.getSystemInfoSync().windowHeight
     this.data.width = wx.getSystemInfoSync().windowWidth
     this.data.height = wx.getSystemInfoSync().windowHeight
+
+    this.globalData.middle = wx.getSystemInfoSync().windowHeight/2.0
 
     
 

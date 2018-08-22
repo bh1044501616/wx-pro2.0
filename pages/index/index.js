@@ -1,5 +1,9 @@
 var app = getApp();
 
+const TOP = 'top';
+const MIDDEL = 'middle';
+const BOTTOM = 'bottom';
+
 Page({
   data: {
   /** 导航*/
@@ -43,28 +47,95 @@ Page({
     /*按下变色*/
     touchColor_a:'#fff',
     touchColor_b:'#fff',
-  /** 地图*/
-    /*地图上下文*/
-    mapContext:{},
-    position:{
-      latitude:39.90,
-      longitude:116.38
-    },
-    markers: [{
-      iconPath: "images/marker.png",
-      id: 0,
-      latitude:40.044666,
-      longitude:116.299267,
-      width: 50,
-      height: 42,
-      alpha:0.95,
-      width:18,
-      height:28
-    }],
+  
     /*box-shadow*/
-    box_shadow:[0,0]
+    box_shadow:[0,0],
+    /*主要内容*/
+    content:[
+      {
+        title:'会议梗概',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:''
+      },
+      {
+        title:'演讲嘉宾',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../schedule/lecturer/lecturer'
+      },
+      {
+        title:'赞助商',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../schedule/sponsor/sponsor'
+      },
+      {
+        title:'大会日程',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../schedule/schedule'
+      },
+      {
+        title:'大会动态',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:''
+      },
+      {
+        title:'会议地点',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'position/position'
+      },
+      {
+        title:'地点引导',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:''
+      },
+      {
+        title:'票务管理',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../personal/personal'
+      },
+      {
+        title:'参会指导',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:''
+      },
+      {
+        title:'下载页面',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../personal/download/download'
+      }
+    ],
+    turnPageAnimation:[],
+    contentNaviSelected:[]
   },
-  /** 地图*/
   /** 为主页导航添加的事件*/
   blurChange:function(res){
     //改变导航字体颜色（改变图片路径）
@@ -119,7 +190,31 @@ Page({
   },
   /** 滑动页面自动触发事件*/
   onPageScroll:function(){
-    
+    let that = this;
+
+    var selector = wx.createSelectorQuery();
+    selector.selectAll('#contents .content').boundingClientRect(function(res){
+      //小程序中央的坐标
+      let middle = app.globalData.middle;
+
+      let _item = that.data.contentNaviSelected;
+
+      //更改每一个content标签的top属性
+      for(let i=0;i<res.length;i++){
+        //当前实际的坐标位置
+        let actTop = res[i].top;
+
+        if(actTop <= middle && actTop >= middle - res[i].height){
+          //组件处于 屏幕中部上端 & 屏幕中部 - 组件高度） 下部 位置
+          _item[i] = 1;
+        }else{
+          _item[i] = 0;
+        }
+        that.setData({
+          contentNaviSelected:_item
+        });
+      }
+    }).exec();
   },
   onShow:function(){
     wx.setNavigationBarTitle({
@@ -163,10 +258,6 @@ Page({
           });
         }
     },2000);
-    //绑定map组件上下文
-    that.data.mapContext = wx.createMapContext('map');
-    that.data.mapContext.moveToLocation();
-    that.loadMap();
   },
   /** 改变swiper图片*/
   toggleSwiperPic:function(method){
@@ -192,22 +283,7 @@ Page({
       });
     }
   },
-/** 地图*/
-  /*加载地图初始化信息*/
-  loadMap:function(){
-    var that = this;
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function(res) {
-        that.setData({
-          position:{
-            latitude:res.latitude,
-            longitude:res.longitude
-          }
-        })
-      }
-    });
-  },
+
 /** 跳转页面*/
 jumpTo:function(arg){
   let url = arg.currentTarget.dataset.url;
@@ -235,5 +311,46 @@ jumpTo:function(arg){
     this.setData({
       box_shadow:themes
     })
+  },
+  /*
+    转换页面操作
+  */
+  turnPage:function(arg){
+    let that = this;
+
+    /*//跳转页面动画
+    let _content = that.data.content;
+    let index = arg.currentTarget.id;
+
+    let animations = new Array(_content.length);
+    for(let i=0;i<_content.length;i++){
+      let animation = wx.createAnimation({
+        duration:200,
+        timingFunction:'linear',
+        delay:0,
+        transformOrigin:'80% 50% -100px'
+      });
+      animation.rotateY(-60).step();
+      if(i == index)
+        animations[i] = animation.export();
+    }
+    that.setData({
+      turnPageAnimation:animations
+    });*/
+
+    //跳转页面
+    let _url = arg.currentTarget.dataset.url;
+    wx.navigateTo({
+      url: _url,
+      fail:function(){
+        wx.switchTab({
+          url:_url
+        });
+      },
+      complete:function(){
+        //设置跳转页面的标志 为 1
+        app.globalData.turnPageFlag = 1;
+      }
+    });
   }
 })

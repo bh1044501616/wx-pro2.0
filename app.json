@@ -1,16 +1,17 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/index/position/position",
     "pages/schedule/schedule",
-    "pages/personal/download/download",
+    "pages/schedule/sponsor/sponsor",
+    "pages/schedule/lecturer/lecturer",
     "pages/personal/personal",
+    "pages/personal/download/download",
     "pages/personal/login/login",
     "pages/personal/myticket/myticket",
     "pages/personal/sign/sign",
     "pages/personal/feedback/feedback",
     "pages/video/video",
-    "pages/index/index",
-    "pages/schedule/sponsor/sponsor",
-    "pages/schedule/lecturer/lecturer",
     "pages/webPage"
   ],
   "window": {
@@ -23,21 +24,21 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页",
+        "text": "大会信息",
         "iconPath": "images/index_tabbar_pretab.png",
         "selectedIconPath": "images/index_tabbar_posttab.png"
       },
       {
         "pagePath": "pages/schedule/schedule",
-        "text": "日程",
+        "text": "日程安排",
         "iconPath": "images/schedule_tabbar_pretab.png",
         "selectedIconPath": "images/schedule_tabbar_posttab.png"
       },
       {
-        "pagePath": "pages/video/video",
-        "text": "Tid",
-        "iconPath": "images/video_tabbar_pretab.png",
-        "selectedIconPath": "images/video_tabbar_posttab.png"
+        "pagePath": "pages/schedule/sponsor/sponsor",
+        "text": "合作伙伴",
+        "iconPath": "images/sponsor_tabbar_pretab.png",
+        "selectedIconPath": "images/sponsor_tabbar_posttab.png"
       },
       {
         "pagePath": "pages/personal/personal",

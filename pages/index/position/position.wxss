@@ -1,0 +1,39 @@
+/* pages/index/position/position.wxss */
+#contact{
+	width: 95%;
+	color:#999;
+	margin: auto;
+	font-size: 13px;
+	margin-top: 30rpx;
+}
+#contact .title{
+	color:#333;
+	font-size: 15px;
+	line-height: 40px;
+}
+#contact .info{
+	width: 100%;
+	line-height: 20px;
+}
+#contact .info .detail{
+	display: flex;
+	flex-direction: row;
+	line-height: 30px;
+	color:black;
+}
+#contact .info .image{
+	width: 12px;
+	height: 12px;
+	margin-right: 10px;
+}
+#contact .info .image image{
+	width: 100%;
+	height: 100%;
+}
+#contact .info text{
+	overflow: visible;
+}
+#map{
+	width: 100%;
+	margin: auto;
+}

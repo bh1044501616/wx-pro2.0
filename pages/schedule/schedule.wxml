@@ -13,7 +13,7 @@
 	</view>
 </view>
 
-<view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE">
+<scroll-view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE" scroll-y>
 	<view class="domain">
 		{{detail.domain}}
 	</view>
@@ -68,7 +68,7 @@
 	<!-- <view class="pcDownload" bindtap="turnToPCPage">
 		保存ppt到手机
 	</view> -->
-</view>
+</scroll-view>
 
 <view id="contents" animation="{{detailAnimation}}">
 	<block wx:for="{{contents}}" class="content" wx:for-item="item_i" wx:key="loc">

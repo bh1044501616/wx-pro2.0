@@ -27,6 +27,15 @@ Page({
       //加载验证过的列表
       checkList:app.globalData.checkList
     });
+
+    //判断是否 通过 跳转页面的函数 跳转过来
+    let flag = app.globalData.turnPageFlag;
+    if(flag){
+      //恢复状态
+      console.log(1)
+      app.globalData.turnPageFlag = 0;
+      that.turnPage();
+    }
   },
 
   /**
@@ -85,17 +94,19 @@ Page({
     页面跳转
   */
   turnPage:function(res){
-    let _url = res.currentTarget.dataset.url;
-    if(_url != '' && _url != undefined){
-      wx.navigateTo({
-        url:_url
-      });
-      return;
+    if(res != undefined){
+      let _url = res.currentTarget.dataset.url;
+      if(_url != '' && _url != undefined){
+        wx.navigateTo({
+          url:_url
+        });
+        return;
+      }
     }
     //获取app中存储的用户信息
     let _myticket = app.globalData.myticket;
 
-    //根据ap中用户的信息进行判断 将要跳转的页面
+    //根据app中用户的信息进行判断 将要跳转的页面
     if(_myticket.name === undefined){
       //没有存储用户信息
       wx.navigateTo({

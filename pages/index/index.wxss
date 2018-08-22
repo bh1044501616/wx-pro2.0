@@ -94,7 +94,7 @@ page{
 /**轮播*/
 #swiper{
 	width: 100%;
-	height: 50%;
+	height: 500rpx;
 	z-index: 9;
 	overflow-y: hidden;
 }
@@ -103,192 +103,12 @@ page{
 	height: 100%;
 }
 
-/**主要内容*/
-/*智联联盟简介*/
-#zllm{
-	width: 100%;
-	margin-top: 10px;
-	font-size: 10px;
-}
-#zllm image{
-	width: 100%;
-}
-#zllm view{
-	margin: auto;
-}
-#zllm .title{
-	font-size: 20px;
-	margin-top:10px;
-	margin-bottom: 5px;
-	text-align: left;
-	height: 10%;
-	border-bottom: 1px solid rgba(0,164,219,0.5);
-}
-#zllm .title .time{
-	font-size: 10px;
-	text-align: left;
-	color:#999;
-	vertical-align:bottom;
-	height: 10%;
-}
-#zllm .words{
-	padding-bottom: 5px;
-	width: 90%;
-	text-align: left;
-	margin-top: 10px;
-	line-height: 15px;
-	font-size: 12px;
-}
-#contents{
-	width: 100%;
-	margin-top: 20px;
-}
-/*智联标委会*/
-#zlbwh{
-	width: 100%;
-}
-#zlbwh .title{
-	width: 90%;
-	margin: auto;
-	font-size: 15px;
-}
-#zlbwh .title .time{
-	color:#999;
-	font-size: 10px;
-}
-#zlbwh .words{
-	width: 90%;
-	margin: auto;
-	box-shadow: 0px 0px 5px 1px #888;
-	padding: 5px;
-	font-size: 12px;
-	margin-top: 10px;
-	line-height: 20px;
-	margin-bottom: 20px;
-}
-#zlbwh .words .more_box{
-	display: flex;
-	flex-direction: row-reverse;
-}
-#zlbwh .more{
-	border-radius: 10px;
-	border:1px solid #09bb07;
-	color:#09bb07;
-	width: 20%;
-	text-align: center;
-	line-height: 15px;
-	font-size: 10px;
-	padding:2px;
-}
-/*成本度量标准应用*/
-#contents1{
-	width: 100%;
-	background-color: #fff;
-	border-bottom:0.5px solid #ddd;
-	border-top:0.5px solid #ddd;
-}
-#contents1 .header{
-	color:#888;
-	font-size: 13px;
-	border-bottom: 0.5px solid #ddd;
-	text-align: left;
-	width: 90%;
-	margin:auto;
-	line-height: 40px;
-}
-#contents1 .content{
-	border-top: 0.5px solid #ddd;
-	width: 90%;
-	margin: auto;
-}
-#contents1 .content .brief{
-	font-size: 15px;
-	line-height: 30px;
-}
-#contents1 .content .words{
-	font-size: 12px;
-	color:#777;
-	padding-bottom:5px;
-}
-#contents1 .footer{
-	font-size: 13px;
-	color:#586c94;
-	width: 100%;
-	margin: auto;
-	line-height: 30px;
-}
-#contents1 .footer .box{
-	width: 90%;
-	margin: auto;
-	position: relative;
-	border-top: 0.5px solid #ddd;
-}
-#contents1 .footer .arrow{
-	display: inline-block;   
-    border-right: 1px solid #777; 
-    border-bottom: 1px solid #777;  
-    width: 8px; 
-    height: 8px;  
-    transform: rotate(-45deg); 
-    right: 0;
-    position: absolute;
-    right:0px;
-    top: 10px;
-}
+
 page{
 	/*设置背景颜色*/
 	background-color: #fafafa;
 }
 
-/** map*/
-#map_box{
-	background-color: #fff;
-	width: 100%;
-}
-#map{
-	width: 100%;
-	margin: auto;
-	margin-top: 10px;
-	box-shadow: 0px 0px 5px 1px #eee;
-}
-/*加大标签距离*/
-#zllm{
-	margin-top: 30px;
-}
-/** 联系我们！！！*/
-#contact{
-	width: 94%;
-	color:#999;
-	margin: auto;
-	font-size: 13px;
-}
-#contact .title{
-	color:#333;
-	font-size: 15px;
-	line-height: 40px;
-}
-#contact .info{
-	width: 100%;
-	line-height: 20px;
-}
-#contact .info .detail{
-	display: flex;
-	flex-direction: row;
-	line-height: 30px;
-	color:black;
-}
-#contact .info .image{
-	width: 12px;
-	height: 12px;
-	margin-right: 10px;
-}
-#contact .info .image image{
-	width: 100%;
-	height: 100%;
-}
-#contact .info text{
-	overflow: visible;
-}
 /** 页尾*/
 #pageFooter{
 	width: 100%;
@@ -362,212 +182,58 @@ page{
 #text .third-child{
 	margin-left: 20%;
 }*/
-
-
-
-
-/*新加的样式cbdl*/
-#cbdl{
-	width: 100%;
-	background: linear-gradient(to bottom right,#01a3dc,#37b3dc);
-	margin-top: 20px;
-	/*border-top-right-radius: 50px;
-	border-bottom-left-radius: 50px;*/
-}
-#cbdl>.title{
-	color:#fff;
-	padding: 10px;
-	font-size: 20px;
-	text-shadow: 0px 1px 30px #000;
-}
-#cbdl .content{
-	width: 90%;
-	margin: auto;
-	display: flex;
-	flex-direction: row;
-	margin-bottom: 10px;
-
-}
-#cbdl .content .icon{
-	width: 20%;
-}
-#cbdl .content .icon image{
-	width: 100%;
-}
-#cbdl .content .text-box{
-	width: 80%;
-	text-align: left;
-	color:#fff;
-}
-#cbdl .content .text-box .title{
-	font-size: 16px;
-}
-#cbdl .content .text-box .text{
-	font-size: 14px;
-	padding: 5px;
-	margin-left: 5px;
-	color: #000;
-	text-align: left;
-	border-bottom: 0.5px solid #5a5955;
-}
-#cbdl .more-box{
-	width: 100%;
-	margin:auto;
-	padding-bottom: 5px;
-}
-#cbdl .more{
-	width: 80px;
-	font-size: 10px;
-	text-align: center;
-	color: #fff;
-	/*border: 1px solid #5a5955;*/
-	font-size: 13px;
-	/*background: linear-gradient(to bottom right,#37b3dc,#00a4db);*/
-}
-
-
-#cbdl .last{
-	border-bottom:0.5px solid #5a5955;
-}
-#cbdl .last .text-box .text{
-	border:0;
-}
-#cdbl .more-box{
-	display: flex;
-	flex-direction: row;
-}
-#cbdl .more-box .more{
-	margin-left: 5%;
-	text-align: left;
-}
 /*整体背景*/
 page{
 	background-color: #fefefe;
 }
 
 
-/*zllm*/
-#zllm .words{
-	width: 85%;
-	margin:auto;
-	line-height: 20px;
-	font-size: 15px;
-	box-shadow: 0px 0px 10px 1px #888;
-	margin-top: 20px;
-	margin-bottom: 20px;
-	padding: 5px;
-}
-#zllm image{
-	width: 95;
-}
-#zllm{
-	margin-top: 50px;
-}
-
-
-#privi{
+/*contents样式*/
+#contents{
 	width: 100%;
-	height: 25%;
-	display: flex;
-	flex-direction: row;
-	box-shadow: 0px 0px 5px 1px #888;
-	margin-bottom: 20px;
-	margin-top: 50px;
-}
-#privi .image{
-	width: 50%;
-	height: 100%;
-}
-#privi .image image{
-	width: 100%;
-	height: 100%;
-}
-#privi .content{
-	width: 50%;
-}
-#privi .content .title{
-	color: #00a4db;
-	text-align: left;
-	width: 80%;
 	margin: auto;
-	padding:5%;
 }
-#privi .content view{
-	font-size: 15px;
+#contents .content-box{
+	perspective: 5000px;
+	margin-top: 50rpx;
 }
-#privi .content .title{
-	font-size: 25px;
-	text-shadow: 5px 0px 5px #eee;
-}
-#privi .content .first{
-	margin-top: 5px;
-	margin-left: 20px;
-	color: #a2a19d;
-}
-#privi .content .second{
-	width: 70%;
-	text-align: right;
-	text-shadow: 5px 0px 5px #ddd;
-}
-#privi .content .third{
-	margin-top: 0;
-	margin-left: 60px;
-	color: #a2a19d;
-}
-
-
-
-/*contents1新样式*/
-#contents1 .header{
-	font-size: 20px;
-	color:#00a4db;
-}
-#contents1 .content .brief{
-	font-size: 17px;
-}
-#contents1 .content .words{
-	font-size: 14px;
-	text-align: left;
-}
-#contents1 .footer{
-	font-size: 15px;
-	line-height: 35px;
-}
-#contents1 .first{
-	border-top: 0;
-}
-
-
-
-/*智联标委会*/
-#zlbwh{
-	width: 100%;
-	box-shadow: 0px 0px 5px 1px #888;
-	margin-top: 50px;
-}
-#zlwbh .image{
+#contents .content{
+	position: relative;
+	color:#fff;
+	height: 350rpx;
 	width: 100%;
 }
-#zlwbh .image image{
+#contents .content image{
 	width: 100%;
+	height: 100%;
+	z-index: 9;
 }
-#zlbwh .title{
-	font-size: 25px;
-	text-shadow: 5px 0px 5px #ddd;
-	color:#00a4db;
-	padding: 5%;
+#contents .content .detail{
+	position: absolute;
+	z-index: 10;
+	right: 0;
 }
-#zlbwh .text{
-	font-size: 13px;
-	text-align: center;
-	padding-left: 5px;
-	padding-right: 5px;
-	color:#a2a19d;
+#contents .content .title{
+	position: absolute;
+	z-index: 10;
+	right: 0;
 }
 
-#zlbwh .image{
-	width: 100%;
+#contents_navi{
+	position: fixed;
+	top: 0;
+	left: 0;
 }
-#zlbwh image{
-	width: 100%;
+#contents_navi .content_navi{
+	width: 120rpx;
+	height: 50rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color:#000;
+	font-size: 30rpx;
+	background: rgba(255,255,255,0.5);
+}
+#contents_navi .selected{
+	background:red;
 }

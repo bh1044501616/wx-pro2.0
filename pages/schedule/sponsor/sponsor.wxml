@@ -1,6 +1,6 @@
 <!--pages/sponsor/sponsor.wxml-->
 <view id="filter">
-	<input class="text" bindfocus="showPanel" bindblur="hindPanel"/>
+	<input class="text" bindfocus="showPanel"/>
 	<view class="button">
 		搜索
 	</view>
@@ -11,8 +11,8 @@
 	</view>
 </scroll-view>
 
-<view id="contents">
-	<view class="content" wx:for="{{contents}}">
+<view id="contents" catchtap="hindPanel">
+	<view class="content" wx:for="{{contents}}" bindtap="checkDetail">
 		<view class="left-box">
 			<image src="{{item.pic}}"/>
 		</view>
