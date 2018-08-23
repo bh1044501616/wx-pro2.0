@@ -31,7 +31,9 @@ Page({
     //用于返回主页面（手指动作坐标变量）
     startX:0,
     moveX:0,
-    endX:0
+    endX:0,
+    //顶部导航的实际高度
+    detailHeight:0
   },
 
   /**
@@ -54,7 +56,15 @@ Page({
           serverInfo:'网络繁忙,请稍侯'
         });
       }
-    })
+    });
+
+    //设置页面详情的高度
+    var selector = wx.createSelectorQuery();
+    selector.select('#scrollNavi0').boundingClientRect(function(res){
+      that.setData({
+        detailHeight:app.globalData.height - res.height
+      });
+    }).exec();
   },
 
   /**
@@ -253,7 +263,7 @@ Page({
     let downloadingObj = {
       name:_name
     }
-      const _downloadTask = wx.downloadFile({
+    const _downloadTask = wx.downloadFile({
       url: _url, 
       success: function(res) {
         if (res.statusCode === 200) {

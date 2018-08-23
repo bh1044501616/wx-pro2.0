@@ -110,7 +110,6 @@ page{
 
 #detail{
 	width: 90%;
-	height: 100%;
 	position: fixed;
 	top: 100rpx;
 	right: -100%;
