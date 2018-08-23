@@ -124,6 +124,10 @@ Page({
       data:{
         'antistopsStr':antistopsStr_
       },
+      method:'POST',
+      header: {
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8' // 默认值
+      },
       success:function(res){
         let list = res.data.data;
 

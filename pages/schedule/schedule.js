@@ -219,7 +219,7 @@ Page({
       //手指移动结束后触摸点位置的X坐标
       let endX = e.changedTouches[0].clientX;
       
-      if(that.data.startX > 0 && (endX - that.data.startX) > 0){
+      if(that.data.startX > 0 && (endX - that.data.startX) > 50){
         that.backToList();
       }
     }
@@ -256,7 +256,7 @@ Page({
       const _downloadTask = wx.downloadFile({
       url: _url, 
       success: function(res) {
-        if (res.data.state) {
+        if (res.status === 200) {
             //请求成功，保存文件到本地
             
             //将保存完的文件加入下载完成列表

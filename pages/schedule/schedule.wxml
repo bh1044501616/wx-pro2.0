@@ -13,7 +13,7 @@
 	</view>
 </view>
 
-<scroll-view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE" scroll-y>
+<scroll-view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE" scroll-y="true">
 	<view class="domain">
 		{{detail.domain}}
 	</view>
@@ -68,6 +68,52 @@
 	<!-- <view class="pcDownload" bindtap="turnToPCPage">
 		保存ppt到手机
 	</view> -->
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
+	<view>1</view>
 </scroll-view>
 
 <view id="contents" animation="{{detailAnimation}}">
