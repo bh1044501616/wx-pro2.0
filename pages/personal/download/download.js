@@ -57,7 +57,6 @@ Page({
         _downloadingList[i].progress = res.progress;
         _downloadingList[i].currentSize = getMB(res.totalBytesWritten);
         _downloadingList[i].totalSize = getMB(res.totalBytesExpectedToWrite);
-        console.log(res.progress)
 
         that.setData({
           downloadingList:_downloadingList

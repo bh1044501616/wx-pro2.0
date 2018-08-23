@@ -256,7 +256,7 @@ Page({
       const _downloadTask = wx.downloadFile({
       url: _url, 
       success: function(res) {
-        if (res.status === 200) {
+        if (res.statusCode === 200) {
             //请求成功，保存文件到本地
             
             //将保存完的文件加入下载完成列表
@@ -306,7 +306,6 @@ Page({
     });
 
     _downloadTask.onProgressUpdate((res) => {
-      console.log(app.globalData.downloadingList)
       //更新数据进度
       downloadingObj.progress = res.progress;
       downloadingObj.currentSize = getMB(res.totalBytesWritten);
