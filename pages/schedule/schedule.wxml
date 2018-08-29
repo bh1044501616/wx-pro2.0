@@ -13,85 +13,103 @@
 	</view>
 </view>
 
-<scroll-view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE" scroll-y="true" style="height: {{detailHeight}}px">
-	<view class="domain">
-		{{detail.domain}}
-	</view>
-	<view class="detail">
-		<view class="time">
-			9:00-17:00
-		</view>
-		<view class="loc">
-			{{detail.loc}}
-		</view>
-	</view>
-	<view class="topics">
-		<block wx:for="{{detail.topics}}" wx:for-item="item_j" wx:key="id">
-			<view class="topic-box">
-				<view class="begintime">
-					{{item_j.begintime}}
-				</view>
-				<view class="endtime">
-					-{{item_j.endtime}}
-				</view>
-				<view class="topic">
-					{{item_j.topic}}
-				</view>
+<view id="detail" animation="{{detailAnimation}}" bindtouchstart="touchS" bindtouchend="touchE" style="/*height: {{detailHeight}}px;*/">
+	<scroll-view class="detail-box" scroll-y="true">
+		<view class="line">
+		<view class="domain">
+			{{detail.domain}}
+			<view class="logo">
+				<image src="images/logo.png"/>
 			</view>
-			<view class="lectures">
-				<block wx:for="{{item_j.lectures}}" wx:key="name" wx:for-item="item_k">
-					<view class="lecture">
-						<view class="top-box">
-							<view class="left-box">
-								<image src="{{item_k.pic}}" mode="scaleToFill"/>
-							</view>
-							<view class="right-box">
-								<view class="name">
-									{{item_k.name}}
-								</view>
-								<view class="intro">
-									{{item_k.introduction}}
-								</view>
-							</view>
+		</view>
+		<view class="detail">
+			<view class="time">
+				9:00-17:00
+			</view>
+			<view class="loc">
+				{{detail.loc}}
+			</view>
+		</view>
+		<view class="topics">
+			<block wx:for="{{detail.topics}}" wx:for-item="item_j" wx:key="id">
+				<view class="topic-box {{index==detail.topics.length-1?'last':''}}">
+					<view class="logo">
+						<image src="images/logo.png"/>
+					</view>
+					<view class="info-box">
+						<view class="topic">
+							{{item_j.topic}}
 						</view>
-						<view class="bottom-box" style="display: {{item_k.pptName != undefined ?'':'none'}};">
-							<view class="ppt">
-								{{item_k.pptName}}
-							</view>
-							<image src="images/download.jpg" bindtap="download" data-url="{{item_k.ppt}}" data-name="{{item_k.pptName}}"/>
+						<view class="time">
+							{{item_j.begintime}}-{{item_j.endtime}}
 						</view>
 					</view>
-				</block>
-			</view>
-		</block>
-	</view>
+					<view class="lectures">
+						<block wx:for="{{item_j.lectures}}" wx:key="name" wx:for-item="item_k">
+							<view class="lecture">
+								<view class="top-box">
+									<view class="left-box">
+										<image src="{{item_k.pic}}" mode="scaleToFill"/>
+									</view>
+									<view class="right-box">
+										<view class="name">
+											{{item_k.name}}
+										</view>
+										<view class="intro">
+											{{item_k.introduction}}
+										</view>
+									</view>
+								</view>
+								<view class="bottom-box" style="display: {{item_k.pptName != undefined ?'':'none'}};">
+									<view class="ppt">
+										{{item_k.pptName}}
+									</view>
+									<view class="icon">
+										<image src="images/download.png" bindtap="download" data-url="{{item_k.ppt}}" data-name="{{item_k.pptName}}"/>
+									</view>
+								</view>
+							</view>
+						</block>
+					</view>
+				</view>
+			</block>
+		</view>
 	<!-- <view class="pcDownload" bindtap="turnToPCPage">
 		保存ppt到手机
 	</view> -->
-</scroll-view>
+		</view>
+	</scroll-view>
+</view>
 
-<view id="contents" animation="{{detailAnimation}}">
+<view id="contents">
 	<block wx:for="{{contents}}" class="content" wx:for-item="item_i" wx:key="loc">
-		<view class="content style-{{index%3}}" bindtap="checkDetail" data-index="{{index}}">
-			<view class="domain">
-				{{item_i.domain}}
-			</view>
-			<view class="detail">
-				<view class="time">
-					9:00-17:00
+		<view class="content" bindtap="checkDetail" data-index="{{index}}">
+			<view class="title">
+				<view class="domain">
+					{{item_i.domain}}
 				</view>
-				<view class="loc">
-					{{item_i.loc}}
+				<view class="detail">
+					<view class="time">
+						9:00-17:00
+					</view>
+					<view class="loc">
+						{{item_i.loc}}
+					</view>
+				</view>
+				<view class="icon">
+					<image src="images/arrow.png"/>
 				</view>
 			</view>
 			<view class="topics">
 				<block wx:for="{{item_i.topics}}" wx:for-item="item_j" wx:key="id">
-					<view class="topic_box">
-						<view class="begintime">
-							{{item_j.begintime}}
-						</view>
-						<view class="endtime">
-							-{{item_j.endtime}}
+					<view class="topic_box style-{{index%2}}">
+						<view class="time-box">
+							<view class="icon">
+								<image src="images/time.png"/>
+							</view>
+							<view class="time">
+								{{item_j.begintime}}-{{item_j.endtime}}
+							</view>
 						</view>
 						<view class="topic">
 							{{item_j.topic}}

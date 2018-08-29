@@ -24,6 +24,7 @@ Page({
     //被选中项的详细信息
     detail:{},
     detailAnimation:{},
+    detailDisplay:'none',
     //大会日期
     dates:['2018-08-15','2018-08-16','2018-08-17','2018-08-18'],
     //网络链接中断提示
@@ -62,7 +63,7 @@ Page({
     var selector = wx.createSelectorQuery();
     selector.select('#scrollNavi0').boundingClientRect(function(res){
       that.setData({
-        detailHeight:app.globalData.height - res.height
+        detailHeight:app.globalData.height/* - res.height*/
       });
     }).exec();
   },
@@ -177,7 +178,8 @@ Page({
         }
 
         that.setData({
-          detail:content
+          detail:content,
+          detailDisplay:'block'
         });
       }
     })
@@ -187,7 +189,7 @@ Page({
       delay:0,
       timingFunction:'ease-in-out'
     });
-    animation.translate(-app.data.width).step();
+    animation.translateY(app.globalData.height).opacity(1).step();
     that.setData({
       detailAnimation:animation.export()
     });
@@ -218,7 +220,8 @@ Page({
       });
       animation.translate(-app.globalData.width + moveX).step();
       that.setData({
-        detailAnimation:animation.export()
+        detailAnimation:animation.export(),
+        detailDisplay:'block'
       });
     }
   },
@@ -245,9 +248,10 @@ Page({
       delay:0,
       timingFunction:'ease-in-out'
     });
-    animation.translate(0).step();
+    animation.translateY(0).opacity(0).step();
     that.setData({
-      detailAnimation:animation.export()
+      detailAnimation:animation.export(),
+      detailDisplay:'none'
     });
   },
   /*
@@ -256,9 +260,10 @@ Page({
   download:function(arg){
     let _url = arg.currentTarget.dataset.url;
     let _name = arg.currentTarget.dataset.name;
-
+    var commonSize = 0;
     let downloadedObj = {
-      url:_url
+      url:_url,
+      size:0
     }
     let downloadingObj = {
       name:_name
@@ -272,6 +277,7 @@ Page({
             //将保存完的文件加入下载完成列表
             downloadedObj.name = downloadingObj.name;
             downloadedObj.size = downloadingObj.totalSize;
+            console.log('转交数据时的downloadingsize' + commonSize)
             downloadedObj.path = res.tempFilePath;
         
             let _downloadedList = app.globalData.downloadedList;
@@ -315,13 +321,14 @@ Page({
       duration:2000
     });
 
-    _downloadTask.onProgressUpdate((res) => {
+    /*_downloadTask.onProgressUpdate((res) => {
       //更新数据进度
       downloadingObj.progress = res.progress;
       downloadingObj.currentSize = getMB(res.totalBytesWritten);
       downloadingObj.totalSize = getMB(res.totalBytesExpectedToWrite);
-    })
-    
+
+      commonSize = getMB(res.totalBytesExpectedToWrite);
+    })*/
   },
   /*
     切换到pc页面下载ppt

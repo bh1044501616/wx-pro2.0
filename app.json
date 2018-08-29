@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/schedule/schedule",
     "pages/index/index",
     "pages/index/position/position",
-    "pages/schedule/schedule",
+    
     "pages/schedule/sponsor/sponsor",
     "pages/schedule/lecturer/lecturer",
     "pages/personal/personal",
