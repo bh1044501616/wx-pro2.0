@@ -13,7 +13,7 @@
 					</view>
 					<progress percent="{{item.progress}}" active active-mode="forwards" backgroundColor="#eee"/>
 					<view class="size">
-						{{item.currentSize}}/{{item.totalSize}}M
+						{{item.currentSize}}M/{{item.totalSize}}M
 					</view>
 				</view>
 			</view>

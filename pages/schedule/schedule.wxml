@@ -120,3 +120,9 @@
 		</view>
 	</block>
 </view>
+
+<!--返回提示-->
+<view id="returnTip" style="display: {{returnTipDisplay}};" bindtap="hideReturnTip">
+	<view class="textTip">返回列表</view>
+	<view class="iconTip {{highLight==index?'highLight':''}}" wx:for="012"></view>
+</view>

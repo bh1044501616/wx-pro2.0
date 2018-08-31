@@ -34,7 +34,11 @@ Page({
     moveX:0,
     endX:0,
     //顶部导航的实际高度
-    detailHeight:0
+    detailHeight:0,
+    //返回列表提示信息
+    highLight:2,
+    returnTipDisplay:'none',
+    interval:{}
   },
 
   /**
@@ -146,6 +150,19 @@ Page({
   checkDetail:function(res){
     let that = this;
 
+    if(that.data.highLight !== -1){
+      that.showReturnTip();
+    }
+    
+    that.setData({
+      detail:{}
+    });
+
+    //显示等待 信息
+    wx.showLoading({
+      title:'请稍后'
+    });
+
     let index = res.currentTarget.dataset.index;
 
     //获取请求信息中的ids
@@ -166,6 +183,8 @@ Page({
         'enctype':'application/x-www-form-urlencoded'
       },
       success:function(res){
+        wx.hideLoading();
+
         let list = res.data.data;
 
         for(let i=0;i<topics.length;i++){
@@ -282,6 +301,7 @@ Page({
         
             let _downloadedList = app.globalData.downloadedList;
             _downloadedList[_downloadedList.length] = downloadedObj;
+            app.globalData._downloadedList = _downloadedList;
 
             console.log(app.globalData.downloadingList)
             console.log(app.globalData.downloadedList)
@@ -295,6 +315,7 @@ Page({
                 _downloadingList.splice(i,1);
               }
             }
+            app.globalData._downloadingList = _downloadingList;
         }
       },
       fail:function(res){
@@ -340,4 +361,33 @@ Page({
       url:'../webPage'
     })
   }*/
+  /*显示返回列表提示*/
+  showReturnTip:function(){
+    let that = this;
+
+    //设定定时
+    if(that.data.highLight !== -1){
+      //当高亮的下表在范围内时执行
+      var _interval = setInterval(function(){
+        let _highLight = that.data.highLight;
+        _highLight = ++_highLight%3;
+        that.setData({
+          returnTipDisplay:'flex',
+          highLight:_highLight,
+          interval:_interval
+        });
+      },500);
+    }
+  },
+  /*隐藏返回列表提示*/
+  hideReturnTip:function(){
+    let that = this;
+
+    //停止定时器
+    clearInterval(that.data.interval);
+    that.setData({
+      returnTipDisplay:'none',
+      highLight:-1
+    });
+  }
 })
