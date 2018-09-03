@@ -5,14 +5,10 @@ page{
 }
 #downloadingList{
 	width: 100%;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
 }
 #downloadedList{
 	width: 100%;
-	margin-top: 40rpx;
-	border-bottom-right-radius: 10px;
-	border-bottom-left-radius: 10px;
+	box-shadow: 0px -1px 10px 1px #ccc;
 }
 view .tip{
 	background: #eee;
@@ -77,7 +73,7 @@ view .tip{
 	font-size: 35rpx;
 	color:#777;
 	padding:20rpx;
-	background: #ddd;
+	background: #f4f4f4;
 }
 .emptyTip image{
 	width: 60rpx;
