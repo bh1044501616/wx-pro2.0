@@ -3,11 +3,10 @@
     "pages/schedule/schedule",
     "pages/index/index",
     "pages/index/position/position",
-    
+    "pages/personal/download/download",
     "pages/schedule/sponsor/sponsor",
     "pages/schedule/lecturer/lecturer",
     "pages/personal/personal",
-    "pages/personal/download/download",
     "pages/personal/login/login",
     "pages/personal/myticket/myticket",
     "pages/personal/sign/sign",

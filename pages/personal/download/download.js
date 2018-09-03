@@ -34,7 +34,8 @@ Page({
         name:'名字',
         totalSize:12.3
       }
-    ]
+    ],
+    emptyTip:['flex','flex']
   },
 
   /**

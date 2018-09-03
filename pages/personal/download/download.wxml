@@ -3,6 +3,10 @@
 	<view class="tip">
 		正在下载（{{downloadingList.length}}）
 	</view>
+	<view class="emptyTip" style="display: {{emptyTip[0]}};">
+		<image src="../../../images/tid_logo.png"/>
+		空空如野...
+	</view>
 	<view class="item-box">
 		<view class="item" wx:for="{{downloadingList}}">
 			<image src="images/ppt.png"/>
@@ -29,6 +33,10 @@
 <view id="downloadedList">
 	<view class="tip">
 		下载完成（{{downloadedList.length}}）
+	</view>
+	<view class="emptyTip" style="display: {{emptyTip[1]}};">
+		<image src="../../../images/tid_logo.png"/>
+		空空如野...
 	</view>
 	<view class="item-box">
 		<view class="item" wx:for="{{downloadedList}}" bindlongpress="copyPPTUrl" data-url="{{item.url}}">

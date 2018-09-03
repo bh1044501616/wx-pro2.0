@@ -5,9 +5,14 @@ page{
 }
 #downloadingList{
 	width: 100%;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 #downloadedList{
 	width: 100%;
+	margin-top: 40rpx;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
 }
 view .tip{
 	background: #eee;
@@ -61,4 +66,20 @@ view .tip{
 	text-align: center;
 	margin: auto;
 	margin-top: 20rpx;
+}
+
+/*空列表提示*/
+.emptyTip{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 35rpx;
+	color:#777;
+	padding:20rpx;
+	background: #ddd;
+}
+.emptyTip image{
+	width: 60rpx;
+	height: 60rpx;
 }
