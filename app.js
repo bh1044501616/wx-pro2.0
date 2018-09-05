@@ -1,5 +1,16 @@
 //app.js
+/*
+  缓存键值对：
 
+      key                       value
+      
+      schedule_of_firstday      活动第一天的安排
+      antistops                 所有关键字
+      sponsors                  所有的赞助商
+      myticket                  ‘我的’票务信息
+      userInfo                  微信用户的信息
+      checkList                 已经扫描的二维码
+*/
 App({
   data:{
     width:0,

@@ -23,27 +23,53 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+
     //获取所有关键字
-    wx.request({
-      url:ANTISTOPS_URL,
-      success:function(res){
-        let list = res.data.data;
+    let _antistop = wx.getStorageSync("antistops");
+    if(_antistop){
+      //获取到缓存信息
+      that.setData({
+        antistops:_antistop
+      });
+    }else{
+      //未获取到相关缓存
+      wx.request({
+        url:ANTISTOPS_URL,
+        success:function(res){
+          let list = res.data.data;
 
-        that.setData({
-          antistops:list
-        });
-      }
-    })
-    wx.request({
-      url:SPONSORS_URL,
-      success:function(res){
-        let list = res.data.data;
+          that.setData({
+            antistops:list
+          });
 
-        that.setData({
-          contents:list
-        });
-      }
-    })
+          //存储缓存
+          wx.setStorageSync('antistops',list);
+        }
+      })
+    }
+    //获取所有赞助商信息
+    let _sponsor = wx.getStorageSync("sponsors");
+    if(_sponsor){
+      //获取到缓存信息
+      that.setData({
+        contents:_sponsor
+      })
+    }else{
+      //为获取到缓存信息
+      wx.request({
+        url:SPONSORS_URL,
+        success:function(res){
+          let list = res.data.data;
+
+          that.setData({
+            contents:list
+          });
+           //存储缓存
+          wx.setStorageSync('sponsors',list);
+        }
+      })
+    }
+    
   },
 
   /**

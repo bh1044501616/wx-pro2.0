@@ -81,7 +81,7 @@
 	</scroll-view>
 </view>
 
-<view id="contents">
+<view id="contents" style="display: {{serverInfo===''?'block':'none'}};">
 	<block wx:for="{{contents}}" class="content" wx:for-item="item_i" wx:key="loc">
 		<view class="content" bindtap="checkDetail" data-index="{{index}}">
 			<view class="title">

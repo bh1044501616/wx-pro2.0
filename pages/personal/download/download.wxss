@@ -41,10 +41,14 @@ view .tip{
 .item-box .item .info .info-box view{
 	display: flex;
 	align-items: center;
-	height: 50rpx;
+	height: 85%;
+	font-size: 30rpx;
+}
+.item-box .item .info .info-box .name{
+	height: 20%;
 }
 .item-box .item .info .info-box progress{
-	height: 30rpx;
+	height: 5%;
 }
 .item-box .item .method{
 	display: flex;
@@ -62,6 +66,7 @@ view .tip{
 	text-align: center;
 	margin: auto;
 	margin-top: 20rpx;
+	padding-bottom: 20rpx;
 }
 
 /*空列表提示*/
@@ -73,9 +78,21 @@ view .tip{
 	font-size: 35rpx;
 	color:#777;
 	padding:20rpx;
-	background: #f4f4f4;
+	/*background: #f4f4f4;*/
+	background: linear-gradient(#eee, #fff);
 }
 .emptyTip image{
 	width: 60rpx;
 	height: 60rpx;
+}
+
+/*修改已下载列表*/
+#downloadedList .item-box .item .info .info-box{
+	height: 100%;
+}
+#downloadedList .item-box .item .info .info-box .name{
+	height: 70%;
+}
+#downloadedList .item-box .item .info .info-box .size{
+	height: 30%;
 }

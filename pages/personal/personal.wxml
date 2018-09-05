@@ -92,8 +92,14 @@
 			用于验证信息安全
 		</view>
 		<view class="bottom">
-			<button open-type="getUserInfo" bindtap="buttonEvent">拒绝</button>
-			<button open-type="getUserInfo" bindtap="buttonEvent">允许</button>
+			<view class="decline" hover-class="selected" bindtap="buttonEvent">
+				<button open-type="getUserInfo" bindtap="buttonEvent"></button>
+				拒绝
+			</view>
+			<view class="accept" hover-class="selected" bindtap="buttonEvent">
+				<button open-type="getUserInfo" bindtap="buttonEvent"></button>
+				允许
+			</view>
 		</view>
 	</view>
 </view>

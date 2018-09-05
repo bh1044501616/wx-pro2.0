@@ -46,22 +46,6 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
-    //获取大会行程首页数据
-    wx.request({
-      url:app.globalData.staticUrl + 'schedule/info/20180815.do',
-      success:function(res){
-        let list = res.data.data;
-        that.setData({
-          contents:list,
-          serverInfo:''
-        })
-      },
-       fail:function(){
-        that.setData({
-          serverInfo:'网络繁忙,请稍侯'
-        });
-      }
-    });
 
     //设置页面详情的高度
     var selector = wx.createSelectorQuery();
@@ -70,6 +54,38 @@ Page({
         detailHeight:app.globalData.height/* - res.height*/
       });
     }).exec();
+
+    //获取大会行程首页数据
+    //获取schudule缓存
+    let _content = wx.getStorageSync("schedue_of_firstday");
+    if(_content){
+      //当缓存储存时
+      that.setData({
+        contents:_content,
+        serverInfo:''
+      });
+      //结束函数
+      return;
+    }
+
+    wx.request({
+      url:app.globalData.staticUrl + 'schedule/info/20180815.do',
+      success:function(res){
+        let list = res.data.data;
+        that.setData({
+          contents:list,
+          serverInfo:''
+        })
+
+        /*存储缓存*/
+        wx.setStorageSync('schedue_of_firstday', list);
+      },
+       fail:function(){
+        that.setData({
+          serverInfo:'网络繁忙,请稍侯'
+        });
+      }
+    });
   },
 
   /**
@@ -199,6 +215,14 @@ Page({
         that.setData({
           detail:content,
           detailDisplay:'block'
+        });
+      },
+      fail:function(){
+        wx.hideLoading();
+        wx.showToast({
+          title:'网络请求失败!',
+          duration:2000,
+          icon:"none"
         });
       }
     })
