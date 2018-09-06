@@ -1,5 +1,5 @@
 <scroll-view scroll-x scroll-with-animation id="scrollNavi">
-	<view wx:for="{{dates}}" wx:for-index="index" class="{{selectedItem==index?'selected-item':'item'}}" bindtap="turnNavi" data-index="{{index}}" wx:key="*this">
+	<view wx:for="{{dates}}" wx:for-index="index" class="item {{selectedItem==index?'selected-item':''}}" bindtap="turnNavi" data-index="{{index}}" wx:key="*this">
 		{{item}}
 	</view>
 </scroll-view>

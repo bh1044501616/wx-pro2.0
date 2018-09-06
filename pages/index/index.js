@@ -134,7 +134,8 @@ Page({
       }
     ],
     turnPageAnimation:[],
-    contentNaviSelected:[]
+    contentNaviSelected:[],
+    selectedContent:0
   },
   /** 为主页导航添加的事件*/
   blurChange:function(res){
@@ -350,8 +351,18 @@ jumpTo:function(arg){
       complete:function(){
         //设置跳转页面的标志 为 1
         app.globalData.turnPageFlag = 1;
-        that.switchMenu(arg);
+        /*that.switchMenu(arg);*/
       }
+    });
+  },
+  /*切换导航*/
+  turnNavi:function(arg){
+    let that = this;
+
+    let index = arg.currentTarget.dataset.index;
+
+    that.setData({
+      selectedContent:index
     });
   }
 })

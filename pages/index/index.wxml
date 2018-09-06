@@ -1,91 +1,35 @@
 <view id="middle" animation="{{menuAnimation}}">
 
-<view id="navigator_words">
-  <image src="{{navis[0]}}" mode="aspectFit" bindtap="blurChange" data-id="0"/>
-  <image src="{{navis[1]}}" mode="aspectFit" bindtap="blurChange" data-id="1"/>
-  <image src="{{navis[2]}}" mode="aspectFit" bindtap="blurChange" data-id="2"/>
-</view>
-
-<view id="navigator_line">
-  <image src="images/line.png" mode="aspectFit" animation="{{lineTranslation}}"/>
-</view>
-
-<view id="navigator_menu" bindtap="switchMenu" data-flag="1">
-  <image src="images/menu.png" mode="aspectFit"/>
-</view>
-
-<view id="menu">
-  <view class="block"></view>
-  <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
-  <view wx:for="{{content}}" bindtap="turnPage" data-url="{{item.url}}" data-close="1">
-    {{item.title}}
-  </view>
-</view>
-
-<view id="swiper" bindtouchstart="switchMenu" data-close="1">
-  <image src="images/{{swiperPic}}" animation="{{swiperAnimation}}"/>
-</view>
-
-<view id="buttons">
-  <image src="images/1.png" mode="widthFix" class="first-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/ur7OYPFAfNf92OruTdaCYA" data-name="智联标委会"/>
-  <image src="images/2.png" mode="widthFix" class="second-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/rll0y7OS4DEw_ViTwff5Qw" data-name="会员服务"/>
-  <image src="images/3.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/fc50Y1KfBqIB001kM_-Oag" data-name="Tid大会"/>
-  <image src="images/4.png" mode="widthFix" class="third-child" bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/uRMs0h4bn4wSJkG5D7yrmQ" data-name="成本度量"/>
-</view>
-<view id="text">
-    <view class="first-child">
-      智联标委会
-    </view>
-    <view class="second-child">
-      会员服务
-    </view>
-    <view class="third-child">
-      Tid大会
-    </view>
-    <view class="fourth-child">
-      成本度量
-    </view>
-</view>  
-
-<view id="contents">
-  <view class="content-box" wx:for="{{content}}" id="content-box-{{index}}">
-    <view class="content" id="{{index}}" bindtap="turnPage" animation="{{turnPageAnimation[index]}}" data-url="{{item.url}}">
-    <view class="title">
+  <view id="menu">
+    <view class="block"></view>
+    <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
+    <view wx:for="{{content}}" bindtap="turnPage" data-url="{{item.url}}" data-close="1">
       {{item.title}}
     </view>
-    <view class="detail">
-      {{item.detail}}
-    </view>
-    <image src="{{item.background}}"/>
   </view>
-  </view>
-</view>
 
-<!-- <view id="contents_navi">
-  <view class="content_navi {{contentNaviSelected[index]==1?'selected':''}}" style="top: {{index*50}}rpx;" wx:for="{{content}}">
-    {{item.title}}
-  </view>
-</view> -->
-
-
-<view id="pageFooter">
-  <view class="body">
-    <view class="title">
-      IQ alliance
-    </view>
-    <view class="content">
-      <view class="joinzlbwh" bindtap="switchBar">
-        加入智联标委会
-      </view>
-      <view class="joinprivi" bindtap="switchBar">
-        会员申请
+  <scroll-view scroll-x id="contents_navi">
+    <view wx:for="{{content}}" class="content content{{index}}" bindtap="turnNavi" data-index="{{index}}">
+      <view class="text-box {{index==selectedContent?'selected-content':''}}">
+        {{item.title}}
       </view>
     </view>
+  </scroll-view>
+
+  <scroll-view id="contents" scroll-x scroll-into-view="content-box-{{selectedContent}}" scroll-with-animation="true">
+    <view class="content-box" wx:for="{{content}}" id="content-box-{{index}}">
+      <view class="content" id="{{index}}" bindtap="turnPage" animation="{{turnPageAnimation[index]}}" data-url="{{item.url}}">
+      <view class="title">
+        {{item.title}}
+      </view>
+      <view class="detail">
+        {{item.detail}}
+      </view>
+      <image src="{{item.background}}"/>
     </view>
-    <view class="rights">
-      © 2018 Creation All Rights Reserved
     </view>
-  </view>
+  </scroll-view>
+
 </view>
 
 
