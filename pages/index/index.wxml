@@ -1,27 +1,27 @@
 <view id="middle" animation="{{menuAnimation}}">
+
 <view id="navigator_words">
   <image src="{{navis[0]}}" mode="aspectFit" bindtap="blurChange" data-id="0"/>
   <image src="{{navis[1]}}" mode="aspectFit" bindtap="blurChange" data-id="1"/>
   <image src="{{navis[2]}}" mode="aspectFit" bindtap="blurChange" data-id="2"/>
 </view>
+
 <view id="navigator_line">
   <image src="images/line.png" mode="aspectFit" animation="{{lineTranslation}}"/>
 </view>
-<!-- <view id="navigator_menu" bindtap="switchMenu" data-flag="1">
+
+<view id="navigator_menu" bindtap="switchMenu" data-flag="1">
   <image src="images/menu.png" mode="aspectFit"/>
-</view> -->
+</view>
+
 <view id="menu">
   <view class="block"></view>
   <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/vfpyIF4I6fv8MLxUHHZ5sw" data-name="智联联盟">智联联盟</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/ur7OYPFAfNf92OruTdaCYA" data-name="智联标委会">智联标委会</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/uRMs0h4bn4wSJkG5D7yrmQ" data-name="成本度量标准应用">成本度量标准应用</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/p1aFAuEPZkMtcsdoMSgIEg" data-name="主席团开放日">主席团开放日</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/a3MuEEcAT5RXQwN6Ja8dsg" data-name="智联开放日">智联开放日</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/rll0y7OS4DEw_ViTwff5Qw" data-name="会员服务">会员服务</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/HxTc8QxHlVlFUG45OubyKA" data-name="线下沙龙">线下沙龙</view>
-  <view bindtap="jumpTo" data-url="https://mp.weixin.qq.com/s/x2h2ZgMGEU844qrdEexltg" data-name="线上微沙龙">线上微沙龙</view>
+  <view wx:for="{{content}}" bindtap="turnPage" data-url="{{item.url}}" data-close="1">
+    {{item.title}}
+  </view>
 </view>
+
 <view id="swiper" bindtouchstart="switchMenu" data-close="1">
   <image src="images/{{swiperPic}}" animation="{{swiperAnimation}}"/>
 </view>
@@ -48,7 +48,7 @@
 </view>  
 
 <view id="contents">
-  <view class="content-box" wx:for="{{content}}">
+  <view class="content-box" wx:for="{{content}}" id="content-box-{{index}}">
     <view class="content" id="{{index}}" bindtap="turnPage" animation="{{turnPageAnimation[index]}}" data-url="{{item.url}}">
     <view class="title">
       {{item.title}}
@@ -61,11 +61,11 @@
   </view>
 </view>
 
-<view id="contents_navi">
+<!-- <view id="contents_navi">
   <view class="content_navi {{contentNaviSelected[index]==1?'selected':''}}" style="top: {{index*50}}rpx;" wx:for="{{content}}">
     {{item.title}}
   </view>
-</view>
+</view> -->
 
 
 <view id="pageFooter">

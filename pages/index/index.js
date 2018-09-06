@@ -109,20 +109,20 @@ Page({
         url:''
       },
       {
-        title:'票务管理',
-        detail:'',
-        background:'images/tid.jpg',
-        top:0,
-        buoy:BOTTOM,
-        url:'../personal/personal'
-      },
-      {
         title:'参会指导',
         detail:'',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
         url:''
+      },
+      {
+        title:'票务管理',
+        detail:'',
+        background:'images/tid.jpg',
+        top:0,
+        buoy:BOTTOM,
+        url:'../personal/personal'
       },
       {
         title:'下载页面',
@@ -350,6 +350,7 @@ jumpTo:function(arg){
       complete:function(){
         //设置跳转页面的标志 为 1
         app.globalData.turnPageFlag = 1;
+        that.switchMenu(arg);
       }
     });
   }

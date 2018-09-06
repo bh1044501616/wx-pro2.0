@@ -237,3 +237,29 @@ page{
 #contents_navi .selected{
 	background:red;
 }
+
+
+/*content独立样式*/
+#contents{
+
+}
+#contents .content-box{
+	width: 100%;
+	margin-top: 10rpx;
+}
+#contents .content-box .content{
+	height: 360rpx;
+}
+#contents #content-box-1{
+	width: 40%;
+}
+#contents #content-box-2{
+	width: 58%;
+}
+#contents #content-box-5{
+	width: 49%;
+}
+#contents #content-box-6{
+	width: 49%;
+}
+
