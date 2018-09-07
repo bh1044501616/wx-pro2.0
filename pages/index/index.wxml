@@ -26,6 +26,7 @@
         <view class="text">{{item.detail}}</view>
       </view>
       <image src="{{item.background}}"/>
+      <view class="arrow">→</view>
     </view>
     </view>
   </scroll-view>

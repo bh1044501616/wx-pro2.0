@@ -285,6 +285,8 @@ Page({
   */
   backToList:function(){
     let that = this;
+
+    wx.hideLoading();
     
     let animation = wx.createAnimation({
       duration:400,

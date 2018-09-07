@@ -21,10 +21,11 @@ page{
 	display: inline-block;
 	color:#aaa;
 	font-weight: lighter;
+	margin-left: 10rpx;
 }
 #scrollNavi .selected-item{
 	color:#000;
-	font-weight: normal;
+	font-weight: bold;
 	border-bottom:5px solid #000;
 }
 /*导航定位*/
@@ -169,15 +170,16 @@ page{
 	color:#777;
 }
 #detail .topics .lecture .top-box .right-box view{
-	height: 50%;
 	display: flex;
 	align-items: center;
 }
 #detail .topics .lecture .top-box .right-box .intro{
 	font-size: 30rpx;
+	height: 65%
 }
 #detail .topics .lecture .top-box .right-box .name{
 	color:#777;
+	height: 35%;
 }
 #detail .topics .lecture .top-box .left-box{
 	width: 125rpx;
