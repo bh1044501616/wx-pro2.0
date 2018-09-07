@@ -23,7 +23,7 @@
         {{item.title}}
       </view>
       <view class="detail">
-        {{item.detail}}
+        <view class="text">{{item.detail}}</view>
       </view>
       <image src="{{item.background}}"/>
     </view>

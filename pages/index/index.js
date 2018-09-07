@@ -54,7 +54,7 @@ Page({
     content:[
       {
         title:'会议梗概',
-        detail:'',
+        detail:'2019TiD盛会，按时大苏打阿萨大阿萨大阿三大神',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,

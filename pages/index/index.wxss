@@ -192,6 +192,7 @@ page{
 #contents{
 	width: 100%;
 	margin: auto;
+	display: flex;
 }
 #contents .content-box{
 	perspective: 5000px;
@@ -212,12 +213,15 @@ page{
 	position: absolute;
 	z-index: 10;
 	right: 0;
+	top:0;
+	width: 100%;
+	height: 100%;
 }
 #contents .content .title{
 	position: absolute;
 	z-index: 10;
 	right: 0;
-	font-size: 50rpx;
+	font-size: 60rpx;
 	padding: 10rpx;
 }
 
@@ -253,7 +257,7 @@ page{
 	width: 80%;
 	height: 90%;
 	display: inline-block;
-	padding-left: 5%;
+	padding-left: 7%;
 }
 #contents .content-box .content{
 	width: 100%;
@@ -261,6 +265,17 @@ page{
 }
 #contents .content-box .content .title{
 	left: 0;
+}
+#contents .content-box .content .detail{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+#contents .content-box .content .detail .text{
+	width: 60%;
+	height: 65%;
+	white-space: pre-line;
+	flex-wrap: wrap;
 }
 #contents #content-box-9{
 	margin-right: 5%;
