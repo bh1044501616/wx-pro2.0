@@ -12,7 +12,7 @@
 		</view>
 	</view>
 	<view class="qrcode" bindtap="checkQrCode">
-		<image src="{{myticket.qrCode}}"/>
+		<image src="{{myticket.qrCode}}?account={{myticket.phone}}&password={{myticket.password}}"/>
 	</view>
 </view>
 

@@ -33,7 +33,11 @@ App({
     /*屏幕的中间位置距离顶部的距离(px)*/
     middle:0,
     /*是否在进行跳转页面的标志*/
-    turnPageFlag:0
+    turnPageFlag:0,
+    //为微信小程序 添加session机制
+    ticketLoginHeader:{
+      Cookie:''
+    }
   },
   onLaunch: function () {
     var that = this;
