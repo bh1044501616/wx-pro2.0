@@ -42,7 +42,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="item-box" hover-class="pressed-item">
+		<view class="item-box" hover-class="pressed-item" style="display: {{!userInfo.admin?'none':''}};">
 			<view class="verify-qrcode" class="item" bindtap="verifyQrCode" bindlongpress="showCheckList">
 				<view class="icon">
 					<image src="images/qrcode.png"/>

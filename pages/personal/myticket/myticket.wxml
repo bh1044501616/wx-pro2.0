@@ -38,17 +38,11 @@
 	<view class="item">
 		<view class="item-box">
 			<image src="images/bankCard.png"/>
-			<text>北京艾特工社科技有限公司：
-				账号：1100 1125 7000 5251 7948 
-				开户行：建设银行北京中关村软件园支行
-			</text>
+			<text>\n北京艾特工社科技有限公司：\n账号：1100 1125 7000 5251 7948\n开户行：建设银行北京中关村软件园支行</text>
 		</view>
-		<view class="aliPay item-box">
+		<view class="item-box">
 			<image src="images/aliPay.png"/>
-			<text>对公支付宝账号：
-				账号：iterbao@iterbao.net
-				北京艾特工社科技有限公司
-			</text>
+			<text>\n对公支付宝账号：\n账号：iterbao@iterbao.net\n北京艾特工社科技有限公司</text>
 		</view>
 	</view>
 </view>
