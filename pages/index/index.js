@@ -54,7 +54,7 @@ Page({
     content:[
       {
         title:'会议梗概',
-        detail:'2019TiD盛会，按时大苏打阿萨大阿萨大阿三大神',
+        detail:'&emsp;&emsp;TiD2018以“下一代软件研发，构建智能生态”为主题，秉承追求行业高度、技术创新、专业深度的目标，精选演讲人100位，并行会场12个，规模2000人，涵盖软件研发、大数据研发、互联网研发、IT人发展等。',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -62,7 +62,7 @@ Page({
       },
       {
         title:'演讲嘉宾',
-        detail:'',
+        detail:'首批公布：Harold "Bud" Lawson、Fiona Charles、宋嘉瑜、冯洁、赵明、刘政、任发科、李建昊...',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -70,7 +70,7 @@ Page({
       },
       {
         title:'赞助商',
-        detail:'',
+        detail:'这里有：腾讯Wetest、CMMI、Institute、NCR、Synopsys、CAST、CODING...',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -78,7 +78,7 @@ Page({
       },
       {
         title:'大会日程',
-        detail:'',
+        detail:'&emsp;&emsp;大会日程可在“日程安排”标签页查看，也可点击日程模块查看相应的演讲嘉宾及演讲资料。',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -86,7 +86,7 @@ Page({
       },
       {
         title:'大会动态',
-        detail:'',
+        detail:'大会动态',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -94,7 +94,7 @@ Page({
       },
       {
         title:'会议地点',
-        detail:'',
+        detail:'地址：\n国家会议中心\n北京市朝阳区天辰东路7号',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -102,7 +102,7 @@ Page({
       },
       {
         title:'地点引导',
-        detail:'',
+        detail:'&emsp;&emsp;会议地点详细介绍...',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,
@@ -126,7 +126,7 @@ Page({
       },
       {
         title:'下载页面',
-        detail:'',
+        detail:'&emsp;&emsp;此次TiD大会演讲嘉宾在演讲中使用的ppt材料可供下载（可在相应的日程安排的详情中下载）',
         background:'images/tid.jpg',
         top:0,
         buoy:BOTTOM,

@@ -1,12 +1,12 @@
 <view id="middle" animation="{{menuAnimation}}">
 
-  <view id="menu">
+  <!-- <view id="menu">
     <view class="block"></view>
     <view bindtap="switchMenu"><image src="images/home.png" mode="aspectFit"/>首页</view>
     <view wx:for="{{content}}" bindtap="turnPage" data-url="{{item.url}}" data-close="1">
       {{item.title}}
     </view>
-  </view>
+  </view> -->
 
   <scroll-view scroll-x id="contents_navi">
     <view wx:for="{{content}}" class="content content{{index}}" bindtap="turnNavi" data-index="{{index}}">
@@ -19,15 +19,17 @@
   <scroll-view id="contents" scroll-x scroll-into-view="content-box-{{selectedContent}}" scroll-with-animation="true">
     <view class="content-box" wx:for="{{content}}" id="content-box-{{index}}">
       <view class="content" id="{{index}}" bindtap="turnPage" animation="{{turnPageAnimation[index]}}" data-url="{{item.url}}">
-      <view class="title">
-        {{item.title}}
+        <view class="title">
+          {{item.title}}
+        </view>
+        <view class="detail">
+          <text class="text" space="emsp" decode="true">{{item.detail}}</text>
+        </view>
+        <image src="{{item.background}}"/>
+        <view class="arrow">
+          <view class="arrow-a"></view>
+        </view>
       </view>
-      <view class="detail">
-        <view class="text">{{item.detail}}</view>
-      </view>
-      <image src="{{item.background}}"/>
-      <view class="arrow">→</view>
-    </view>
     </view>
   </scroll-view>
 

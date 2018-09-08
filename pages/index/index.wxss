@@ -274,7 +274,6 @@ page{
 }
 #contents .content-box .content .detail .text{
 	width: 60%;
-	height: 60%;
 	/*view中的中文自动换行*/
 	white-space: pre-line;
 	flex-wrap: wrap;
@@ -296,8 +295,15 @@ page{
 	font-weight: lighter;
 	color:rgba(255,255,255,0.5);
 }
+#contents .content-box .content .arrow .arrow-a{
+	border-bottom: 2px solid rgba(255,255,255,0.5);
+	border-right: 2px solid rgba(255,255,255,0.5);
+	width: 40rpx;
+	height: 40rpx;
+	transform: rotateZ(-45deg);
+}
 #contents #content-box-9{
-	margin-right: 5%;
+	margin-right: 7%;
 }
 
 

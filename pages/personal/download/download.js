@@ -5,6 +5,9 @@ function getMB(b){
   return (b/1024.0/1024.0).toFixed(2);
 }
 
+//指示任务完成，更新页面的信号
+var finishFlag = 0;
+
 Page({
 
   /**
@@ -63,16 +66,22 @@ Page({
           downloadingList:_downloadingList
         });
 
-        if(res.progress === 100){
-          //下载完成，重新加载列表
-          that.setData({
-            downloadingList:app.globalData.downloadingList,
-            downloadedList:app.globalData.downloadedList
-          });
+        if(res.progress === 50){
+          //有任务完成，更改flag
+          finishFlag = 1;
         }
         
       })
     }
+    setInterval(function(){
+      if(that.data.downloadingList.length != 0 && finishFlag){
+        that.setData({
+          downloadingList:app.globalData.downloadingList,
+          downloadedList:app.globalData.downloadedList
+        });
+      }
+    },1000);
+    
   },
 
   /**
@@ -86,7 +95,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

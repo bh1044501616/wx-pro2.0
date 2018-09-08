@@ -305,7 +305,7 @@ Page({
   download:function(arg){
     let _url = arg.currentTarget.dataset.url;
     let _name = arg.currentTarget.dataset.name;
-    var commonSize = 0;
+    /*var commonSize = 0;*/
     let downloadedObj = {
       url:_url,
       size:0
@@ -322,15 +322,11 @@ Page({
             //将保存完的文件加入下载完成列表
             downloadedObj.name = downloadingObj.name;
             downloadedObj.size = downloadingObj.totalSize;
-            console.log('转交数据时的downloadingsize' + commonSize)
             downloadedObj.path = res.tempFilePath;
         
             let _downloadedList = app.globalData.downloadedList;
             _downloadedList[_downloadedList.length] = downloadedObj;
             app.globalData._downloadedList = _downloadedList;
-
-            console.log(app.globalData.downloadingList)
-            console.log(app.globalData.downloadedList)
 
             //将下载完成的任务从正在下载列表清除
 
@@ -341,7 +337,7 @@ Page({
                 _downloadingList.splice(i,1);
               }
             }
-            app.globalData._downloadingList = _downloadingList;
+            app.globalData.downloadingList = _downloadingList;
         }
       },
       fail:function(res){
@@ -362,20 +358,24 @@ Page({
     _downloadingList[_downloadingList.length] = downloadingObj;
     app.globalData.downloadingList = _downloadingList;
 
+    console.log("添加任务后app数据:"+app.globalData.downloadingList);
+    console.log(app.globalData.downloadingList);
+    console.log(app.globalData.downloadedList);
+
     wx.showToast({
       title:'已加入下载列表',
       icon:'none',
       duration:2000
     });
 
-    /*_downloadTask.onProgressUpdate((res) => {
+    _downloadTask.onProgressUpdate((res) => {
       //更新数据进度
       downloadingObj.progress = res.progress;
       downloadingObj.currentSize = getMB(res.totalBytesWritten);
       downloadingObj.totalSize = getMB(res.totalBytesExpectedToWrite);
 
-      commonSize = getMB(res.totalBytesExpectedToWrite);
-    })*/
+      // commonSize = getMB(res.totalBytesExpectedToWrite);
+    })
   },
   /*
     切换到pc页面下载ppt

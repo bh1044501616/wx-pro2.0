@@ -3,7 +3,7 @@
 	<view class="tip">
 		正在下载（{{downloadingList.length}}）
 	</view>
-	<view class="emptyTip" style="display: {{emptyTip[0]}};">
+	<view class="emptyTip" style="display: {{downloadingList.length !== 0 ?'none':''}};">
 		<image src="../../../images/tid_logo.png"/>
 		空空如野...
 	</view>
@@ -34,7 +34,7 @@
 	<view class="tip">
 		下载完成（{{downloadedList.length}}）
 	</view>
-	<view class="emptyTip" style="display: {{emptyTip[1]}};">
+	<view class="emptyTip" style="display: {{downloadedList.length !== 0 ?'none':''}};">
 		<image src="../../../images/tid_logo.png"/>
 		空空如野...
 	</view>
